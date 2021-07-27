@@ -1,0 +1,296 @@
+# +------------------------------------------------------------------------------------------------------------------------------+
+# | clingo-dl 1.1.0 option parameter file                                                                                        |
+# |                                                                                                                              |
+# | <parameter_name>:<flag|priority>:<sub_parameter_keyname> <{values,}|[range of values]>[default value]                        |
+# |                                                                                                                              |
+# | Available flags:                                                                                                             |
+# |   S ... won't be given to clasp, instead you can use the parameter to model constraints                                      |
+# |   F ... flag, must be occur in combination with the values {yes} and {no}. (yes = flag set; no = flag removed)               |
+# |   0-9 ... priority, the order how subparameter are processed, see examples.                                                  |
+# |                                                                                                                              |
+# | Example:                                                                                                                     |
+# |   -sat-prepro:S {yes,no}[no]                                                                                                 |
+# |   -sat-prepro:0 {1,2,3}[2]                                                                                                   |
+# |   -sat-prepro:1:iter [1,50][10] il                                                                                           |
+# |   -sat-prepro:1:occ [1,50][25] il                                                                                            |
+# |   -sat-prepro:0 | -sat-prepro:S in {yes}   # Condition                                                                       |
+# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}    # Condition                                                                 |
+# |   -sat-prepro:1:occ | -sat-prepro:S in {yes}   # Condition                                                                   |
+# |  if -sat-prepro:S is yes then: --sat-prepro=2,iter=10,occ=25                                                                 |
+# |                                                                                                                              |
+# | Trailing:                                                                                                                    |
+# |   i ... integer values                                                                                                       |
+# |   l ... logarithmic transformation (n > 0)                                                                                   |
+# +------------------------------------------------------------------------------------------------------------------------------+
+
+# used solver:
+-solver {clingo-dl}[clingo-dl]
+
+# parameters:
+
+# clasp context options:
+-learn-explicit:F {yes,no}[no]
+-sat-prepro:S {yes,no}[no]
+-sat-prepro:0 {1,2,3}[2]
+-sat-prepro:1:iter [1,50][10] il
+-sat-prepro:1:occ [1,50][25] il
+-sat-prepro:1:time {0}[0]
+-sat-prepro:1:frozen [0,100][0] i 
+-sat-prepro:1:size [1,10000][4000] i
+
+# clasp asp options:
+-trans-ext {no,all,choice,card,weight,scc,integ,dynamic}[dynamic]
+-eqCond:S {yes,no}[no]
+-eq [1,127][5] il 
+-eq:0 {0}[0]
+-backprop:F {yes,no}[yes]
+-no-gamma:F {yes,no}[no]
+-eq-dfs:F {yes,no}[no]
+
+# clasp solving options:
+-enum-mode {bt,record,domRec,auto}[auto]
+
+# clasp search options:
+-opt-strategy {bb,usc}[bb]
+-opt-strategy:0 {lin,hier,inc,dec}[lin]
+-opt-strategy:1 {oll,one,k,pmres}[oll]
+-opt-strategy:2 [0,50][0] i
+-opt-strategy:3 {disjoint,succinct,stratify}[disjoint]
+
+-opt-usc-shrink:S {yes,no}[no]
+-opt-usc-shrink:0 {lin,inv,bin,rgs,exp,min}[lin]
+-opt-usc-shrink:1 [0,31][10] i
+
+-opt-heuristic {sign,model}[sign]
+
+-lookahead:0 {no,atom,body,hybrid}[no]
+-lookahead:1 [1,2147483647][1] il
+
+-heuristic:0 {Berkmin,Vmtf,Vsids,Domain,Unit,None}[Berkmin]
+-heuristic:1 {0,128,256,512,1024,2048}[0] i
+-heuristic:2 [1,128][8] il
+-heuristic:3 {75,85,92,93,94,95,96,97,98,99}[95] i
+
+-score-res {auto,min,set,multiset}[auto]
+-score-other {auto,no,loop,all}[auto]
+-sign-def {asp,pos,neg}[pos]
+-sign-fix:F {yes,no}[no]
+-berk-huang:F {yes,no}[no]
+-vsids-acids:F {yes,no}[no]
+
+-vsids-progress:S {yes,no}[no]
+-vsids-progress:0 [1,100][1] i
+-vsids-progress:1 [1,100][1] i
+-vsids-progress:2 [0,10000][5000] i
+
+-nant:F {yes,no}[no]
+
+-dom-mod:0 {level,pos,true,neg,false,init,factor}[pos]
+-dom-mod-scc:S {yes,no}[no]
+-dom-mod-hcc:S {yes,no}[no]
+-dom-mod-disj:S {yes,no}[no]
+-dom-mod-opt:S {yes,no}[no]
+-dom-mod-show:S {yes,no}[no]
+-dom-mod:1 {scc}[scc]
+-dom-mod:2 {hcc}[hcc]
+-dom-mod:3 {disj}[disj]
+-dom-mod:4 {opt}[opt]
+-dom-mod:5 {show}[show]
+
+-save-progress [0,180][180] i
+-init-watches {first,least}[first]
+-update-mode {propagate,conflict}[propagate]
+-acyc-prop {0,1}[0]
+-partial-check {0,10,20,30,40,50}[0]
+-rand-freq {0.0,0.01,0.02,0.05,0.1}[0.0]
+-rand-prob [0,1000][10] i
+
+# clasp lookback options:
+-no-lookback:F {yes,no}[no]
+-forget-on-step:S {yes,no}[no]
+-forget-on-step:0 [0,15][0] i
+-strengthen:0 {local,recursive,no}[local]
+-strengthen:1 {all,short,binary}[all]
+-otfs {0,1,2}[2]
+-update-lbd {less,glucose,pseudo,no}[no]   
+-update-act:F {yes,no}[no]
+-reverse-arcs {0,1,2,3}[1]
+-contraction:S {yes,no}[no]
+-contraction:0 {no}[no]
+-contraction:1 [1,1023][250] il
+-loops {common,distinct,shared,no}[no]
+
+# restarts
+-restarts {F,L,D,x,+,no}[x]
+-restarts:0 [1,65535][128] il       # first parameter for all "normal" restarts
+-restarts:1 [50,1000][100] il       # first parameter for "dynamic" restarts
+-restartsLuby:S {yes,no}[no]        # Conditional - restarts=L
+-restarts:2 [1,65535][1000] il      # Conditional - restarts=L
+-restartsGeo:S {yes,no}[no]         # Conditional - restarts=x
+-restarts:3 [1.0,2.0][1.5]          # Conditional - restarts=x
+-restarts:4 [1,65535][1]il          # Conditional - restarts=x
+-restartsAri:S {yes,no}[no]         # Conditional - restarts=+
+-restarts:5 [1,65535][100] il       # Conditional - restarts=+
+-restarts:6 [1,65535][1] il         # Conditional - restarts=+
+-restartsDyn:S {yes,no}[no]         # Conditional - restarts=D
+-restarts:7 [0.5,1.0][0.7]          # Conditional - restarts=D
+-restarts:8 [20,127][30] il         # Conditional - restarts=D
+
+-reset-restarts {no,repeat,disable}[no]
+-local-restarts:F {yes,no}[no]
+-counter-restarts:S {yes,no} [yes] 
+-counter-restarts [1,127][3] il
+# -block-restarts
+-restart-on-model:F {yes,no}[no]
+
+# deletions
+-deletion:S {yes,no}[yes]
+-deletion:0 {no}[no]
+-deletion:1 {basic,sort,ipSort,ipHeap}[basic]
+-deletion:2 [10,100][75] i 
+-deletion:3 {activity,lbd,mixed}[activity]
+-del-grow:S {yes,no}[yes]
+-del-grow:0 {0}[0]
+-del-grow:1 [1.0,5.0][1.1] 
+-del-grow:2 [0.0,100.0][20.0]
+-del-growSched:S {yes,no}[no]
+-del-grow:3 {F,L,x,+}[+]
+-del-grow:4 [1,65535][128] il     # first schedule arg
+-del-grow:5 [1.0,2.0][1.5]        # second arg if x
+-del-grow:6 [1,65535][100] il     # second arg if +
+-del-grow:7 [10,65535][10] il     # third arg if x or +
+-del-cfl:0 {F,L,x,+,no}[no]
+-del-cfl:1 [1,65535][128] il
+-del-cfl:2 [1.0,2.0][1.5]         # second arg if x
+-del-cfl:3 [1,65535][100] il      # second arg if +
+-del-cfl:4 [10,65535][10] il      # third arg if x or +
+-del-init:0 [1.0,50.0][3.0]
+-del-init:1 [10,1023][1000] il
+-del-init:2 [500,32767][9000] i
+-del-estimate {0,1,2,3}[0]
+-del-max [32767,2147483647][250000] i
+-del-glue:0 [0,15][2] i
+-del-glue:1 {0,1}[0]
+-del-on-restart [0,50][0] i       
+
+# clingo-dl options
+-propagate {no,inverse,partial,partial+,full}[no]
+-propagate-root [0,100][0] i
+-propagate-budget [0,100][0] i
+-add-mutexes:0 [0,100][0] i
+-add-mutexes-cut:S {yes,no}[no]
+-add-mutexes:1 [0,100][0] i
+
+
+# CONDITIONS -----------------------------------------------------------------------------------------------------------
+
+-sat-prepro:0 | -sat-prepro:S in {yes}
+-sat-prepro:1:iter | -sat-prepro:S in {yes}
+-sat-prepro:1:occ | -sat-prepro:S in {yes}
+-sat-prepro:1:time | -sat-prepro:S in {yes}
+-sat-prepro:1:frozen | -sat-prepro:S in {yes}
+-sat-prepro:1:size | -sat-prepro:S in {yes}
+
+-eq | -eqCond:S in {yes}
+-eq:0 | -eqCond:S in {no}
+-eq-dfs:F | -eqCond:S in {yes}
+
+# clasp search options:
+-opt-strategy:0 | -opt-strategy in {bb}
+-opt-strategy:1 | -opt-strategy in {usc}
+-opt-strategy:2 | -opt-strategy:1 in {k}
+-opt-strategy:3 | -opt-strategy in {usc}
+
+-opt-usc-shrink:0 | -opt-usc-shrink:S in {yes}
+-opt-usc-shrink:1 | -opt-usc-shrink:S in {yes}
+
+-lookahead:1 | -lookahead:0 in {atom,body,hybrid}
+
+-heuristic:1 | -heuristic:0 in {Berkmin}
+-heuristic:2 | -heuristic:0 in {Vmtf}
+-heuristic:3 | -heuristic:0 in {Vsids}
+
+-vsids-progress:S | -heuristic:0 in {Vsids, Domain}
+-vsids-progress:0 | -vsids-progress:S in {yes}
+-vsids-progress:1 | -vsids-progress:S in {yes}
+-vsids-progress:2 | -vsids-progress:S in {yes}
+
+-score-res | -heuristic:0 in {Berkmin,Vmtf,Vsids,Domain}
+-dom-mod:0 | -heuristic:0 in {Domain}
+-dom-mod-scc:S | -heuristic:0 in {Domain}
+-dom-mod-hcc:S | -heuristic:0 in {Domain}
+-dom-mod-disj:S | -heuristic:0 in {Domain}
+-dom-mod-opt:S | -heuristic:0 in {Domain}
+-dom-mod-show:S | -heuristic:0 in {Domain}
+-dom-mod:1 | -dom-mod-scc:S in {yes}
+-dom-mod:2 | -dom-mod-hcc:S in {yes}
+-dom-mod:3 | -dom-mod-disj:S in {yes}
+-dom-mod:4 | -dom-mod-opt:S in {yes}
+-dom-mod:5 | -dom-mod-show:S in {yes}
+
+# clasp lookback options:
+-no-lookback:F | -heuristic:0 in {None}
+-forget-on-step:0 | -forget-on-step:S in {yes}
+-strengthen:1 | -strengthen:0 in {local,recursive}
+-contraction:0 | -contraction:S in {no}
+-contraction:1 | -contraction:S in {yes}
+
+# restarts
+-restarts | -no-lookback:F in {no}
+
+-restarts:0 | -restarts in {F,L,x,+}
+-restartsLuby:S | -restarts in {L}
+-restarts:2 | -restarts in {L}
+-restarts:2 | -restartsLuby:S in {yes}
+
+-restartsGeo:S | -restarts in {x}
+-restarts:3 | -restarts in {x}
+-restarts:4 | -restarts in {x}
+-restarts:4 | -restartsGeo:S in {yes}
+
+-restartsAri:S | -restarts in {+}
+-restarts:5 | -restarts in {+}
+-restarts:6 | -restarts in {+}
+-restarts:6 | -restartsAri:S in {yes}
+
+-restarts:1 | -restarts in {D}
+-restartsDyn:S | -restarts in {D}
+-restarts:7 | -restarts in {D}
+-restarts:8 | -restarts in {D}
+
+-counter-restarts | -counter-restarts:S in {yes}
+
+# deletion
+-deletion:0 | -deletion:S in {no}
+-deletion:1 | -deletion:S in {yes}
+-deletion:2 | -deletion:S in {yes}
+-deletion:3 | -deletion:S in {yes}
+-del-init:0 | -deletion:S in {yes}
+-del-init:1 | -deletion:S in {yes}
+-del-init:2 | -deletion:S in {yes}
+-del-max | -deletion:S in {yes}
+-del-estimate | -deletion:S in {yes}
+-del-on-restart | -deletion:S in {yes}
+-del-glue:0 | -deletion:S in {yes}
+-del-glue:1 | -deletion:S in {yes}
+-del-cfl:0 | -deletion:S in {yes}
+-del-cfl:1 | -del-cfl:0 in {F,L,x,+}
+-del-cfl:2 | -del-cfl:0 in {x}
+-del-cfl:3 | -del-cfl:0 in {+}
+-del-cfl:4 | -del-cfl:0 in {x,+}
+-del-grow:0 | -del-grow:S in {no}
+-del-grow:1 | -del-grow:S in {yes}
+-del-grow:2 | -del-grow:S in {yes}
+-del-growSched:S | -del-grow:S in {yes}
+-del-grow:3 | -del-growSched:S in {yes}
+-del-grow:4 | -del-growSched:S in {yes}
+-del-grow:5 | -del-grow:3 in {x}
+-del-grow:6 | -del-grow:3 in {+}
+-del-grow:7 | -del-grow:3 in {x,+}
+{-deletion:S=yes, -del-cfl:0=no, -del-grow:S=no}
+{-deletion:S=no, -del-grow:S=yes}
+{-deletion:S=yes, -no-lookback:F=yes}
+
+# clingo-dl options
+#-propagate-budget | -propagate-root>0
+-add-mutexes:1 | -add-mutexes-cut:S in {yes}

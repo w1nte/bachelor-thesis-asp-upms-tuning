@@ -1,0 +1,36 @@
+nJobs = 3;
+nMachines = 2;
+
+capableMachines = [
+{1,2},
+{2},
+{1,2},
+];
+
+durations = [|
+27,51|
+-1,22|
+21,48|];
+
+releaseDates = [|
+0,0
+|0,0
+|0,0|];
+
+setupTimes = array3d(1..nJobs,1..nJobs,1..nMachines,
+  [
+   % Job 1
+   % Job 1   Job 2     Job 3
+   0,0,      38,20,     95,54,
+   
+   % Job 2
+   % Job 1   Job 2     Job 3
+   84,103,    0,0,      67,107,
+
+   % Job 3
+   % Job 1   Job 2     Job 3
+   121,114,   101,41,    0,0,      
+   
+  ]);
+  
+horizon = 1000;
