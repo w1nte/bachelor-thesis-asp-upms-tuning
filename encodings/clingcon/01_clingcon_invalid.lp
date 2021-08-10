@@ -18,7 +18,7 @@
 
 % This approach doesn't find the best schedule.
 % In comparison to the former approaches this encodings makespan is probably correct but not optimal.
-% I assume the constraint isn't strength enough because I ignored the sequence dependency.
+% I assume the constraint isn't strongth enough because I ignored the sequence dependency.
 % Consider this example: There are 3 jobs and one machine. 
 % The best schedule is j1->j2->j3, the worst j1->j3->j2 because of the large setup time j1->j3.
 % But because I ignored the sequence dependency, the constraint above deletes the solution j1->j2->j3 and prefers j1->j3->j2.
