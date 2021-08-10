@@ -1,14 +1,20 @@
 # Bachelor Thesis
 This github repository contains all important files of my bachelor thesis.
-This thesis is about improvement and tuning of scheduling problems formulated as Answer-Set-Program.
+This thesis is about improvement and tuning of scheduling problems formulated as Answer-Set-Programs.
 
-## Directories
+## Project Structure
 
 ### [cluster-experiments](./cluster-experiments)
 Contains all experiments for the cluster.
 
 ### [encodings](./encodings)
 Contains all encodings.
+* [`clingcon/`](./encodings/clingcon/) clingcon encodings.
+* [`clingo/`](./encodings/clingo/) clingo encodings without theory extensions.
+* [`clingo-dl/`](./encodings/clingo-dl/) clingo-dl encodings.
+* [`former_encodings/`](./encodings/former_encodings/) former encodings.
+* [`generators/`](./encodings/generators/) generator part of the encodings.
+* [`thesis-examples/`](./encodings/thesis-examples/) example encodings for the thesis.
 
 ### [instances](./instances)
 Contains all instances and the instance generators. 
@@ -33,7 +39,7 @@ Use `--help` (e.g. `gantt --help`) for more information about their usage.
 For parallelization of our benchmarks we use `HTCondor 8.4.2`.
 All applications below must be installed by hand on the cluster. I recommend to install python3 and [conda](https://docs.conda.io/en/latest/) in the user directory. Then, using conda to install the remaining applications. It should be noted that the cluster has to support a shared filesystem, otherwise the applications must be installed on each cluster machine. The [cluster-experiments](./cluster-experiments/) folder contains all experiments. It also should be noted that the binary locations are hardcoded into the experiment files.
 
-### Installed Applications
+### Used Applications
 | Application | Version                                 |
 |-------------|-----------------------------------------|
 | clingo      | 5.5.0 (libclingo 5.5.0; libclasp 3.3.6) |
