@@ -1,5 +1,5 @@
 % imports the solutions generator. This encoding only needs assign/2 and next/3.
-#include "sequence_dependency_1_before.lp".
+#include "../generators/before_relation.lp".
 
 % calculate completion time
 &diff{ completion(JB) - completion(J) } <= -(S+D) :- assign(J, M), next(JB, J, M), setup(JB, J, M, S), duration(J, M, D).

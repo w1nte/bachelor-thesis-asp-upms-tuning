@@ -23,7 +23,8 @@
 % completion time must be greater than prev completion times.
 &diff{ completion(JAB) - completion(J) } <= -(S+D) :- before(JAB, J, M), next(JB, J, M), setup(JB, J, M, S), duration(J, M, D).
 
-%&diff{ completion(J) - completion(JB) } <= (R+S+D) :- next(JB, J, M), setup(JB, J, M, S), duration(J, M, D), release(J, M, R).
-
+#include "../heuristics/prefer_short_durations.lp".
+#include "../heuristics/prefer_short_setuptimes.lp".
+#include "../heuristics/prefer_early_release.lp".
 
 #show assign/2.
