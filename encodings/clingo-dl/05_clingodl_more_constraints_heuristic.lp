@@ -26,5 +26,8 @@
 % completion time is max completion time before + setup + duration + release.
 &diff{ completion(J) - completion(JB) } <= (R+S+D) :- next(JB, J, M), setup(JB, J, M, S), duration(J, M, D), release(J, M, R).
 
+#include "../heuristics/prefer_short_durations.lp".
+#include "../heuristics/prefer_short_setuptimes.lp".
+#include "../heuristics/prefer_early_release.lp".
 
 #show assign/2.

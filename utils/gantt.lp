@@ -5,4 +5,3 @@
 #show release/3.
 #show first/2.
 #show next/3.
-#show span/2.

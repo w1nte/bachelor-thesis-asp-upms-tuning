@@ -14,6 +14,3 @@
 &diff{ completion(J) - makespan } <= 0 :- job(J).
 
 #show assign/2.
-
-
-% TODO: seems to work
