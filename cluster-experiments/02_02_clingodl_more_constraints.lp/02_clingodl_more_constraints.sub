@@ -1,4 +1,4 @@
-executable              = clingo-dl.sh 
+executable              = 02_clingodl_more_constraints.sh 
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log
@@ -8,5 +8,5 @@ should_transfer_files   = Yes
 when_to_transfer_output = ON_EXIT
 request_cpus            = 1
 request_memory          = 20480
-queue data_file matching files /home/mwinters/experiments/baseline/instances/*.lp
-
+queue data_file matching files /home/mwinters/instances/industrial/*.lp
+priority                = -1

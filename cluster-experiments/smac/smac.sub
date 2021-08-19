@@ -6,9 +6,10 @@ output                  = output/out.$(Process)
 error                   = output/err.$(Process)
 should_transfer_files   = Yes
 when_to_transfer_output = ON_EXIT
-transfer_output_files = result.csv
-transfer_output_remaps = "result.csv = output/result_$(Process).csv"
+transfer_output_files   = result.csv
+transfer_output_remaps  = "result.csv = output/result_$(Process).csv"
 request_cpus            = 1
 request_memory          = 20480
+priority                = -10
 
 queue 1
