@@ -1,6 +1,3 @@
-% before relation
-% -------------------------------------------------------------
-
 % assign jobs to capable machines
 { assign(J, M) : capable(M, J) } = 1 :- job(J).
 
@@ -16,5 +13,3 @@ before(J1, J2, M) | before(J2, J1, M) :- assign(J1, M), assign(J2, M), J1 < J2.
 % pick an immediate predecessor
 { next(J1, J2, M) : before(J1,J2,M) } = 1 :- assign(J2, M), not first(J2, M).
 { next(J2, J1, M) : before(J2,J1,M) } = 1 :- assign(J2, M), not last(J2, M).
-
-#show next/3.

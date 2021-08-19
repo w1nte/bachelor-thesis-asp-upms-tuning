@@ -1,6 +1,3 @@
-% slot method for clingcon, but for only one machine.
-% -------------------------------------------------------------
-
 job(1..3).
 
 number_of_jobs(N) :- N = #count{J : job(J)}.
