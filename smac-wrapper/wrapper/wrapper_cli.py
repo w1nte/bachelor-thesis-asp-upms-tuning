@@ -60,10 +60,10 @@ class WrapperCLI(object):
         runsolver_cfg = RunsolverConfiguration(
             runsolver_bin=self.runsolver_binary,
             vsize_limit=self.memory_limit,
-            wall_clock_limit=self.cutoff
+            wall_clock_limit=self.cutoff 
         )
 
-        output_raw = runsolver(solver_cmd, runsolver_cfg)
+        output_raw, crash = runsolver(solver_cmd, runsolver_cfg)
         output_raw_decoded = output_raw.decode('utf-8')
 
         try:
@@ -84,13 +84,13 @@ class WrapperCLI(object):
 
     def calculate_quality(self, clasp_json_result: str) -> float:
         try:
-            values = [float(re.match(r'span\(.+?,(\d+)\)', y).group(1)) for y in filter(lambda x: x.startswith('span'), clasp_json_result['Call'][0]['Witnesses'][0]['Value'])]
+            values = [sys.maxsize] + [float(n) for n in re.findall(r'makespan,(\d+)', str(clasp_json_result))]
         except:
             values = [sys.maxsize]
-        return max(values)
+        return min(values)
 
     def build_solver_cmd(self, solver_binary: str, solver_parameters: [str]):
-        return [solver_binary, '--outf', '2', '--quiet=1', self.encoding, self.instance] + solver_parameters
+        return [solver_binary, '--outf=2', '--quiet=1,1,2', self.encoding, self.instance] + solver_parameters
 
     def parse_arguments(self):
         parser = argparse.ArgumentParser(description='smac3 <-> clingo-dl wrapper.')

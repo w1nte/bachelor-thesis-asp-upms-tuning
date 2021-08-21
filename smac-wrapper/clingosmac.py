@@ -4,6 +4,7 @@ import sys
 import os
 import argparse
 import random
+import math
 from multiprocessing import Process, Queue
 from smac.facade.smac_ac_facade import SMAC4AC
 from smac.scenario.scenario import Scenario
@@ -38,21 +39,10 @@ def main():
     })
 
     for i in range(0, repetitions):
-        print(f'Repetition {i+1}/{repetitions}') 
+        logging.info(f'Repetition {i+1}/{repetitions}') 
         smac = SMAC4AC(scenario=scenario)
-        queue = Queue()
-   
-        while True:
-            p = Process(target=run_smac, args=(queue, smac))
-            p.start()
-            p.join()
-            if not queue.empty():
-                break
-            else:
-                scenario.cs.seed(random.randint(0, 2 ** 32 - 1))
-                print('Smac optimizing was killed! Restart.')
 
-        incumbent = queue.get()
+        incumbent = smac.optimize()
 
         params = get_params(incumbent)
 
@@ -63,21 +53,16 @@ def main():
         ac = rh.average_cost(incumbent)
 
         with open(os.path.join(scenario.output_dir, 'result.csv'), 'a') as f:
-            f.write(f'{ac};{params}\n')
+            f.write(f'{math.ceil(ac)};{params}\n')
 
-        print(f'Average costs: {ac}')
+        logging.info(f'Average costs: {ac}')
         if ac < best_cost:
             best_cost = ac
             best_incumbent = incumbent
-            print(f'New best incumbent: {params}')
+            logging.info(f'New best incumbent: {params}')
 
     params = get_params(best_incumbent)
-    print(f'Best incumbent with {best_cost} cost: {params}')
-
-
-def run_smac(queue, smac):
-    incumbent = smac.optimize()
-    queue.put(incumbent)
+    logging.info(f'Best incumbent with {best_cost} cost: {params}')
 
     
 def get_params(incumbent):
@@ -90,20 +75,20 @@ def get_params(incumbent):
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='smac3 caller.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser = argparse.ArgumentParser(description='''''', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('encoding', type=str)
-    parser.add_argument('instancefile', type=str)
-    parser.add_argument('testinstancefile', type=str)
-    parser.add_argument('-o', '--obj-fn', type=str, default='runtime', choices=['runtime', 'quality'])
-    parser.add_argument('-c', '--cutoff', default=60, type=int)
-    parser.add_argument('-w', '--wallclock-limit', default=600, type=int)
-    parser.add_argument('-r', '--repetitions', default=5, type=int)
-    parser.add_argument('-l', '--vlimit', default=2048, type=int, help='runsolver memory limit (MB)')
-    parser.add_argument('--runsolver-binary', default=os.path.join(__file_dir__, 'runsolver/runsolver/src/runsolver'), type=str)
-    parser.add_argument('--wrapper', default=os.path.join(__file_dir__, 'wrapper'), type=str)
-    parser.add_argument('--param-file', default=os.path.join(__file_dir__, 'pcs/clingo_dl_1_1_0.txt'), type=str)
-    parser.add_argument('--python', default='python', type=str, description='python executable used by SMAC3.')
+    parser.add_argument('encoding', type=str, help='clingo encoding')
+    parser.add_argument('instancefile', type=str, help='text file that contains paths to the training instances split by \\n.')
+    parser.add_argument('testinstancefile', type=str, help='text file that contains paths to the test instances split by \\n.')
+    parser.add_argument('-o', '--obj-fn', type=str, default='runtime', choices=['runtime', 'quality'], help='objective used by SMAC3 for optimization.')
+    parser.add_argument('-c', '--cutoff', default=60, type=int, help='max runtime of each instance in seconds.')
+    parser.add_argument('-w', '--wallclock-limit', default=600, type=int, help='max runtime of each repetition in seconds.')
+    parser.add_argument('-r', '--repetitions', default=5, type=int, help='number of SMAC3 repetitions.')
+    parser.add_argument('-l', '--vlimit', default=2048, type=int, help='runsolver memory limit (MB).')
+    parser.add_argument('--runsolver-binary', default=os.path.join(__file_dir__, 'runsolver/runsolver/src/runsolver'), type=str, help='runsolver binary.')
+    parser.add_argument('--wrapper', default=os.path.join(__file_dir__, 'wrapper'), type=str, help='target algorithm wrapper.')
+    parser.add_argument('--param-file', default=os.path.join(__file_dir__, 'pcs/clingo_dl_1_1_0.txt'), type=str, help='SMAC3 parameter file.')
+    parser.add_argument('--python', default='python', type=str, help='python executable used by the wrapper.')
 
     args = parser.parse_args()
     return args

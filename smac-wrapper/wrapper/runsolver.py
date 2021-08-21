@@ -23,7 +23,7 @@ class RunsolverConfiguration:
 DEFAULT_RUNSOLVER_CONFIGURATION = RunsolverConfiguration()
 
 
-def runsolver(solver_cmd: [str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=sys.stderr) -> str:
+def runsolver(solver_cmd: [str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=sys.stderr) -> (str, str):
     cmd = build_command(solver_cmd, config)
 
     logging.debug(f'start runsolver: "{" ".join(cmd)}"')
@@ -31,9 +31,9 @@ def runsolver(solver_cmd: [str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=
                             stderr=stderr,
                             stdout=subprocess.PIPE
                             )
-    output, _ = proc.communicate()
+    output, err = proc.communicate()
 
-    return output
+    return output, err
 
 
 def build_command(solver_cmd: [str], config: RunsolverConfiguration) -> [str]:

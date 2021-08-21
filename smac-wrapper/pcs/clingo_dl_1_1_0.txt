@@ -14,7 +14,7 @@
 # |   -sat-prepro:1:iter [1,50][10] il                                                                                           |
 # |   -sat-prepro:1:occ [1,50][25] il                                                                                            |
 # |   -sat-prepro:0 | -sat-prepro:S in {yes}   # Condition                                                                       |
-# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}    # Condition                                                                 |
+# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}     # Condition                                                                 |
 # |   -sat-prepro:1:occ | -sat-prepro:S in {yes}   # Condition                                                                   |
 # |  if -sat-prepro:S is yes then: --sat-prepro=2,iter=10,occ=25                                                                 |
 # |                                                                                                                              |
@@ -24,162 +24,162 @@
 # +------------------------------------------------------------------------------------------------------------------------------+
 
 # used solver:
--solver {clingo-dl}[clingo-dl]
+-solver categorical {clingo-dl}[clingo-dl]
 
 # parameters:
 
 # clasp context options:
--learn-explicit:F {yes,no}[no]
--sat-prepro:S {yes,no}[no]
--sat-prepro:0 {1,2,3}[2]
--sat-prepro:1:iter [1,50][10] il
--sat-prepro:1:occ [1,50][25] il
--sat-prepro:1:time {0}[0]
--sat-prepro:1:frozen [0,100][0] i 
--sat-prepro:1:size [1,10000][4000] i
+-learn-explicit:F categorical {yes,no}[no]
+-sat-prepro:S categorical {yes,no}[no]
+-sat-prepro:0 categorical {1,2,3}[2]
+-sat-prepro:1:iter integer [1,50][10] log
+-sat-prepro:1:occ integer [1,50][25] log
+-sat-prepro:1:time categorical {0}[0]
+-sat-prepro:1:frozen integer [0,100][0]
+-sat-prepro:1:size integer [1,10000][4000]
 
 # clasp asp options:
--trans-ext {no,all,choice,card,weight,scc,integ,dynamic}[dynamic]
--eqCond:S {yes,no}[no]
--eq [1,127][5] il 
--eq:0 {0}[0]
--backprop:F {yes,no}[yes]
--no-gamma:F {yes,no}[no]
--eq-dfs:F {yes,no}[no]
+-trans-ext categorical {no,all,choice,card,weight,scc,integ,dynamic}[dynamic]
+-eqCond:S categorical {yes,no}[no]
+-eq integer [1,127][5] log
+-eq:0 categorical {0}[0]
+-backprop:F categorical {yes,no}[yes]
+-no-gamma:F categorical {yes,no}[no]
+-eq-dfs:F categorical {yes,no}[no]
 
 # clasp solving options:
--enum-mode {bt,record,domRec,auto}[auto]
+-enum-mode categorical {bt,record,domRec,auto}[auto]
 
 # clasp search options:
--opt-strategy {bb,usc}[bb]
--opt-strategy:0 {lin,hier,inc,dec}[lin]
--opt-strategy:1 {oll,one,k,pmres}[oll]
--opt-strategy:2 [0,50][0] i
--opt-strategy:3 {disjoint,succinct,stratify}[disjoint]
+-opt-strategy categorical {bb,usc}[bb]
+-opt-strategy:0 categorical {lin,hier,inc,dec}[lin]
+-opt-strategy:1 categorical {oll,one,k,pmres}[oll]
+-opt-strategy:2 integer [0,50][0]
+-opt-strategy:3 categorical {disjoint,succinct,stratify}[disjoint]
 
--opt-usc-shrink:S {yes,no}[no]
--opt-usc-shrink:0 {lin,inv,bin,rgs,exp,min}[lin]
--opt-usc-shrink:1 [0,31][10] i
+-opt-usc-shrink:S categorical {yes,no}[no]
+-opt-usc-shrink:0 categorical {lin,inv,bin,rgs,exp,min}[lin]
+-opt-usc-shrink:1 integer [0,31][10]
 
--opt-heuristic {sign,model}[sign]
+-opt-heuristic categorical {sign,model}[sign]
 
--lookahead:0 {no,atom,body,hybrid}[no]
--lookahead:1 [1,2147483647][1] il
+-lookahead:0 categorical {no,atom,body,hybrid}[no]
+-lookahead:1 integer [1,10000000][1] log
 
--heuristic:0 {Berkmin,Vmtf,Vsids,Domain,Unit,None}[Berkmin]
--heuristic:1 {0,128,256,512,1024,2048}[0] i
--heuristic:2 [1,128][8] il
--heuristic:3 {75,85,92,93,94,95,96,97,98,99}[95] i
+-heuristic:0 categorical {Berkmin,Vmtf,Vsids,Domain,Unit,None}[Berkmin]
+-heuristic:1 categorical {0,128,256,512,1024,2048}[0]
+-heuristic:2 integer [1,128][8] log
+-heuristic:3 categorical {75,85,92,93,94,95,96,97,98,99}[95]
 
--score-res {auto,min,set,multiset}[auto]
--score-other {auto,no,loop,all}[auto]
--sign-def {asp,pos,neg}[pos]
--sign-fix:F {yes,no}[no]
--berk-huang:F {yes,no}[no]
--vsids-acids:F {yes,no}[no]
+-score-res categorical {auto,min,set,multiset}[auto]
+-score-other categorical {auto,no,loop,all}[auto]
+-sign-def categorical {asp,pos,neg}[pos]
+-sign-fix:F categorical {yes,no}[no]
+-berk-huang:F categorical {yes,no}[no]
+-vsids-acids:F categorical {yes,no}[no]
 
--vsids-progress:S {yes,no}[no]
--vsids-progress:0 [1,100][1] i
--vsids-progress:1 [1,100][1] i
--vsids-progress:2 [0,10000][5000] i
+-vsids-progress:S categorical {yes,no}[no]
+-vsids-progress:0 integer [1,100][1]
+-vsids-progress:1 integer [1,100][1]
+-vsids-progress:2 integer [0,10000][5000]
 
--nant:F {yes,no}[no]
+-nant:F categorical {yes,no}[no]
 
--dom-mod:0 {level,pos,true,neg,false,init,factor}[pos]
--dom-mod-scc:S {yes,no}[no]
--dom-mod-hcc:S {yes,no}[no]
--dom-mod-disj:S {yes,no}[no]
--dom-mod-opt:S {yes,no}[no]
--dom-mod-show:S {yes,no}[no]
--dom-mod:1 {scc}[scc]
--dom-mod:2 {hcc}[hcc]
--dom-mod:3 {disj}[disj]
--dom-mod:4 {opt}[opt]
--dom-mod:5 {show}[show]
+-dom-mod:0 categorical {level,pos,true,neg,false,init,factor}[pos]
+-dom-mod-scc:S categorical {yes,no}[no]
+-dom-mod-hcc:S categorical {yes,no}[no]
+-dom-mod-disj:S categorical {yes,no}[no]
+-dom-mod-opt:S categorical {yes,no}[no]
+-dom-mod-show:S categorical {yes,no}[no]
+-dom-mod:1 categorical {scc}[scc]
+-dom-mod:2 categorical {hcc}[hcc]
+-dom-mod:3 categorical {disj}[disj]
+-dom-mod:4 categorical {opt}[opt]
+-dom-mod:5 categorical {show}[show]
 
--save-progress [0,180][180] i
--init-watches {first,least}[first]
--update-mode {propagate,conflict}[propagate]
--acyc-prop {0,1}[0]
--partial-check {0,10,20,30,40,50}[0]
--rand-freq {0.0,0.01,0.02,0.05,0.1}[0.0]
--rand-prob [0,1000][10] i
+-save-progress integer [0,180][180]
+-init-watches categorical {first,least}[first]
+-update-mode categorical {propagate,conflict}[propagate]
+-acyc-prop categorical {0,1}[0]
+-partial-check categorical {0,10,20,30,40,50}[0]
+-rand-freq categorical {0.0,0.01,0.02,0.05,0.1}[0.0]
+-rand-prob integer [0,1000][10]
 
 # clasp lookback options:
--no-lookback:F {yes,no}[no]
--forget-on-step:S {yes,no}[no]
--forget-on-step:0 [0,15][0] i
--strengthen:0 {local,recursive,no}[local]
--strengthen:1 {all,short,binary}[all]
--otfs {0,1,2}[2]
--update-lbd {less,glucose,pseudo,no}[no]   
--update-act:F {yes,no}[no]
--reverse-arcs {0,1,2,3}[1]
--contraction:S {yes,no}[no]
--contraction:0 {no}[no]
--contraction:1 [1,1023][250] il
--loops {common,distinct,shared,no}[no]
+-no-lookback:F categorical {yes,no}[no]
+-forget-on-step:S categorical {yes,no}[no]
+-forget-on-step:0 integer [0,15][0]
+-strengthen:0 categorical {local,recursive,no}[local]
+-strengthen:1 categorical {all,short,binary}[all]
+-otfs categorical {0,1,2}[2]
+-update-lbd categorical {less,glucose,pseudo,no}[no]   
+-update-act:F categorical {yes,no}[no]
+-reverse-arcs categorical {0,1,2,3}[1]
+-contraction:S categorical {yes,no}[no]
+-contraction:0 categorical {no}[no]
+-contraction:1 integer [1,1023][250] log
+-loops categorical {common,distinct,shared,no}[no]
 
 # restarts
--restarts {F,L,D,x,+,no}[x]
--restarts:0 [1,65535][128] il       # first parameter for all "normal" restarts
--restarts:1 [50,1000][100] il       # first parameter for "dynamic" restarts
--restartsLuby:S {yes,no}[no]        # Conditional - restarts=L
--restarts:2 [1,65535][1000] il      # Conditional - restarts=L
--restartsGeo:S {yes,no}[no]         # Conditional - restarts=x
--restarts:3 [1.0,2.0][1.5]          # Conditional - restarts=x
--restarts:4 [1,65535][1]il          # Conditional - restarts=x
--restartsAri:S {yes,no}[no]         # Conditional - restarts=+
--restarts:5 [1,65535][100] il       # Conditional - restarts=+
--restarts:6 [1,65535][1] il         # Conditional - restarts=+
--restartsDyn:S {yes,no}[no]         # Conditional - restarts=D
--restarts:7 [0.5,1.0][0.7]          # Conditional - restarts=D
--restarts:8 [20,127][30] il         # Conditional - restarts=D
+-restarts categorical {F,L,D,x,+,no}[x]
+-restarts:0 integer [1,65535][128] log       # first parameter for all "normal" restarts
+-restarts:1 integer [50,1000][100] log       # first parameter for "dynamic" restarts
+-restartsLuby:S categorical {yes,no}[no]        # Conditional - restarts=L
+-restarts:2 integer [1,65535][1000] log      # Conditional - restarts=L
+-restartsGeo:S categorical {yes,no}[no]         # Conditional - restarts=x
+-restarts:3 real [1.0,2.0][1.5]          # Conditional - restarts=x
+-restarts:4 integer [1,65535][1] log          # Conditional - restarts=x
+-restartsAri:S categorical {yes,no}[no]         # Conditional - restarts=+
+-restarts:5 integer [1,65535][100] log       # Conditional - restarts=+
+-restarts:6 integer [1,65535][1] log         # Conditional - restarts=+
+-restartsDyn:S categorical {yes,no}[no]         # Conditional - restarts=D
+-restarts:7 real [0.5,1.0][0.7]          # Conditional - restarts=D
+-restarts:8 integer [20,127][30] log         # Conditional - restarts=D
 
--reset-restarts {no,repeat,disable}[no]
--local-restarts:F {yes,no}[no]
--counter-restarts:S {yes,no} [yes] 
--counter-restarts [1,127][3] il
+-reset-restarts categorical {no,repeat,disable}[no]
+-local-restarts:F categorical {yes,no}[no]
+-counter-restarts:S categorical {yes,no} [yes] 
+-counter-restarts integer [1,127][3] log
 # -block-restarts
--restart-on-model:F {yes,no}[no]
+-restart-on-model:F categorical {yes,no}[no]
 
 # deletions
--deletion:S {yes,no}[yes]
--deletion:0 {no}[no]
--deletion:1 {basic,sort,ipSort,ipHeap}[basic]
--deletion:2 [10,100][75] i 
--deletion:3 {activity,lbd,mixed}[activity]
--del-grow:S {yes,no}[yes]
--del-grow:0 {0}[0]
--del-grow:1 [1.0,5.0][1.1] 
--del-grow:2 [0.0,100.0][20.0]
--del-growSched:S {yes,no}[no]
--del-grow:3 {F,L,x,+}[+]
--del-grow:4 [1,65535][128] il     # first schedule arg
--del-grow:5 [1.0,2.0][1.5]        # second arg if x
--del-grow:6 [1,65535][100] il     # second arg if +
--del-grow:7 [10,65535][10] il     # third arg if x or +
--del-cfl:0 {F,L,x,+,no}[no]
--del-cfl:1 [1,65535][128] il
--del-cfl:2 [1.0,2.0][1.5]         # second arg if x
--del-cfl:3 [1,65535][100] il      # second arg if +
--del-cfl:4 [10,65535][10] il      # third arg if x or +
--del-init:0 [1.0,50.0][3.0]
--del-init:1 [10,1023][1000] il
--del-init:2 [500,32767][9000] i
--del-estimate {0,1,2,3}[0]
--del-max [32767,2147483647][250000] i
--del-glue:0 [0,15][2] i
--del-glue:1 {0,1}[0]
--del-on-restart [0,50][0] i       
+-deletion:S categorical {yes,no}[yes]
+-deletion:0 categorical {no}[no]
+-deletion:1 categorical {basic,sort,ipSort,ipHeap}[basic]
+-deletion:2 integer [10,100][75]
+-deletion:3 categorical {activity,lbd,mixed}[activity]
+-del-grow:S categorical {yes,no}[yes]
+-del-grow:0 categorical {0}[0]
+-del-grow:1 real [1.0,5.0][1.1] 
+-del-grow:2 real [0.0,100.0][20.0]
+-del-growSched:S categorical {yes,no}[no]
+-del-grow:3 categorical {F,L,x,+}[+]
+-del-grow:4 integer [1,65535][128] log     # first schedule arg
+-del-grow:5 real [1.0,2.0][1.5]        # second arg if x
+-del-grow:6 integer [1,65535][100] log     # second arg if +
+-del-grow:7 integer [10,65535][10] log     # third arg if x or +
+-del-cfl:0 categorical {F,L,x,+,no}[no]
+-del-cfl:1 integer [1,65535][128] log
+-del-cfl:2 real [1.0,2.0][1.5]         # second arg if x
+-del-cfl:3 integer [1,65535][100] log      # second arg if +
+-del-cfl:4 integer [10,65535][10] log      # third arg if x or +
+-del-init:0 real [1.0,50.0][3.0]
+-del-init:1 integer [10,1023][1000] log
+-del-init:2 integer [500,32767][9000]
+-del-estimate categorical {0,1,2,3}[0]
+-del-max integer [32767,10000000][250000]
+-del-glue:0 integer [0,15][2]
+-del-glue:1 categorical {0,1}[0]
+-del-on-restart integer [0,50][0]
 
 # clingo-dl options
--propagate {no,inverse,partial,partial+,full}[no]
--propagate-root [0,100][0] i
--propagate-budget [0,100][0] i
--add-mutexes:0 [0,100][0] i
--add-mutexes-cut:S {yes,no}[no]
--add-mutexes:1 [0,100][0] i
+-propagate categorical {no,inverse,partial,partial+,full}[no]
+-propagate-root integer [0,100][0]
+-propagate-budget integer [0,100][0]
+-add-mutexes:0 integer [0,100][0]
+-add-mutexes-cut:S categorical {yes,no}[no]
+-add-mutexes:1 integer [0,100][0]
 
 
 # CONDITIONS -----------------------------------------------------------------------------------------------------------
@@ -222,11 +222,11 @@
 -dom-mod-disj:S | -heuristic:0 in {Domain}
 -dom-mod-opt:S | -heuristic:0 in {Domain}
 -dom-mod-show:S | -heuristic:0 in {Domain}
--dom-mod:1 | -dom-mod-scc:S in {yes}
--dom-mod:2 | -dom-mod-hcc:S in {yes}
--dom-mod:3 | -dom-mod-disj:S in {yes}
--dom-mod:4 | -dom-mod-opt:S in {yes}
--dom-mod:5 | -dom-mod-show:S in {yes}
+-dom-mod:1 | -heuristic:0 in {Domain} && -dom-mod-scc:S in {yes}
+-dom-mod:2 | -heuristic:0 in {Domain} && -dom-mod-hcc:S in {yes}
+-dom-mod:3 | -heuristic:0 in {Domain} && -dom-mod-disj:S in {yes}
+-dom-mod:4 | -heuristic:0 in {Domain} && -dom-mod-opt:S in {yes}
+-dom-mod:5 | -heuristic:0 in {Domain} && -dom-mod-show:S in {yes}
 
 # clasp lookback options:
 -no-lookback:F | -heuristic:0 in {None}
@@ -240,18 +240,15 @@
 
 -restarts:0 | -restarts in {F,L,x,+}
 -restartsLuby:S | -restarts in {L}
--restarts:2 | -restarts in {L}
--restarts:2 | -restartsLuby:S in {yes}
+-restarts:2 | -restarts in {L} && -restartsLuby:S in {yes}
 
 -restartsGeo:S | -restarts in {x}
 -restarts:3 | -restarts in {x}
--restarts:4 | -restarts in {x}
--restarts:4 | -restartsGeo:S in {yes}
+-restarts:4 | -restarts in {x} && -restartsGeo:S in {yes}
 
 -restartsAri:S | -restarts in {+}
 -restarts:5 | -restarts in {+}
--restarts:6 | -restarts in {+}
--restarts:6 | -restartsAri:S in {yes}
+-restarts:6 | -restarts in {+} && -restartsAri:S in {yes}
 
 -restarts:1 | -restarts in {D}
 -restartsDyn:S | -restarts in {D}

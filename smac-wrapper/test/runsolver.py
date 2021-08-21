@@ -14,7 +14,7 @@ class TestRunsolver(unittest.TestCase):
         config = self.__get_config()
         config.watcher_data = '/dev/null'
         expected = 42
-        result = int(runsolver(['echo', f'"{expected}"'], config)[1:3])
+        result, _ = int(runsolver(['echo', f'"{expected}"'], config)[1:3])
         self.assertEqual(result, expected)
 
     def __get_config(self):
