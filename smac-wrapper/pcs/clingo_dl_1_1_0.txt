@@ -1,27 +1,24 @@
-# +------------------------------------------------------------------------------------------------------------------------------+
-# | clingo-dl 1.1.0 option parameter file                                                                                        |
-# |                                                                                                                              |
-# | <parameter_name>:<flag|priority>:<sub_parameter_keyname> <{values,}|[range of values]>[default value]                        |
-# |                                                                                                                              |
-# | Available flags:                                                                                                             |
-# |   S ... won't be given to clasp, instead you can use the parameter to model constraints                                      |
-# |   F ... flag, must be occur in combination with the values {yes} and {no}. (yes = flag set; no = flag removed)               |
-# |   0-9 ... priority, the order how subparameter are processed, see examples.                                                  |
-# |                                                                                                                              |
-# | Example:                                                                                                                     |
-# |   -sat-prepro:S {yes,no}[no]                                                                                                 |
-# |   -sat-prepro:0 {1,2,3}[2]                                                                                                   |
-# |   -sat-prepro:1:iter [1,50][10] il                                                                                           |
-# |   -sat-prepro:1:occ [1,50][25] il                                                                                            |
-# |   -sat-prepro:0 | -sat-prepro:S in {yes}   # Condition                                                                       |
-# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}     # Condition                                                                 |
-# |   -sat-prepro:1:occ | -sat-prepro:S in {yes}   # Condition                                                                   |
-# |  if -sat-prepro:S is yes then: --sat-prepro=2,iter=10,occ=25                                                                 |
-# |                                                                                                                              |
-# | Trailing:                                                                                                                    |
-# |   i ... integer values                                                                                                       |
-# |   l ... logarithmic transformation (n > 0)                                                                                   |
-# +------------------------------------------------------------------------------------------------------------------------------+
+# +---------------------------------------------------------------------------------------------------------------------------------------------------+
+# | clingo-dl 1.1.0 option parameter file                                                                                                             |
+# |                                                                                                                                                   |
+# | <parameter_name>:<flag|priority>:<sub_parameter_keyname> <categorical|integer|real> <{values,}|[range of values]>[default value] <log(optional)>  |
+# |                                                                                                                                                   |
+# | Available flags:                                                                                                                                  |
+# |   S ... won't be given to clasp, instead you can use the parameter to model constraints                                                           |
+# |   F ... flag, must be occur in combination with the values {yes} and {no}. (yes = flag set; no = flag removed)                                    |
+# |   0-9 ... priority, the order how subparameter are processed, see examples.                                                                       |
+# |                                                                                                                                                   |
+# | Example:                                                                                                                                          |
+# |   -sat-prepro:S categorical {yes,no}[no]                                                                                                          |
+# |   -sat-prepro:0 categorical {1,2,3}[2]                                                                                                            |
+# |   -sat-prepro:1:iter integer [1,50][10] log                                                                                                       |
+# |   -sat-prepro:1:occ integer [1,50][25] log                                                                                                        |
+# |   -sat-prepro:0 | -sat-prepro:S in {yes}       # Condition                                                                                        |
+# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}  # Condition                                                                                        |
+# |   -sat-prepro:1:occ | -sat-prepro:S in {yes}   # Condition                                                                                        |
+# | if -sat-prepro:S is yes then: --sat-prepro=2,iter=10,occ=25                                                                                       |
+# |                                                                                                                                                   |
+# +---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 # used solver:
 -solver categorical {clingo-dl}[clingo-dl]

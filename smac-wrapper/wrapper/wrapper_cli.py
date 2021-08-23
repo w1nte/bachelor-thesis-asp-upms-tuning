@@ -1,12 +1,12 @@
-import sys
+#!/usr/bin/env python
 import re
 import os
 import argparse
+import json
 from dataclasses import dataclass
 from enum import Enum
-from pcs_parse_parameters import pcs_parse_parameters
-from clasp_parse_result import clasp_parse_result, ClaspResult, ClaspParseError
-from runsolver import runsolver, RunsolverConfiguration
+from .pcs_parse_parameters import pcs_parse_parameters
+from .runsolver import runsolver, RunsolverConfiguration
 
 
 class SMAC_status(Enum):
@@ -43,12 +43,14 @@ class WrapperCLI(object):
     seed: float
     pcs_parameters: [any]
 
+    _MAX_QUALITY = 99999999.  # quality value if solutions is unsat or solver crashed.
+
     def __init__(self) -> None:
         super().__init__()
         self.parse_arguments()
 
     def run(self):
-        result = SMAC_result(SMAC_status.TIMEOUT, self.cutoff, -1, float(sys.maxsize), self.seed)
+        result = SMAC_result(SMAC_status.TIMEOUT, self.cutoff, -1, self._MAX_QUALITY, self.seed)
 
         solver_parameters, solver = pcs_parse_parameters(self.pcs_parameters)
 
@@ -63,31 +65,35 @@ class WrapperCLI(object):
             wall_clock_limit=self.cutoff 
         )
 
-        output_raw, crash = runsolver(solver_cmd, runsolver_cfg)
-        output_raw_decoded = output_raw.decode('utf-8')
+        runsolver_output, runsolver_crash = runsolver(solver_cmd, runsolver_cfg)
 
         try:
-            output = clasp_parse_result(output_raw_decoded, quality_fn=self.calculate_quality)
-        except ClaspParseError as e:
+            clasp_json = json.loads(runsolver_output.decode('utf-8'))
+            self.determine_SMAC_result(clasp_json, result)
+        except (json.JSONDecodeError, LookupError) as e:
             result.status = SMAC_status.CRASHED
             raise e
+        finally:
+            print(result)
 
-        if output.status == 'SATISFIABLE' or output.status == 'OPTIMUM FOUND':
+    def determine_SMAC_result(self, clasp_json: any, result: SMAC_result):
+        result.running_time=float(clasp_json['Time']['Total'])
+        self.determine_SMAC_status(clasp_json, result)
+        self.determine_solution_quality(clasp_json, result)
+        
+    def determine_SMAC_status(self, clasp_json: any, result: SMAC_result):
+        if clasp_json['Result'] == 'SATISFIABLE' or clasp_json['Result'] == 'OPTIMUM FOUND':
             result.status = SMAC_status.SAT
-        elif output.status == "UNSATISFIABLE":
+        elif clasp_json['Result'] == "UNSATISFIABLE":
             result.status = SMAC_status.UNSAT
 
-        result.running_time = output.running_time
-        result.quality = output.quality
-
-        print(result)
-
-    def calculate_quality(self, clasp_json_result: str) -> float:
+    def determine_solution_quality(self, clasp_json: any, result: SMAC_result):
         try:
-            values = [sys.maxsize] + [float(n) for n in re.findall(r'makespan,(\d+)', str(clasp_json_result))]
-        except:
-            values = [sys.maxsize]
-        return min(values)
+            costs = [self._MAX_QUALITY] + [float(c) for c in clasp_json['Models']['Costs']]
+        except KeyError:
+            costs = [self._MAX_QUALITY]
+
+        result.quality = min(costs)
 
     def build_solver_cmd(self, solver_binary: str, solver_parameters: [str]):
         return [solver_binary, '--outf=2', '--quiet=1,1,2', self.encoding, self.instance] + solver_parameters
