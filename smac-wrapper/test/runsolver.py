@@ -22,8 +22,8 @@ class TestRunsolver(unittest.TestCase):
         config = self.__get_config()
         config.watcher_data = '/dev/null'
         expected = 42
-        result, _ = runsolver(['echo', f'"{expected}"'], config)
-        self.assertEqual(int(result[1:3]), expected)
+        result = int(runsolver(['echo', f'"{expected}"'], config)[1:3])
+        self.assertEqual(result, expected)
 
     def __get_config(self):
         return RunsolverConfiguration(runsolver_bin=RUNSOLVER_BIN, vsize_limit=1024, wall_clock_limit=60, watcher_data=None)

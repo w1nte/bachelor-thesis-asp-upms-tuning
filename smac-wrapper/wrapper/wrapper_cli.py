@@ -65,7 +65,7 @@ class WrapperCLI(object):
             wall_clock_limit=self.cutoff 
         )
 
-        runsolver_output, runsolver_crash = runsolver(solver_cmd, runsolver_cfg)
+        runsolver_output = runsolver(solver_cmd, runsolver_cfg)
 
         try:
             clasp_json = json.loads(runsolver_output.decode('utf-8'))
