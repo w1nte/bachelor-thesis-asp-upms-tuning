@@ -26,7 +26,5 @@ before(J1, J2, M) | before(J2, J1, M) :- assign(J1, M), assign(J2, M), J1 < J2.
 % makespan is max completion time.
 &diff{ completion(J) - makespan } <= 0 :- job(J).
 
-
-#show assign/2.
 #show first/2.
 #show next/3.

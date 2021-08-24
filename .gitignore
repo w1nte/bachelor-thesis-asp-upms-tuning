@@ -2,6 +2,7 @@
 instances/**/*.lp
 instances/*.txt
 smac-wrapper/runsolver/runsolver
+smac3-output*
 
 
 # Byte-compiled / optimized / DLL files

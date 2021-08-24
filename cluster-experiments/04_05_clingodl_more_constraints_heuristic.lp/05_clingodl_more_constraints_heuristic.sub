@@ -9,4 +9,3 @@ when_to_transfer_output = ON_EXIT
 request_cpus            = 1
 request_memory          = 20480
 queue data_file matching files /home/mwinters/instances/industrial/*.lp
-priority                = -1

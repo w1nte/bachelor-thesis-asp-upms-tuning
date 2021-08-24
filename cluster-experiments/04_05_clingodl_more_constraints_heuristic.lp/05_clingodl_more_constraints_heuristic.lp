@@ -52,7 +52,5 @@ maxSetup(J, M, S) :- job(J), machine(M), S = #max{ T : setup(_, J, M, T) }.
 maxRelease(J, T) :- job(J), T = #max{ R : release(J, _, R)}.
 
 
-
-#show assign/2.
 #show first/2.
 #show next/3.
