@@ -1,4 +1,4 @@
-executable              = 04_clingodl_minimal_constraints.sh 
+executable              = 01_clingodl.sh 
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log
