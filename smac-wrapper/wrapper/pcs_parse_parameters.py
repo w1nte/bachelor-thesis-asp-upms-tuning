@@ -1,6 +1,10 @@
+from typing import List, Tuple
 
 
-def pcs_parse_parameters(pcs_parameters: [str]) -> ([str], str):
+def pcs_parse_parameters(pcs_parameters: List[str]) -> Tuple[List[str], str]:
+    """ 
+    Parse pcs parameters (delivered by SMAC) to clingo parameters.
+    """
     parameters = []
     parameters_with_args = {}
     solver = None

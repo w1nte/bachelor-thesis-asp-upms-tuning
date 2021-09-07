@@ -2,7 +2,7 @@ import sys
 import subprocess
 import logging
 from dataclasses import dataclass
-from typing import Union
+from typing import Union, List
 
 
 @dataclass
@@ -23,7 +23,10 @@ class RunsolverConfiguration:
 DEFAULT_RUNSOLVER_CONFIGURATION = RunsolverConfiguration()
 
 
-def runsolver(solver_cmd: [str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=sys.stderr) -> str:
+def runsolver(solver_cmd: List[str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=sys.stderr) -> str:
+    """
+    Execute a command with Runsolver. Be sure, that the configs runsolver binary location is correct.
+    """
     cmd = build_command(solver_cmd, config)
 
     logging.debug(f'start runsolver: "{" ".join(cmd)}"')
@@ -36,7 +39,7 @@ def runsolver(solver_cmd: [str], config=DEFAULT_RUNSOLVER_CONFIGURATION, stderr=
     return output
 
 
-def build_command(solver_cmd: [str], config: RunsolverConfiguration) -> [str]:
+def build_command(solver_cmd: List[str], config: RunsolverConfiguration) -> List[str]:
     cmd = [config.runsolver_bin]
 
     runsolver_parameters = config.parameters()
@@ -48,5 +51,5 @@ def build_command(solver_cmd: [str], config: RunsolverConfiguration) -> [str]:
     return cmd
 
 
-def __add_cmd(name: str, value: any) -> [str]:
+def __add_cmd(name: str, value: any) -> List[str]:
     return [name, str(value)] if value else []

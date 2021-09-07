@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from wrapper.wrapper_cli import WrapperCLI, SMAC_status, SMAC_result
 import sys
+import re
 
 
 class ClingoDLWrapper(WrapperCLI):
@@ -17,7 +18,7 @@ class ClingoDLWrapper(WrapperCLI):
 
     def determine_solution_quality(self, clasp_json: any, result: SMAC_result):
         try:
-            values = [self._MAX_QUALITY] + [float(n) for n in re.findall(r'makespan,(\d+)', str(clasp_json_result))]
+            values = [self._MAX_QUALITY] + [float(n) for n in re.findall(r'makespan,(\d+)', str(clasp_json))]
         except:
             values = [self._MAX_QUALITY]
         result.quality = min(values)

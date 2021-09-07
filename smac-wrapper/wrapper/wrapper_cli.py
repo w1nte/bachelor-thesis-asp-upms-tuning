@@ -5,6 +5,7 @@ import argparse
 import json
 from dataclasses import dataclass
 from enum import Enum
+from typing import List
 from .pcs_parse_parameters import pcs_parse_parameters
 from .runsolver import runsolver, RunsolverConfiguration
 
@@ -32,6 +33,11 @@ class SMAC_result:
 
 
 class WrapperCLI(object):
+    """
+    Main SMAC wrapper object.
+
+    This class can be inherited for costumization and methods like determine_* can be overrided.
+    """
 
     encoding: str
     runsolver_binary: str
@@ -41,7 +47,7 @@ class WrapperCLI(object):
     cutoff: float
     cutoff_length: float
     seed: float
-    pcs_parameters: [any]
+    pcs_parameters: List[any]
 
     _MAX_QUALITY = 99999999.  # quality value if solutions is unsat or solver crashed.
 
@@ -77,17 +83,20 @@ class WrapperCLI(object):
             print(result)
 
     def determine_SMAC_result(self, clasp_json: any, result: SMAC_result):
+        # override if required, note that result is a reference.
         result.running_time=float(clasp_json['Time']['Total'])
         self.determine_SMAC_status(clasp_json, result)
         self.determine_solution_quality(clasp_json, result)
         
     def determine_SMAC_status(self, clasp_json: any, result: SMAC_result):
+        # override if required, note that result is a reference.
         if clasp_json['Result'] == 'SATISFIABLE' or clasp_json['Result'] == 'OPTIMUM FOUND':
             result.status = SMAC_status.SAT
         elif clasp_json['Result'] == "UNSATISFIABLE":
             result.status = SMAC_status.UNSAT
 
     def determine_solution_quality(self, clasp_json: any, result: SMAC_result):
+        # override if required, note that result is a reference.
         try:
             costs = [self._MAX_QUALITY] + [float(c) for c in clasp_json['Models']['Costs']]
         except KeyError:
@@ -95,11 +104,11 @@ class WrapperCLI(object):
 
         result.quality = min(costs)
 
-    def build_solver_cmd(self, solver_binary: str, solver_parameters: [str]):
+    def build_solver_cmd(self, solver_binary: str, solver_parameters: List[str]):
         return [solver_binary, '--outf=2', '--quiet=1,1,2', self.encoding, self.instance] + solver_parameters
 
     def parse_arguments(self):
-        parser = argparse.ArgumentParser(description='smac3 <-> clingo-dl wrapper.')
+        parser = argparse.ArgumentParser(description='SMAC3 Clingo-dl Wrapper.')
 
         parser.add_argument('encoding', type=str, help='clingo encoding.')
         parser.add_argument('runsolver_binary', type=str, help='runsolver binary.')

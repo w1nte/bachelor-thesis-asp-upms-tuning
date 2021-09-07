@@ -10,6 +10,7 @@ from multiprocessing import Pool
 from functools import partial
 from smac.facade.smac_ac_facade import SMAC4AC
 from smac.scenario.scenario import Scenario
+from smac.tae import TAEAbortException, FirstRunCrashedException
 from wrapper.pcs_parse_parameters import pcs_parse_parameters
 
 
