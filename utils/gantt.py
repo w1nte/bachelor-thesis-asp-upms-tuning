@@ -17,8 +17,9 @@ Custom gantt chart generator. The ASP lp file must contain:
     #show release/3.
     #show first/2.
     #show next/3.
-Example usage: clingo any.lp --quiet=1 | python gantt_before_relation.py -o gantt.png
+Example usage: clingo any.lp --quiet=1 | gantt -o gantt.png
     ''')
+    random.seed(42)
 
     parser.add_argument('--output', '-o', help='output gantt graph image', type=str, default=None)
 
@@ -103,7 +104,7 @@ def draw_gantt(start_positions, jobs, machines, releases, setups, durations):
         ax.text(x + w / 2, y + h / 2, '{}'.format(job), horizontalalignment='center',
                 verticalalignment='center', fontsize=7)
         ax.text(job_release, y - 5, str(job), horizontalalignment='center', verticalalignment='center', fontsize=6)
-        ax.plot([job_release, job_release], [y, y + h], linewidth=2, color=(0, 0, 0))
+        ax.plot([job_release, job_release], [y, y + h], linewidth=1, color=(0, 0, 0))
 
         max_t = max(max_t, x + w)
 
