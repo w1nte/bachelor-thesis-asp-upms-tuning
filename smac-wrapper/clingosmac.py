@@ -2,7 +2,6 @@ import logging
 import sys
 import os
 import argparse
-import random
 import math
 import numpy as np
 import threading
@@ -55,8 +54,8 @@ def run_smac(args: any, seed=None):
         "shared_model": True if args.psmac_dirs else False,
         "input_psmac_dirs": args.psmac_dirs
     })
-    # resultfile = os.path.join(scenario.output_dir, 'result.csv')
-    resultfile = os.path.join('./', 'result.csv')
+
+    resultfile = args.output if args.output else os.path.join(scenario.output_dir, 'result.csv')
 
     logging.info(f'Result file: {resultfile}')
     if seed:
@@ -79,7 +78,7 @@ def run_smac(args: any, seed=None):
         params = get_params(incumbent)
 
         rh = smac.validate(
-            config_mode='def+inc',
+            config_mode='inc',
             instance_mode='test',    
         )
         ac = rh.average_cost(incumbent)
@@ -126,6 +125,7 @@ def parse_arguments():
     parser.add_argument('--param-file', default=os.path.join(__file_dir__, 'pcs/clingo_dl_1_1_0.txt'), type=str, help='SMAC3 parameter file.')
     parser.add_argument('--python', default='python', type=str, help='python executable used by the wrapper.')
     parser.add_argument('--psmac-dirs', default=None, type=str, help='list of pSMACs output directories (enables pSMAC).')
+    parser.add_argument('--output', default=None, type=str, help='output csv file.')
 
     args = parser.parse_args()
     return args

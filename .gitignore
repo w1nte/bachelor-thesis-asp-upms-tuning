@@ -3,6 +3,7 @@ instances/**/*.lp
 instances/*.txt
 smac-wrapper/runsolver/runsolver
 smac3-output*
+cluster-experiments/local
 
 
 # Byte-compiled / optimized / DLL files
