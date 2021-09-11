@@ -4,9 +4,12 @@
 % calculate the number of jobs for each machine.
 number_of_jobs(M, N) :- machine(M), N = #count{J : assign(J, M)}.
 
+% define machine slots
+slot(M, S) :- number_of_jobs(M, N), S=1..N.
+
 % assign each job to a slot of a machine dependent job list.
-{ assign(J, M, 1..N) } = 1 :- assign(J, M), number_of_jobs(M, N).
-:- assign(J1, M, I), assign(J2, M, I), J1!=J2.
+{ assign(J, M, S) : slot(M, S) } = 1 :- assign(J, M), number_of_jobs(M, N).
+:- assign(J1, M, I), assign(J2, M, I), J1 != J2.
 
 % pick first and last job for each machine.
 first(J, M) :- assign(J, M, 1).

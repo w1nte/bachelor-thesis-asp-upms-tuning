@@ -10,48 +10,38 @@ def main():
     
     if gentype == 'industrial_train':
         random.seed(42)
-        for i in range(1, 51):
+        for i in range(1, 31):
             generate_instance(3, range(5, 50), 'L', str(i))
-        for i in range(51, 101):
+        for i in range(31, 61):
             generate_instance(3, range(5, 50), 'H', str(i))
-        for i in range(101, 151):
+        for i in range(61, 91):
             generate_instance(5, range(10, 50), 'L', str(i))
-        for i in range(151, 201):
+        for i in range(91, 121):
             generate_instance(5, range(10, 50), 'H', str(i))
-        for i in range(201, 251):
+        for i in range(121, 151):
             generate_instance(10, range(50, 200), 'L', str(i))
-        for i in range(251, 301):
+        for i in range(151, 181):
             generate_instance(10, range(50, 200), 'H', str(i))
-        for i in range(301, 351):
+        for i in range(181, 211):
             generate_instance(15, range(100, 200), 'L', str(i))
-        for i in range(351, 401):
+        for i in range(211, 241):
             generate_instance(15, range(100, 200), 'H', str(i))
-        for i in range(401, 451):
+        for i in range(241, 271):
             generate_instance(20, range(150, 200), 'L', str(i))
-        for i in range(451, 501):
+        for i in range(271, 301):
             generate_instance(20, range(150, 200), 'H', str(i))	
     elif gentype == 'industrial_test':
         random.seed(44)
-        for i in range(1, 3):
-            generate_instance(3, range(5, 50), 'L', str(i))
-        for i in range(3, 6):
-            generate_instance(3, range(5, 50), 'H', str(i))
-        for i in range(6, 9):
-            generate_instance(5, range(10, 50), 'L', str(i))
-        for i in range(9, 12):
-            generate_instance(5, range(10, 50), 'H', str(i))
-        for i in range(12, 15):
-            generate_instance(10, range(50, 200), 'L', str(i))
-        for i in range(15, 17):
-            generate_instance(10, range(50, 200), 'H', str(i))
-        for i in range(17, 19):
-            generate_instance(15, range(100, 200), 'L', str(i))
-        for i in range(19, 21):
-            generate_instance(15, range(100, 200), 'H', str(i))
-        for i in range(21, 23):
-            generate_instance(20, range(150, 200), 'L', str(i))
-        for i in range(23, 25):
-            generate_instance(20, range(150, 200), 'H', str(i))	
+        generate_instance(3, range(5, 50), 'L', str(1))
+        generate_instance(3, range(5, 50), 'H', str(2))
+        generate_instance(5, range(10, 50), 'L', str(3))
+        generate_instance(5, range(10, 50), 'H', str(4))
+        generate_instance(10, range(50, 200), 'L', str(5))
+        generate_instance(10, range(50, 200), 'H', str(6))
+        generate_instance(15, range(100, 200), 'L', str(7))
+        generate_instance(15, range(100, 200), 'H', str(8))
+        generate_instance(20, range(150, 200), 'L', str(9))
+        generate_instance(20, range(150, 200), 'H', str(10))	
     elif gentype == 'simple':
         random.seed(45)
         for i in range(1, 5):

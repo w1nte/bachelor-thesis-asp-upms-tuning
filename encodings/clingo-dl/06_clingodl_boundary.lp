@@ -14,22 +14,22 @@
 &diff{ completion(J) - makespan } <= 0 :- job(J).
 
 
+numberOfMachines(N) :- N = #count{ M : machine(M) }.
 minDuration(J, D) :- job(J), D = #min{ T : duration(J,_,T) }.
 minDurationSum(S) :- S = #sum{ T,J : minDuration(J, T) }.
 
 % set upper and lower bound for span domain.
-lowerBound(LB) :- minDurationSum(LB).
+lowerBound(LB) :- LB = S/N, minDurationSum(S), numberOfMachines(N).
 upperBound(UB) :- horizon(UB).
 
 int(LB..UB) :- lowerBound(LB), upperBound(UB).
-{ span(M, T) : int(T) } = 1 :- machine(M).
-&diff{ completion(J) - 0 } <= S :- assign(J, M), span(M, S).
+{ makespan(T) : int(T) } = 1.
+&diff{ makespan - 0 } <= T :- makespan(T).
 
 
 % minimize the makespan
-#minimize{ T : span(M,T) }.
+#minimize{ T : makespan(T) }.
 
 
 #show lowerBound/1.
 #show upperBound/1.
-#show span/2.

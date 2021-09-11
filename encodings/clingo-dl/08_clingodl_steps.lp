@@ -9,23 +9,23 @@ durationSum(S) :- S = #sum{ T,J : maxDuration(J, T) }.
 numberOfMachines(N) :- N = #count{ M : machine(M) }.
 
 
-lowerBoundary(L) :- L=c.
-upperBoundary(U) :- horizon(H).
+lowerBound(L) :- L=c.
+upperBound(U) :- horizon(H).
 steps(S) :- S=f.
 
 % set boundary domain.
-int(I) :- I=L..U, 0=I\S, lowerBoundary(L), upperBoundary(U), steps(S).
+int(I) :- I=L..U, 0=I\S, lowerBound(L), upperBound(U), steps(S).
 
 % pick boundary.
-{ boundary(I) : int(I) } = 1.
+{ bound(I) : int(I) } = 1.
 
 % expand the boundary upwards.
-#heuristic boundary(I) : maxInt(M), int(I), L=M-I. [L@10,true]
+#heuristic bound(I) : maxInt(M), int(I), L=M-I. [L@10,true]
 maxInt(I) :- I = #max{ J : int(J) }.
 
 % makespan is less or equal than boundary.
-&diff{ makespan - 0 } <= Boundary :- assign(J, M), boundary(Boundary).
+&diff{ makespan - 0 } <= B :- assign(J, M), bound(B).
 
 
-#show boundary/1.
+#show bound/1.
 #show int/1.
