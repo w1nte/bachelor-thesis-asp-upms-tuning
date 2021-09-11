@@ -1,6 +1,6 @@
 executable              = smac.sh 
 input                   = /dev/null
-arguments               = 3 20 600 runtime
+arguments               = 1 300 86400 quality
 log                     = output/log.$(Process)
 output                  = output/out.$(Process)
 error                   = output/err.$(Process)
@@ -11,4 +11,4 @@ transfer_output_remaps  = "result.csv = output/result_$(Process).csv"
 request_cpus            = 1
 request_memory          = 20480
 
-queue 1
+queue 2
