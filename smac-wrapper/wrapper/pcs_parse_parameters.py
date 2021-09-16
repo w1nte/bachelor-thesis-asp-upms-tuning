@@ -16,6 +16,17 @@ def pcs_parse_parameters(pcs_parameters: List[str]) -> Tuple[List[str], str]:
             solver = pcs_value
             continue
 
+        if name in ['-c', '--const']:  # clingo constant
+            constant_name = key if priority_or_flag.isnumeric() else priority_or_flag
+            parameters += ['-c', f'{constant_name}={pcs_value}']
+            continue
+
+        if name == '--include':  # include
+            include_file = pcs_value
+            if include_file.lower() not in ['none', 'no']:
+                parameters.append(include_file)
+            continue
+
         if priority_or_flag == 'S':  # skip flag
             continue
         elif priority_or_flag == 'F':  # flag parameter flag :)
