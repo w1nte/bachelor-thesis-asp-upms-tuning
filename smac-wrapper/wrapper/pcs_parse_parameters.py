@@ -12,27 +12,27 @@ def pcs_parse_parameters(pcs_parameters: List[str]) -> Tuple[List[str], str]:
     for pcs_parameter_name, pcs_value in zip(pcs_parameters[::2], pcs_parameters[1::2]):
         name, priority_or_flag, key, *_ = pcs_parameter_name.split(':') + ([None] * 2)
 
-        if name == '--solver':
+        if name == '--solver':  # used solver (e.g. "-solver categorical [clingo-dl][clingo-dl]")
             solver = pcs_value
-            continue
-
-        if name in ['-c', '--const']:  # clingo constant
+        
+        elif name in ['-c', '--const']:  # clingo constant (e.g. "-const:c integer [0,5][2]")
             constant_name = key if priority_or_flag.isnumeric() else priority_or_flag
             parameters += ['-c', f'{constant_name}={pcs_value}']
-            continue
-
-        if name == '--include':  # include
+        
+        elif name == '--include':  # include lp file (e.g. "-include categorical [file1.lp, file2.lp][file1.lp]")
             include_file = pcs_value
             if include_file.lower() not in ['none', 'no']:
                 parameters.append(include_file)
-            continue
 
-        if priority_or_flag == 'S':  # skip flag
-            continue
-        elif priority_or_flag == 'F':  # flag parameter flag :)
+        elif priority_or_flag == 'S':  # skip flag (is never given to the solver; can be used to model pcs constraints)
+            pass
+        
+        elif priority_or_flag == 'F':  # flag parameter flag (e.g. "-learn-explicit:F categorical {yes,no}[no]")
             if pcs_value.lower() == 'yes':
                 parameters.append(name)
+        
         else:  # otherwise priority number or None
+            assert priority_or_flag is None or priority_or_flag.isnumeric(), f'flag is not supported!'
             if not parameters_with_args.get(name):
                 parameters_with_args[name] = []
             parameters_with_args[name].append((int(priority_or_flag or 0), key, pcs_value))
