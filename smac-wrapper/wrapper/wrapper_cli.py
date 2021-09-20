@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-import re
-import os
+import sys
 import argparse
 import json
 from dataclasses import dataclass
@@ -78,7 +77,8 @@ class WrapperCLI(object):
             self.determine_SMAC_result(clasp_json, result)
         except (json.JSONDecodeError, LookupError) as e:
             result.status = SMAC_status.CRASHED
-            raise e
+            print(result)
+            sys.exit(1)
         finally:
             print(result)
 

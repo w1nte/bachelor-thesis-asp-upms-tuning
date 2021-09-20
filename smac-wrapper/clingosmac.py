@@ -16,9 +16,7 @@ from wrapper.pcs_parse_parameters import pcs_parse_parameters
 __file_dir__ = os.path.abspath(os.path.dirname(__file__))
 
 
-def main():
-    args = parse_arguments()
-    
+def main(args):
     if args.parallel == 1:
         run_smac(args, args.seed)
     elif args.parallel > 1:
@@ -29,6 +27,7 @@ def main():
         raise argparse.ArgumentTypeError('Minimum parallel is 1')
 
 
+# result.csv semaphore if parallel
 output_lock = threading.Lock()
 
 
@@ -126,12 +125,18 @@ def parse_arguments():
     parser.add_argument('--python', default='python', type=str, help='python executable used by the wrapper.')
     parser.add_argument('--psmac-dirs', default=None, type=str, help='list of pSMACs output directories (enables pSMAC).')
     parser.add_argument('--output', default=None, type=str, help='output csv file.')
+    parser.add_argument("-v", "--verbose", help="increase output verbosity.", action="store_true")
 
     args = parser.parse_args()
     return args
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
+    args = parse_arguments()
 
-    main()
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.INFO,
+        format='%(asctime)s.%(msecs)03d (%(levelname)s) %(module)s - %(funcName)s: %(message)s'
+        )
+
+    main(args)
