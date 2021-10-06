@@ -1,6 +1,6 @@
 executable              = smac.sh 
 input                   = /dev/null
-arguments               = 1 300 86400 quality
+arguments               = 1 300 432000 quality
 log                     = output/log.$(Process)
 output                  = output/out.$(Process)
 error                   = output/err.$(Process)
