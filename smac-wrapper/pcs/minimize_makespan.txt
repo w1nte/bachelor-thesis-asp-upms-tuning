@@ -1,0 +1,291 @@
+# +---------------------------------------------------------------------------------------------------------------------------------------------------+
+# | clingo-dl 1.1.0 option parameter file                                                                                                             |
+# |                                                                                                                                                   |
+# | <parameter_name>:<flag|priority>:<sub_parameter_keyname> <categorical|integer|real> <{values,}|[range of values]>[default value] <log(optional)>  |
+# |                                                                                                                                                   |
+# | Available flags:                                                                                                                                  |
+# |   S ... won't be given to clasp, instead you can use the parameter to model constraints                                                           |
+# |   F ... flag, must be occur in combination with the values {yes} and {no}. (yes = flag set; no = flag removed)                                    |
+# |   0-9 ... priority, the order how subparameter are processed, see examples.                                                                       |
+# |                                                                                                                                                   |
+# | Example:                                                                                                                                          |
+# |   -sat-prepro:S categorical {yes,no}[no]                                                                                                          |
+# |   -sat-prepro:0 categorical {1,2,3}[2]                                                                                                            |
+# |   -sat-prepro:1:iter integer [1,50][10] log                                                                                                       |
+# |   -sat-prepro:1:occ integer [1,50][25] log                                                                                                        |
+# |   -sat-prepro:0 | -sat-prepro:S in {yes}       # Condition                                                                                        |
+# |   -sat-prepro:1:iter | -sat-prepro:S in {yes}  # Condition                                                                                        |
+# |   -sat-prepro:1:occ | -sat-prepro:S in {yes}   # Condition                                                                                        |
+# | if -sat-prepro:S is yes then: --sat-prepro=2,iter=10,occ=25                                                                                       |
+# |                                                                                                                                                   |
+# +---------------------------------------------------------------------------------------------------------------------------------------------------+
+
+# used solver:
+-solver categorical {clingo-dl}[clingo-dl]
+-minimize-variable:0 categorical {makespan}[makespan]
+
+# parameters:
+
+# clasp context options:
+-learn-explicit:F categorical {yes,no}[no]
+-sat-prepro:S categorical {yes,no}[no]
+-sat-prepro:0 categorical {1,2,3}[2]
+-sat-prepro:1:iter integer [1,50][10] log
+-sat-prepro:1:occ integer [1,50][25] log
+-sat-prepro:1:time categorical {0}[0]
+-sat-prepro:1:frozen integer [0,100][0]
+-sat-prepro:1:size integer [1,10000][4000]
+
+# clasp asp options:
+-trans-ext categorical {no,all,choice,card,weight,scc,integ,dynamic}[dynamic]
+-eqCond:S categorical {yes,no}[no]
+-eq integer [1,127][5] log
+-eq:0 categorical {0}[0]
+-backprop:F categorical {yes,no}[yes]
+-no-gamma:F categorical {yes,no}[no]
+-eq-dfs:F categorical {yes,no}[no]
+
+# clasp solving options:
+-enum-mode categorical {bt,record,domRec,auto}[auto]
+
+# clasp search options:
+-opt-strategy categorical {bb,usc}[bb]
+-opt-strategy:0 categorical {lin,hier,inc,dec}[lin]
+-opt-strategy:1 categorical {oll,one,k,pmres}[oll]
+-opt-strategy:2 integer [0,50][0]
+-opt-strategy:3 categorical {disjoint,succinct,stratify}[disjoint]
+
+-opt-usc-shrink:S categorical {yes,no}[no]
+-opt-usc-shrink:0 categorical {lin,inv,bin,rgs,exp,min}[lin]
+-opt-usc-shrink:1 integer [0,31][10]
+
+-opt-heuristic categorical {sign,model}[sign]
+
+-lookahead:0 categorical {no,atom,body,hybrid}[no]
+-lookahead:1 integer [1,10000000][1] log
+
+-heuristic:0 categorical {Berkmin,Vmtf,Vsids,Domain,Unit,None}[Berkmin]
+-heuristic:1 categorical {0,128,256,512,1024,2048}[0]
+-heuristic:2 integer [1,128][8] log
+-heuristic:3 categorical {75,85,92,93,94,95,96,97,98,99}[95]
+
+-score-res categorical {auto,min,set,multiset}[auto]
+-score-other categorical {auto,no,loop,all}[auto]
+-sign-def categorical {asp,pos,neg}[pos]
+-sign-fix:F categorical {yes,no}[no]
+-berk-huang:F categorical {yes,no}[no]
+-vsids-acids:F categorical {yes,no}[no]
+
+-vsids-progress:S categorical {yes,no}[no]
+-vsids-progress:0 integer [1,100][1]
+-vsids-progress:1 integer [1,100][1]
+-vsids-progress:2 integer [0,10000][5000]
+
+-nant:F categorical {yes,no}[no]
+
+-dom-mod:0 categorical {level,pos,true,neg,false,init,factor}[pos]
+-dom-mod-scc:S categorical {yes,no}[no]
+-dom-mod-hcc:S categorical {yes,no}[no]
+-dom-mod-disj:S categorical {yes,no}[no]
+-dom-mod-opt:S categorical {yes,no}[no]
+-dom-mod-show:S categorical {yes,no}[no]
+-dom-mod:1 categorical {scc}[scc]
+-dom-mod:2 categorical {hcc}[hcc]
+-dom-mod:3 categorical {disj}[disj]
+-dom-mod:4 categorical {opt}[opt]
+-dom-mod:5 categorical {show}[show]
+
+-save-progress integer [0,180][180]
+-init-watches categorical {first,least}[first]
+-update-mode categorical {propagate,conflict}[propagate]
+-acyc-prop categorical {0,1}[0]
+-partial-check categorical {0,10,20,30,40,50}[0]
+-rand-freq categorical {0.0,0.01,0.02,0.05,0.1}[0.0]
+-rand-prob integer [0,1000][10]
+
+# clasp lookback options:
+-no-lookback:F categorical {yes,no}[no]
+-forget-on-step:S categorical {yes,no}[no]
+-forget-on-step:0 integer [0,15][0]
+-strengthen:0 categorical {local,recursive,no}[local]
+-strengthen:1 categorical {all,short,binary}[all]
+-otfs categorical {0,1,2}[2]
+-update-lbd categorical {less,glucose,pseudo,no}[no]   
+-update-act:F categorical {yes,no}[no]
+-reverse-arcs categorical {0,1,2,3}[1]
+-contraction:S categorical {yes,no}[no]
+-contraction:0 categorical {no}[no]
+-contraction:1 integer [1,1023][250] log
+-loops categorical {common,distinct,shared,no}[no]
+
+# restarts
+-restarts categorical {F,L,D,x,+,no}[x]
+-restarts:0 integer [1,65535][128] log       # first parameter for all "normal" restarts
+-restarts:1 integer [50,1000][100] log       # first parameter for "dynamic" restarts
+-restartsLuby:S categorical {yes,no}[no]        # Conditional - restarts=L
+-restarts:2 integer [1,65535][1000] log      # Conditional - restarts=L
+-restartsGeo:S categorical {yes,no}[no]         # Conditional - restarts=x
+-restarts:3 real [1.0,2.0][1.5]          # Conditional - restarts=x
+-restarts:4 integer [1,65535][1] log          # Conditional - restarts=x
+-restartsAri:S categorical {yes,no}[no]         # Conditional - restarts=+
+-restarts:5 integer [1,65535][100] log       # Conditional - restarts=+
+-restarts:6 integer [1,65535][1] log         # Conditional - restarts=+
+-restartsDyn:S categorical {yes,no}[no]         # Conditional - restarts=D
+-restarts:7 real [0.5,1.0][0.7]          # Conditional - restarts=D
+-restarts:8 integer [20,127][30] log         # Conditional - restarts=D
+
+-reset-restarts categorical {no,repeat,disable}[no]
+-local-restarts:F categorical {yes,no}[no]
+-counter-restarts:S categorical {yes,no} [yes] 
+-counter-restarts integer [1,127][3] log
+# -block-restarts
+-restart-on-model:F categorical {yes,no}[no]
+
+# deletions
+-deletion:S categorical {yes,no}[yes]
+-deletion:0 categorical {no}[no]
+-deletion:1 categorical {basic,sort,ipSort,ipHeap}[basic]
+-deletion:2 integer [10,100][75]
+-deletion:3 categorical {activity,lbd,mixed}[activity]
+-del-grow:S categorical {yes,no}[yes]
+-del-grow:0 categorical {0}[0]
+-del-grow:1 real [1.0,5.0][1.1] 
+-del-grow:2 real [0.0,100.0][20.0]
+-del-growSched:S categorical {yes,no}[no]
+-del-grow:3 categorical {F,L,x,+}[+]
+-del-grow:4 integer [1,65535][128] log     # first schedule arg
+-del-grow:5 real [1.0,2.0][1.5]        # second arg if x
+-del-grow:6 integer [1,65535][100] log     # second arg if +
+-del-grow:7 integer [10,65535][10] log     # third arg if x or +
+-del-cfl:0 categorical {F,L,x,+,no}[no]
+-del-cfl:1 integer [1,65535][128] log
+-del-cfl:2 real [1.0,2.0][1.5]         # second arg if x
+-del-cfl:3 integer [1,65535][100] log      # second arg if +
+-del-cfl:4 integer [10,65535][10] log      # third arg if x or +
+-del-init:0 real [1.0,50.0][3.0]
+-del-init:1 integer [10,1023][1000] log
+-del-init:2 integer [500,32767][9000]
+-del-estimate categorical {0,1,2,3}[0]
+-del-max integer [32767,10000000][250000]
+-del-glue:0 integer [0,15][2]
+-del-glue:1 categorical {0,1}[0]
+-del-on-restart integer [0,50][0]
+
+# clingo-dl options
+-propagate categorical {no,inverse,partial,partial+,full}[no]
+-propagate-root integer [0,100][0]
+-propagate-budget integer [0,100][0]
+-add-mutexes:0 integer [0,100][0]
+-add-mutexes-cut:S categorical {yes,no}[no]
+-add-mutexes:1 integer [0,100][0]
+
+
+# CONDITIONS -----------------------------------------------------------------------------------------------------------
+
+-sat-prepro:0 | -sat-prepro:S in {yes}
+-sat-prepro:1:iter | -sat-prepro:S in {yes}
+-sat-prepro:1:occ | -sat-prepro:S in {yes}
+-sat-prepro:1:time | -sat-prepro:S in {yes}
+-sat-prepro:1:frozen | -sat-prepro:S in {yes}
+-sat-prepro:1:size | -sat-prepro:S in {yes}
+
+-eq | -eqCond:S in {yes}
+-eq:0 | -eqCond:S in {no}
+-eq-dfs:F | -eqCond:S in {yes}
+
+# clasp search options:
+-opt-strategy:0 | -opt-strategy in {bb}
+-opt-strategy:1 | -opt-strategy in {usc}
+-opt-strategy:2 | -opt-strategy:1 in {k}
+-opt-strategy:3 | -opt-strategy in {usc}
+
+-opt-usc-shrink:0 | -opt-usc-shrink:S in {yes}
+-opt-usc-shrink:1 | -opt-usc-shrink:S in {yes}
+
+-lookahead:1 | -lookahead:0 in {atom,body,hybrid}
+
+-heuristic:1 | -heuristic:0 in {Berkmin}
+-heuristic:2 | -heuristic:0 in {Vmtf}
+-heuristic:3 | -heuristic:0 in {Vsids}
+
+-vsids-progress:S | -heuristic:0 in {Vsids, Domain}
+-vsids-progress:0 | -vsids-progress:S in {yes}
+-vsids-progress:1 | -vsids-progress:S in {yes}
+-vsids-progress:2 | -vsids-progress:S in {yes}
+
+-score-res | -heuristic:0 in {Berkmin,Vmtf,Vsids,Domain}
+-dom-mod:0 | -heuristic:0 in {Domain}
+-dom-mod-scc:S | -heuristic:0 in {Domain}
+-dom-mod-hcc:S | -heuristic:0 in {Domain}
+-dom-mod-disj:S | -heuristic:0 in {Domain}
+-dom-mod-opt:S | -heuristic:0 in {Domain}
+-dom-mod-show:S | -heuristic:0 in {Domain}
+-dom-mod:1 | -heuristic:0 in {Domain} && -dom-mod-scc:S in {yes}
+-dom-mod:2 | -heuristic:0 in {Domain} && -dom-mod-hcc:S in {yes}
+-dom-mod:3 | -heuristic:0 in {Domain} && -dom-mod-disj:S in {yes}
+-dom-mod:4 | -heuristic:0 in {Domain} && -dom-mod-opt:S in {yes}
+-dom-mod:5 | -heuristic:0 in {Domain} && -dom-mod-show:S in {yes}
+
+# clasp lookback options:
+-no-lookback:F | -heuristic:0 in {None}
+-forget-on-step:0 | -forget-on-step:S in {yes}
+-strengthen:1 | -strengthen:0 in {local,recursive}
+-contraction:0 | -contraction:S in {no}
+-contraction:1 | -contraction:S in {yes}
+
+# restarts
+-restarts | -no-lookback:F in {no}
+
+-restarts:0 | -restarts in {F,L,x,+}
+-restartsLuby:S | -restarts in {L}
+-restarts:2 | -restarts in {L} && -restartsLuby:S in {yes}
+
+-restartsGeo:S | -restarts in {x}
+-restarts:3 | -restarts in {x}
+-restarts:4 | -restarts in {x} && -restartsGeo:S in {yes}
+
+-restartsAri:S | -restarts in {+}
+-restarts:5 | -restarts in {+}
+-restarts:6 | -restarts in {+} && -restartsAri:S in {yes}
+
+-restarts:1 | -restarts in {D}
+-restartsDyn:S | -restarts in {D}
+-restarts:7 | -restarts in {D}
+-restarts:8 | -restarts in {D}
+
+-counter-restarts | -counter-restarts:S in {yes}
+
+# deletion
+-deletion:0 | -deletion:S in {no}
+-deletion:1 | -deletion:S in {yes}
+-deletion:2 | -deletion:S in {yes}
+-deletion:3 | -deletion:S in {yes}
+-del-init:0 | -deletion:S in {yes}
+-del-init:1 | -deletion:S in {yes}
+-del-init:2 | -deletion:S in {yes}
+-del-max | -deletion:S in {yes}
+-del-estimate | -deletion:S in {yes}
+-del-on-restart | -deletion:S in {yes}
+-del-glue:0 | -deletion:S in {yes}
+-del-glue:1 | -deletion:S in {yes}
+-del-cfl:0 | -deletion:S in {yes}
+-del-cfl:1 | -del-cfl:0 in {F,L,x,+}
+-del-cfl:2 | -del-cfl:0 in {x}
+-del-cfl:3 | -del-cfl:0 in {+}
+-del-cfl:4 | -del-cfl:0 in {x,+}
+-del-grow:0 | -del-grow:S in {no}
+-del-grow:1 | -del-grow:S in {yes}
+-del-grow:2 | -del-grow:S in {yes}
+-del-growSched:S | -del-grow:S in {yes}
+-del-grow:3 | -del-growSched:S in {yes}
+-del-grow:4 | -del-growSched:S in {yes}
+-del-grow:5 | -del-grow:3 in {x}
+-del-grow:6 | -del-grow:3 in {+}
+-del-grow:7 | -del-grow:3 in {x,+}
+{-deletion:S=yes, -del-cfl:0=no, -del-grow:S=no}
+{-deletion:S=no, -del-grow:S=yes}
+{-deletion:S=yes, -no-lookback:F=yes}
+
+# clingo-dl options
+#-propagate-budget | -propagate-root>0
+-add-mutexes:1 | -add-mutexes-cut:S in {yes}
