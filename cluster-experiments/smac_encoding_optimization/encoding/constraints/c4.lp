@@ -1,0 +1,1 @@
+&diff{ 0 - completion(J1) } <= -(T+D) :- assign(J1,M), duration(J1,M,D), release(J1,M,T).

@@ -1,0 +1,1 @@
+&diff{ completion(J2) - completion(J1) } <= -P :- before(J2,J1,M), duration(J1,M,P).
