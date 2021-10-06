@@ -16,6 +16,10 @@ from wrapper.pcs_parse_parameters import pcs_parse_parameters
 __file_dir__ = os.path.abspath(os.path.dirname(__file__))
 
 
+# result.csv semaphore if parallel
+__output_lock = threading.Lock()
+
+
 def main(args):
     if args.parallel == 1:
         run_smac(args, args.seed)
@@ -25,10 +29,6 @@ def main(args):
             p.map(partial(run_smac, args), rng.randint(2**32-1, size=args.parallel))
     else:
         raise argparse.ArgumentTypeError('Minimum parallel is 1')
-
-
-# result.csv semaphore if parallel
-output_lock = threading.Lock()
 
 
 def run_smac(args: any, seed=None):
@@ -51,7 +51,8 @@ def run_smac(args: any, seed=None):
         "test_inst_fn": args.testinstancefile,
         "paramfile": args.param_file,
         "shared_model": True if args.psmac_dirs else False,
-        "input_psmac_dirs": args.psmac_dirs
+        "input_psmac_dirs": args.psmac_dirs,
+        "output_dir": args.smac_output_dir
     })
 
     resultfile = args.output if args.output else os.path.join(scenario.output_dir, 'result.csv')
@@ -82,10 +83,10 @@ def run_smac(args: any, seed=None):
         )
         ac = rh.average_cost(incumbent)
 
-        output_lock.acquire()
+        __output_lock.acquire()
         with open(resultfile, 'a') as f:
             f.write(f'{math.ceil(ac*100)/100};{params}\n')
-        output_lock.release()
+        __output_lock.release()
 
         logging.info(f'Average costs: {ac}')
         if ac < best_cost:
@@ -123,6 +124,7 @@ def parse_arguments():
     parser.add_argument('--wrapper', default=os.path.join(__file_dir__, 'wrapper'), type=str, help='target algorithm wrapper.')
     parser.add_argument('--param-file', default=os.path.join(__file_dir__, 'pcs/clingo_dl_1_1_0.txt'), type=str, help='SMAC3 parameter file.')
     parser.add_argument('--python', default='python', type=str, help='python executable used by the wrapper.')
+    parser.add_argument('--smac-output-dir', default=None, type=str, help='smac output dir (dir must exist).')
     parser.add_argument('--psmac-dirs', default=None, type=str, help='list of pSMACs output directories (enables pSMAC).')
     parser.add_argument('--output', default=None, type=str, help='output csv file.')
     parser.add_argument("-v", "--verbose", help="increase output verbosity.", action="store_true")
@@ -134,9 +136,17 @@ def parse_arguments():
 if __name__ == '__main__':
     args = parse_arguments()
 
-    logging.basicConfig(
-        level=logging.DEBUG if args.verbose else logging.INFO,
-        format='%(asctime)s.%(msecs)03d (%(levelname)s) %(module)s - %(funcName)s: %(message)s'
-        )
+    if args.verbose:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format='%(asctime)s.%(msecs)03d (%(levelname)s) [%(process)d] %(module)s - %(funcName)s: %(message)s'
+            )
+    else:
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s (%(levelname)s) [%(process)d]: %(message)s'
+            )
+
+    logging.info(f'SMAC call: {" ".join(sys.argv)}')
 
     main(args)
