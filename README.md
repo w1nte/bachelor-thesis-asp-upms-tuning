@@ -1,5 +1,5 @@
 # Tuning of Answer-Set-Programming Encoded Scheduling Problems
-This is the repository of my bachelor thesis. This work deals with tuning of parallel machine scheduling with sequence-dependent setup times and release dates. We use *Answer-Set-Programming* (ASP) with the solver [clingo](https://potassco.org/clingo/) to determine a minimal schedule under makespan objective. This repository contains all our approaches to improve the speed for finding an optimal solution.
+This is the repository of my bachelor thesis. This work deals with tuning of *parallel machine scheduling with sequence-dependent setup times and release dates*. We use *Answer-Set-Programming* (ASP) with the solver [clingo](https://potassco.org/clingo/) to determine a minimal schedule under makespan objective. This repository contains all our approaches to enhance parallel machine scheduling with ASP.
 
 ## Repository Structure
 
