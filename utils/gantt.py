@@ -21,7 +21,8 @@ Example usage: clingo any.lp --quiet=1 | gantt -o gantt.png
     ''')
     random.seed(42)
 
-    parser.add_argument('--output', '-o', help='output gantt graph image', type=str, default=None)
+    parser.add_argument('--output', '-o', help='output image file', type=str, default=None)
+    parser.add_argument('--disable-text', help='disables job/release labels', action='store_true', default=False)
 
     args = parser.parse_args()
     if args.output:
@@ -29,7 +30,7 @@ Example usage: clingo any.lp --quiet=1 | gantt -o gantt.png
 
     inp = ''
     for line in sys.stdin:
-        print(line, end='')
+        # print(line, end='')
         inp += line
 
     try:
@@ -47,7 +48,7 @@ Example usage: clingo any.lp --quiet=1 | gantt -o gantt.png
 
     start_positions = calculate_start_positions(machines, firsts, releases, nexts, durations, setups)
 
-    draw_gantt(start_positions, jobs, machines, releases, setups, durations)
+    draw_gantt(start_positions, jobs, machines, releases, setups, durations, args.disable_text)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
@@ -81,12 +82,12 @@ def calculate_start_positions(machines, firsts, releases, nexts, durations, setu
             job = nexts.get(job)
     return jobs
 
-def draw_gantt(start_positions, jobs, machines, releases, setups, durations):
+def draw_gantt(start_positions, jobs, machines, releases, setups, durations, disable_text=False):
     number_of_machines = len(machines)
     fig, ax = plt.subplots()
     max_t = 0
-    bar_height = 100 / (number_of_machines + 1)
-    bar_margin = 100 / (number_of_machines + 4)
+    bar_height = 100 / number_of_machines
+    bar_margin = 10 / number_of_machines
     
     for job in jobs:
         t, job_setup, job_machine = start_positions[job]
@@ -95,20 +96,21 @@ def draw_gantt(start_positions, jobs, machines, releases, setups, durations):
 
         x, w = (t + job_setup, job_duration)
         h = bar_height - bar_margin
-        y = bar_height * job_machine - h / 2
+        y = bar_height * job_machine - bar_height + bar_margin / 2
 
-        ax.broken_barh([(t, job_setup)], (y, h), facecolors=(0.9, 0.9, 0.9),
-                        edgecolors=(0.8, 0.8, 0.8))
-        ax.broken_barh([(x, w)], (y, h), facecolors=(random.random(), 0.8, random.random()),
-                        edgecolors=(0.4, 0.4, 0.4))
-        ax.text(x + w / 2, y + h / 2, '{}'.format(job), horizontalalignment='center',
-                verticalalignment='center', fontsize=7)
-        ax.text(job_release, y - 5, str(job), horizontalalignment='center', verticalalignment='center', fontsize=6)
-        ax.plot([job_release, job_release], [y, y + h], linewidth=1, color=(0, 0, 0))
+        ax.broken_barh([(t, job_setup)], (y, h), facecolors=(0.95, 0.95, 0.95))
+        ax.broken_barh([(x, w)], (y, h), facecolors=(random.random(), 0.8, random.random()))
+        if not disable_text:
+            ax.text(x + w / 2, y + h / 2, '{}'.format(job), horizontalalignment='center',
+                    verticalalignment='center', fontsize=7)
+            ax.text(job_release, y - 5, str(job), horizontalalignment='center', verticalalignment='center', fontsize=6)
+        ax.plot([job_release, job_release], [y, y + h], linewidth=0.25, color=(0.6, 0.6, 0.6))
 
         max_t = max(max_t, x + w)
+        
+    print(number_of_machines)
 
-    ax.set_xlim(0, ceil(max_t * 1.1))
+    ax.set_xlim(0, ceil(max_t * 1.025))
     ax.set_ylim(1, 100)
     ax.set_xlabel('time')
     ax.set_ylabel('machine')
