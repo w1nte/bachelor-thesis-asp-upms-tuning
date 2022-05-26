@@ -50,16 +50,13 @@ The tools belows can be installed with `python -m pip install ./utils`.
 | Utils       | Description                                                                                    |
 |-------------|------------------------------------------------------------------------------------------------|
 | gantt       | creates gantt graphs based on answer sets.                                                     |
-| cbench      | runs multiple clingo commands on an instance list and creates a csv file with the results.     |
-| cbench2csv  | appends clingo results to a csv file.                                                          |
-| cbenchgraph | creates plots based on the prior csv results.                                                  |
 
 Use `--help` (e.g. `gantt --help`) for more information about the usage.
 
 
 ## Local Installation and Usage:
 
-The encodings can be tested locally:
+You can test the encodings locally:
 
 To install the required dependencies with conda, run in the project dir:
 ```shell

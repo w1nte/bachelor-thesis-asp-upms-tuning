@@ -15,9 +15,6 @@ setup(
     description='',
     entry_points={
         'console_scripts': [
-            'cbench=cbench:main',
-            'cbench2csv=cbench2csv:main',
-            'cbenchgraph=cbenchgraph:main',
             'gantt=gantt:main'
         ]
     }
