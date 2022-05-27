@@ -72,7 +72,7 @@ def main():
     upset.add_catplot(value='jobs', kind='box', color='blue')
     upset.plot()
     plt.title("UpSet plot of all feasible instances")
-    save_plot('upset_all_feasible.png')
+    save_plot('upset_all_feasible')
 
 
     # encodings with at least 90% (450) feasible
@@ -133,7 +133,7 @@ def main():
     upset.style_subsets(absent=["baseline"], facecolor="gray", label="Better than baseline")
     upset.plot()
     plt.title("UpSet plot of all optimal instances")
-    save_plot('/upset_best_encodings_against_baseline_optimal.png')
+    save_plot('/upset_best_encodings_against_baseline_optimal')
 
 
 
