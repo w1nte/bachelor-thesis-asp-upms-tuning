@@ -19,7 +19,8 @@ if LATEX_PLOT:
     plt.style.use(['science'])
     plt.rcParams.update({
         "pgf.texsystem": "pdflatex",
-        "figure.figsize": (6, 4)
+        "figure.figsize": (6, 4),
+        "font.size" : 8,
     })
 else:
     plt.style.use('default')
@@ -36,16 +37,16 @@ def main():
         'baseline without heuristics': '00_baseline.lp.evaluation.csv',
         'clingcon': '01_02_clingcon.lp.evaluation.csv',
         'clingo-dl': '03_01_clingodl.lp.evaluation.csv',
-        'clingo-dl with heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'clingo-dl with heuristic and smac-optimization': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
-        'clingo-dl with pure next relation': '05_01_clingodl_next.lp.evaluation.csv',
-        'clingo-dl with slots': '06_01_clingodl_slots.lp.evaluation.csv',
-        'clingo-dl with more constraints': '02_02_clingodl_more_constraints.lp.evaluation.csv',
-        'clingo-dl with more constraints and heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
-        'clingo-dl with clingo optimization': '08_06_clingodl_boundary.lp.evaluation.csv',
-        'clingo-dl with clingo optimization and modified horizon': '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv',
-        'clingo-dl with smac encoding': '11_smac_optimized.lp.evaluation.csv',
-        'clingo-dl with smac encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
+        'clingo-dl\n with heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
+        'clingo-dl\n with heuristic and smac-optimization': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
+        'clingo-dl\n with pure next relation': '05_01_clingodl_next.lp.evaluation.csv',
+        'clingo-dl\n with slots': '06_01_clingodl_slots.lp.evaluation.csv',
+        'clingo-dl\n with more constraints': '02_02_clingodl_more_constraints.lp.evaluation.csv',
+        'clingo-dl\n with more constraints and heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
+        'clingo-dl\n with clingo optimization': '08_06_clingodl_boundary.lp.evaluation.csv',
+        'clingo-dl\n with clingo optimization\n and modified horizon': '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv',
+        'clingo-dl\n with smac encoding': '11_smac_optimized.lp.evaluation.csv',
+        'clingo-dl\n with smac encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
     })
 
 
@@ -61,16 +62,18 @@ def main():
 
     plot_bar('all', 'All Instances', frames, files, index)
 
-
+    
     df = pd.concat([instances, encoding_results], axis=1)
     for i, encoding in enumerate(index):
         df = df.set_index(df[encoding] != ' ', append=(i!=0))
-    upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=600, show_counts=True)
+    plt.clf()
+    upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=600, show_counts=True, element_size=20)
     upset.add_stacked_bars(by="dedication", colors=cm.Pastel1, title="Dedication", elements=10)
     upset.style_subsets(absent=["baseline"], facecolor="gray", label="Better than baseline")
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='blue')
-    upset.plot()
+    fig = plt.figure(figsize=(7, 12))
+    upset.plot(fig=fig)
     plt.title("UpSet plot of all feasible instances")
     save_plot('upset_all_feasible')
 
@@ -81,16 +84,16 @@ def main():
         #'baseline without heuristics': '00_baseline.lp.evaluation.csv',
         #'clingcon': '01_02_clingcon.lp.evaluation.csv',
         'clingo-dl': '03_01_clingodl.lp.evaluation.csv',
-        'clingo-dl with heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'clingo-dl with heuristic and smac-optimization': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
-        'clingo-dl with pure next relation': '05_01_clingodl_next.lp.evaluation.csv',
-        'clingo-dl with slots': '06_01_clingodl_slots.lp.evaluation.csv',
+        'clingo-dl\n with\n heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
+        'clingo-dl\n with\n heuristic and smac-optimization': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
+        'clingo-dl\n with\n pure next relation': '05_01_clingodl_next.lp.evaluation.csv',
+        'clingo-dl\n with\n slots': '06_01_clingodl_slots.lp.evaluation.csv',
         #'clingo-dl with more constraints': '02_02_clingodl_more_constraints.lp.evaluation.csv',
-        'clingo-dl with more constraints and heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
-        'clingo-dl with clingo optimization': '08_06_clingodl_boundary.lp.evaluation.csv',
+        'clingo-dl\n with\n more constraints and heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
+        'clingo-dl\n with\n clingo optimization': '08_06_clingodl_boundary.lp.evaluation.csv',
         #'clingo-dl with clingo optimization and modified horizon': '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv',
-        'clingo-dl with smac encoding': '11_smac_optimized.lp.evaluation.csv',
-        'clingo-dl with smac encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
+        'clingo-dl\n with\n smac encoding': '11_smac_optimized.lp.evaluation.csv',
+        'clingo-dl\n with\n smac encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
     })
     plot_boxplot('boxplot_encodings_min_450_feasible', '/ Makespan (Relative Difference)', frames, files, index)
 
@@ -126,14 +129,16 @@ def main():
     df = pd.concat([instances, encoding_results], axis=1)
     for i, encoding in enumerate(index):
         df = df.set_index(df[encoding] == 'o', append=(i!=0))
-    upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=300, show_counts=True)
+    plt.clf()
+    upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=300, show_counts=True, element_size=None)
     upset.add_stacked_bars(by="dedication", colors=cm.Pastel1, title="Dedication", elements=10)
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='blue')
     upset.style_subsets(absent=["baseline"], facecolor="gray", label="Better than baseline")
-    upset.plot()
+    fig = plt.figure(figsize=(6, 8))
+    upset.plot(fig=fig)
     plt.title("UpSet plot of all optimal instances")
-    save_plot('/upset_best_encodings_against_baseline_optimal')
+    save_plot('upset_best_encodings_against_baseline_optimal')
 
 
 
@@ -237,8 +242,9 @@ def plot_bar(filename, title, dfs, files, index):
     }, index=index)
 
     plt.clf()
-    ax = df.plot.bar()
-    ax.tick_params(axis='x', rotation=45)
+    fig, ax = plt.subplots(figsize=(6, 5))
+    df.plot.bar(ax=ax)
+    ax.tick_params(axis='x', rotation=15)
     plt.title(title)
     plt.xticks(fontsize=5)
     plt.tight_layout()
@@ -259,7 +265,8 @@ def plot_jobs(filename, title, dfs, files, index):
     df = pd.concat([dfs[0]['jobs']] + [df['best_makespan'] for df in dfs] + [df_optimal], axis=1, keys=['jobs'] + list(index) + ['optimal'], join='inner')
 
     plt.clf()
-    ax = df.set_index('jobs').plot(style=['o'] * len(index) + ['xy'], linewidth=1, markersize=2.5)
+    fig, ax = plt.subplots(figsize=(6, 5))
+    df.set_index('jobs').plot(style=['o'] * len(index) + ['xy'], linewidth=1, markersize=2.5, ax=ax)
     plt.title(title)
     plt.legend(fontsize=6)
     plt.tight_layout()
@@ -285,7 +292,8 @@ def plot_boxplot(filename, title, frames, files, index):
     df_relative_difference = df_relative_difference[meds.index]
 
     plt.clf()
-    df_relative_difference.boxplot()
+    fig, ax = plt.subplots(figsize=(6, 5))
+    df_relative_difference.boxplot(ax=ax)
     plt.title(f'{df_relative_difference.shape[0]} Instances ' + title)
     plt.xticks(fontsize=5)
     plt.tight_layout()
