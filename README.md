@@ -54,7 +54,7 @@ This contains scripts to simplify the developing and testing of ASP programs.
 The tools belows can be installed with `python -m pip install ./utils`.
 | Utils       | Description                                                                                    |
 |-------------|------------------------------------------------------------------------------------------------|
-| gantt       | creates gantt graphs based on answer sets.                                                     |
+| gantt       | creates gantt charts based on answer sets.                                                     |
 
 Use `--help` (e.g. `gantt --help`) for more information about the usage.
 
