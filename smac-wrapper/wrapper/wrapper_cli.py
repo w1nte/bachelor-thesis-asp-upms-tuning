@@ -5,8 +5,8 @@ import json
 from dataclasses import dataclass
 from enum import Enum
 from typing import List
-from .pcs_parse_parameters import pcs_parse_parameters
-from .runsolver import runsolver, RunsolverConfiguration
+from pcs_parse_parameters import pcs_parse_parameters
+from runsolver import runsolver, RunsolverConfiguration
 
 
 class SMAC_status(Enum):

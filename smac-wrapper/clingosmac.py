@@ -40,6 +40,10 @@ def run_smac(args: any, seed=None):
     runsolver_binary = args.runsolver_binary
     runsolver_vlimit = args.vlimit
     rng = np.random.RandomState(seed)
+
+    if not os.path.isdir(args.smac_output_dir):
+        os.mkdir(args.smac_output_dir)
+
     scenario = Scenario({
         "algo": f"{python} {wrapper} {encoding} {runsolver_binary} {runsolver_vlimit}",
         "execdir": ".",
@@ -124,7 +128,7 @@ def parse_arguments():
     parser.add_argument('--wrapper', default=os.path.join(__file_dir__, 'wrapper'), type=str, help='target algorithm wrapper.')
     parser.add_argument('--param-file', default=os.path.join(__file_dir__, 'pcs/clingo_dl_1_1_0.txt'), type=str, help='SMAC3 parameter file.')
     parser.add_argument('--python', default='python', type=str, help='python executable used by the wrapper.')
-    parser.add_argument('--smac-output-dir', default=None, type=str, help='smac output dir (dir must exist).')
+    parser.add_argument('--smac-output-dir', default='out', type=str, help='smac output dir (dir must exist).')
     parser.add_argument('--psmac-dirs', default=None, type=str, help='list of pSMACs output directories (enables pSMAC).')
     parser.add_argument('--output', default=None, type=str, help='output csv file.')
     parser.add_argument("-v", "--verbose", help="increase output verbosity.", action="store_true")

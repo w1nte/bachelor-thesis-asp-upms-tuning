@@ -1,5 +1,5 @@
 import sys
-from .wrapper_cli import WrapperCLI
+from wrapper_cli import WrapperCLI
 
 
 if __name__ == '__main__':
