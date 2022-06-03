@@ -1,501 +1,729 @@
-;instance;machines;jobs;dedication;best_encoding_makespan;worst_encoding_makespan;best_encoding;worst_encoding;best_encoding_result
-0;1_3_18_L.lp;3;18;L;1632;3139;baseline;clingcon;OPTIMAL
-1;2_3_24_L.lp;3;24;L;3137;6164;baseline;clingcon;OPTIMAL
-2;3_3_28_L.lp;3;28;L;2721;7071;baseline without heuristics;clingcon;OPTIMAL
-3;4_3_5_L.lp;3;5;L;665;665;baseline;baseline;OPTIMAL
-4;5_3_47_L.lp;3;47;L;4874;15175;baseline;clingcon;FEASIBLE
-5;6_3_32_L.lp;3;32;L;3220;7376;baseline without heuristics;clingcon;OPTIMAL
-6;7_3_10_L.lp;3;10;L;1338;1338;baseline;baseline;OPTIMAL
-7;8_3_28_L.lp;3;28;L;2547;8058;baseline without heuristics;clingcon;FEASIBLE
-8;9_3_18_L.lp;3;18;L;2325;2325;baseline;baseline;OPTIMAL
-9;10_3_20_L.lp;3;20;L;2037;4984;baseline;clingcon;OPTIMAL
-10;11_3_19_L.lp;3;19;L;1990;2997;baseline;clingcon;OPTIMAL
-11;12_3_25_L.lp;3;25;L;2978;6737;baseline;clingo-dl with pure next relation;OPTIMAL
-12;13_3_15_L.lp;3;15;L;1756;1756;baseline;baseline;OPTIMAL
-13;14_3_29_L.lp;3;29;L;2812;5742;baseline;clingcon;OPTIMAL
-14;15_3_32_L.lp;3;32;L;3100;8364;clingo-dl with more constraints;clingcon;OPTIMAL
-15;16_3_45_L.lp;3;45;L;4805;10649;baseline;clingcon;FEASIBLE
-16;17_3_40_L.lp;3;40;L;3719;8516;clingo-dl with smac encoding;clingcon;FEASIBLE
-17;18_3_31_L.lp;3;31;L;3296;5044;baseline without heuristics;clingcon;OPTIMAL
-18;19_3_30_L.lp;3;30;L;3253;7665;baseline;clingo-dl with slots;OPTIMAL
-19;20_3_7_L.lp;3;7;L;850;850;baseline;baseline;OPTIMAL
-20;21_3_9_L.lp;3;9;L;915;915;baseline;baseline;OPTIMAL
-21;22_3_10_L.lp;3;10;L;1077;1077;baseline;baseline;OPTIMAL
-22;23_3_44_L.lp;3;44;L;4780;11623;clingo-dl with heuristic;clingcon;FEASIBLE
-23;24_3_41_L.lp;3;41;L;5120;10936;baseline;clingcon;OPTIMAL
-24;25_3_33_L.lp;3;33;L;3083;8738;baseline;clingcon;FEASIBLE
-25;26_3_29_L.lp;3;29;L;3057;6747;baseline;clingcon;OPTIMAL
-26;27_3_42_L.lp;3;42;L;4217;10943;baseline;clingcon;OPTIMAL
-27;28_3_28_L.lp;3;28;L;2451;6087;baseline;clingcon;OPTIMAL
-28;29_3_34_L.lp;3;34;L;3987;8636;baseline;clingcon;OPTIMAL
-29;30_3_24_L.lp;3;24;L;2025;3839;baseline without heuristics;clingcon;OPTIMAL
-30;31_3_30_L.lp;3;30;L;3022;6540;baseline;clingo-dl with clingo optimization;OPTIMAL
-31;32_3_26_L.lp;3;26;L;2871;5286;clingo-dl;clingo-dl with pure next relation;FEASIBLE
-32;33_3_5_L.lp;3;5;L;677;677;baseline;baseline;OPTIMAL
-33;34_3_12_L.lp;3;12;L;1319;1319;baseline;baseline;OPTIMAL
-34;35_3_44_L.lp;3;44;L;5674;8567;clingo-dl with smac encoding;clingo-dl;FEASIBLE
-35;36_3_44_L.lp;3;44;L;5172;8995;clingo-dl with heuristic;clingcon;FEASIBLE
-36;37_3_31_L.lp;3;31;L;3707;8219;baseline without heuristics;clingcon;OPTIMAL
-37;38_3_44_L.lp;3;44;L;5737;10448;clingo-dl with more constraints and heuristic;clingcon;FEASIBLE
-38;39_3_24_L.lp;3;24;L;2039;5367;baseline;clingcon;OPTIMAL
-39;40_3_28_L.lp;3;28;L;2953;5936;baseline without heuristics;clingo-dl with slots;OPTIMAL
-40;41_3_38_L.lp;3;38;L;4678;10617;clingo-dl with more constraints and heuristic;clingcon;FEASIBLE
-41;42_3_38_L.lp;3;38;L;4446;9218;clingo-dl with smac encoding v2;clingcon;FEASIBLE
-42;43_3_22_L.lp;3;22;L;2366;4783;baseline;clingcon;OPTIMAL
-43;44_3_42_L.lp;3;42;L;4729;9584;clingo-dl with smac encoding v2;clingo-dl with slots;OPTIMAL
-44;45_3_10_L.lp;3;10;L;1280;1281;baseline;clingo-dl with more constraints;OPTIMAL
-45;46_3_37_L.lp;3;37;L;4261;9028;baseline;clingcon;FEASIBLE
-46;47_3_46_L.lp;3;46;L;5060;10283;clingo-dl with smac encoding v2;clingcon;FEASIBLE
-47;48_3_6_L.lp;3;6;L;937;937;baseline;baseline;OPTIMAL
-48;49_3_25_L.lp;3;25;L;3011;5772;baseline;clingo-dl with pure next relation;OPTIMAL
-49;50_3_11_L.lp;3;11;L;1312;1312;baseline;baseline;OPTIMAL
-50;51_3_46_H.lp;3;46;H;12422;16549;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-51;52_3_37_H.lp;3;37;H;8112;12205;clingo-dl with heuristic;clingcon;FEASIBLE
-52;53_3_35_H.lp;3;35;H;8296;10941;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-53;54_3_41_H.lp;3;41;H;8820;12131;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-54;55_3_35_H.lp;3;35;H;6397;9031;clingo-dl;clingcon;FEASIBLE
-55;56_3_33_H.lp;3;33;H;7945;12712;clingo-dl;clingcon;FEASIBLE
-56;57_3_15_H.lp;3;15;H;3804;4350;clingcon;clingo-dl with smac encoding v2;FEASIBLE
-57;58_3_24_H.lp;3;24;H;5990;8130;clingo-dl with heuristic;clingcon;FEASIBLE
-58;59_3_7_H.lp;3;7;H;1161;1161;baseline;baseline;OPTIMAL
-59;60_3_40_H.lp;3;40;H;9781;12751;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-60;61_3_10_H.lp;3;10;H;2774;3091;baseline without heuristics;clingo-dl with smac encoding v2;OPTIMAL
-61;62_3_49_H.lp;3;49;H;10244;14587;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-62;63_3_36_H.lp;3;36;H;8573;11952;baseline without heuristics;clingo-dl with clingo optimization;FEASIBLE
-63;64_3_20_H.lp;3;20;H;5037;5529;clingo-dl with heuristic and smac-optimization;clingcon;FEASIBLE
-64;65_3_22_H.lp;3;22;H;4978;6705;clingo-dl;clingcon;FEASIBLE
-65;66_3_31_H.lp;3;31;H;6299;9166;clingo-dl;clingo-dl with clingo optimization;FEASIBLE
-66;67_3_29_H.lp;3;29;H;6913;9434;clingo-dl;clingcon;FEASIBLE
-67;68_3_48_H.lp;3;48;H;11173;16823;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-68;69_3_38_H.lp;3;38;H;7300;11329;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-69;70_3_28_H.lp;3;28;H;7610;9786;clingo-dl with heuristic;clingcon;FEASIBLE
-70;71_3_21_H.lp;3;21;H;4144;6133;clingo-dl;clingcon;FEASIBLE
-71;72_3_19_H.lp;3;19;H;5158;6420;clingo-dl;clingcon;FEASIBLE
-72;73_3_13_H.lp;3;13;H;3031;4059;baseline without heuristics;clingcon;FEASIBLE
-73;74_3_6_H.lp;3;6;H;1278;1278;baseline;baseline;OPTIMAL
-74;75_3_5_H.lp;3;5;H;1049;1049;baseline;baseline;OPTIMAL
-75;76_3_35_H.lp;3;35;H;7303;9579;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-76;77_3_41_H.lp;3;41;H;10072;13144;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-77;78_3_32_H.lp;3;32;H;8328;10851;clingo-dl;clingo-dl with more constraints;FEASIBLE
-78;79_3_26_H.lp;3;26;H;5652;7744;clingo-dl;clingcon;FEASIBLE
-79;80_3_12_H.lp;3;12;H;2430;3259;clingo-dl with more constraints;clingcon;FEASIBLE
-80;81_3_39_H.lp;3;39;H;9908;13658;clingo-dl;clingo-dl with smac encoding v2;FEASIBLE
-81;82_3_37_H.lp;3;37;H;8657;12132;clingo-dl with heuristic;clingcon;FEASIBLE
-82;83_3_24_H.lp;3;24;H;6621;7633;clingo-dl;clingo-dl with clingo optimization;FEASIBLE
-83;84_3_47_H.lp;3;47;H;11104;16009;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-84;85_3_20_H.lp;3;20;H;3831;5546;clingo-dl;clingcon;FEASIBLE
-85;86_3_26_H.lp;3;26;H;6754;8732;clingo-dl;clingcon;FEASIBLE
-86;87_3_31_H.lp;3;31;H;8511;11951;clingo-dl with heuristic;clingcon;FEASIBLE
-87;88_3_33_H.lp;3;33;H;7477;11008;clingo-dl with heuristic;clingcon;FEASIBLE
-88;89_3_17_H.lp;3;17;H;4826;5462;clingo-dl with slots;clingo-dl with smac encoding v2;FEASIBLE
-89;90_3_34_H.lp;3;34;H;7535;10175;clingo-dl;clingcon;FEASIBLE
-90;91_3_39_H.lp;3;39;H;9529;13540;clingo-dl with heuristic;clingcon;FEASIBLE
-91;92_3_25_H.lp;3;25;H;5050;6588;clingo-dl;clingo-dl with more constraints;FEASIBLE
-92;93_3_18_H.lp;3;18;H;3631;4263;clingo-dl with heuristic;clingo-dl with smac encoding v2;FEASIBLE
-93;94_3_46_H.lp;3;46;H;9344;14596;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-94;95_3_31_H.lp;3;31;H;6133;9217;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-95;96_3_22_H.lp;3;22;H;5850;8454;clingo-dl;clingcon;FEASIBLE
-96;97_3_31_H.lp;3;31;H;6876;9500;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-97;98_3_45_H.lp;3;45;H;9388;14406;clingo-dl with heuristic;clingcon;FEASIBLE
-98;99_3_47_H.lp;3;47;H;11057;15922;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-99;100_3_8_H.lp;3;8;H;2217;2217;baseline;baseline;OPTIMAL
-100;101_5_14_L.lp;5;14;L;831;831;baseline;baseline;OPTIMAL
-101;102_5_49_L.lp;5;49;L;3147;9436;clingo-dl with smac encoding v2;clingcon;FEASIBLE
-102;103_5_45_L.lp;5;45;L;3007;10474;baseline;clingcon;OPTIMAL
-103;104_5_22_L.lp;5;22;L;2013;4561;baseline;clingo-dl with pure next relation;OPTIMAL
-104;105_5_38_L.lp;5;38;L;2502;5880;baseline;clingcon;FEASIBLE
-105;106_5_12_L.lp;5;12;L;835;835;baseline;baseline;OPTIMAL
-106;107_5_10_L.lp;5;10;L;830;830;baseline;baseline;OPTIMAL
-107;108_5_40_L.lp;5;40;L;2470;6117;baseline;clingo-dl with slots;OPTIMAL
-108;109_5_23_L.lp;5;23;L;1945;2592;baseline;clingo-dl with slots;OPTIMAL
-109;110_5_11_L.lp;5;11;L;1045;1045;baseline;baseline;OPTIMAL
-110;111_5_49_L.lp;5;49;L;3277;9926;baseline;clingcon;FEASIBLE
-111;112_5_16_L.lp;5;16;L;1199;1199;baseline;baseline;OPTIMAL
-112;113_5_11_L.lp;5;11;L;800;800;baseline;baseline;OPTIMAL
-113;114_5_30_L.lp;5;30;L;1771;5207;baseline;clingcon;OPTIMAL
-114;115_5_20_L.lp;5;20;L;1116;3672;baseline;clingcon;OPTIMAL
-115;116_5_11_L.lp;5;11;L;944;944;baseline;baseline;OPTIMAL
-116;117_5_43_L.lp;5;43;L;2534;6245;clingo-dl with smac encoding v2;clingcon;OPTIMAL
-117;118_5_27_L.lp;5;27;L;1460;5221;baseline;clingcon;OPTIMAL
-118;119_5_35_L.lp;5;35;L;1934;4425;baseline;clingcon;OPTIMAL
-119;120_5_11_L.lp;5;11;L;793;793;baseline;baseline;OPTIMAL
-120;121_5_37_L.lp;5;37;L;2549;6133;baseline;clingcon;OPTIMAL
-121;122_5_28_L.lp;5;28;L;1944;3461;baseline without heuristics;clingo-dl with pure next relation;OPTIMAL
-122;123_5_46_L.lp;5;46;L;2686;10124;baseline;clingo-dl with clingo optimization;OPTIMAL
-123;124_5_19_L.lp;5;19;L;1169;3953;baseline;clingo-dl with pure next relation;OPTIMAL
-124;125_5_19_L.lp;5;19;L;1431;3391;baseline;clingcon;OPTIMAL
-125;126_5_38_L.lp;5;38;L;2235;7852;baseline;clingcon;OPTIMAL
-126;127_5_31_L.lp;5;31;L;1406;5805;baseline;clingcon;OPTIMAL
-127;128_5_48_L.lp;5;48;L;2814;11840;baseline;clingcon;OPTIMAL
-128;129_5_37_L.lp;5;37;L;3029;5878;clingo-dl with heuristic and smac-optimization;clingcon;FEASIBLE
-129;130_5_38_L.lp;5;38;L;2863;4361;baseline without heuristics;clingcon;OPTIMAL
-130;131_5_24_L.lp;5;24;L;1481;5190;baseline;clingcon;OPTIMAL
-131;132_5_45_L.lp;5;45;L;3074;8123;baseline;clingo-dl with slots;FEASIBLE
-132;133_5_35_L.lp;5;35;L;2343;5067;baseline;clingcon;OPTIMAL
-133;134_5_46_L.lp;5;46;L;2534;7847;clingo-dl with smac encoding;clingcon;FEASIBLE
-134;135_5_36_L.lp;5;36;L;2472;6333;baseline;clingcon;OPTIMAL
-135;136_5_37_L.lp;5;37;L;2525;5275;baseline;clingcon;OPTIMAL
-136;137_5_16_L.lp;5;16;L;1141;1141;baseline;baseline;OPTIMAL
-137;138_5_22_L.lp;5;22;L;1099;4320;baseline;clingcon;OPTIMAL
-138;139_5_35_L.lp;5;35;L;2695;6051;baseline;clingcon;OPTIMAL
-139;140_5_10_L.lp;5;10;L;809;809;baseline;baseline;OPTIMAL
-140;141_5_43_L.lp;5;43;L;3027;8388;clingo-dl with smac encoding;clingcon;FEASIBLE
-141;142_5_38_L.lp;5;38;L;2727;7240;baseline;clingcon;OPTIMAL
-142;143_5_18_L.lp;5;18;L;1072;3908;baseline;clingcon;OPTIMAL
-143;144_5_40_L.lp;5;40;L;2665;7955;baseline;clingo-dl with clingo optimization;OPTIMAL
-144;145_5_29_L.lp;5;29;L;1814;6260;baseline without heuristics;clingcon;OPTIMAL
-145;146_5_35_L.lp;5;35;L;1976;5605;baseline;clingcon;OPTIMAL
-146;147_5_27_L.lp;5;27;L;1364;5610;baseline;clingcon;OPTIMAL
-147;148_5_48_L.lp;5;48;L;3318;7724;baseline;baseline without heuristics;FEASIBLE
-148;149_5_42_L.lp;5;42;L;3127;8668;clingo-dl with smac encoding;clingcon;FEASIBLE
-149;150_5_41_L.lp;5;41;L;2810;10725;baseline;clingcon;OPTIMAL
-150;151_5_49_H.lp;5;49;H;12163;16208;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-151;152_5_16_H.lp;5;16;H;3668;4113;clingo-dl with heuristic and smac-optimization;clingo-dl with smac encoding v2;FEASIBLE
-152;153_5_47_H.lp;5;47;H;10175;13467;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-153;154_5_33_H.lp;5;33;H;8236;10574;clingo-dl;clingo-dl with more constraints;FEASIBLE
-154;155_5_17_H.lp;5;17;H;2794;3316;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-155;156_5_19_H.lp;5;19;H;4285;5580;clingo-dl with heuristic;clingcon;FEASIBLE
-156;157_5_44_H.lp;5;44;H;8315;11077;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-157;158_5_22_H.lp;5;22;H;4411;5048;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-158;159_5_15_H.lp;5;15;H;3815;4105;clingo-dl with slots;baseline without heuristics;FEASIBLE
-159;160_5_36_H.lp;5;36;H;7412;9196;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-160;161_5_24_H.lp;5;24;H;5424;7020;clingo-dl;clingcon;FEASIBLE
-161;162_5_30_H.lp;5;30;H;7338;9835;clingo-dl;clingcon;FEASIBLE
-162;163_5_35_H.lp;5;35;H;7202;9657;clingo-dl with heuristic;clingcon;FEASIBLE
-163;164_5_24_H.lp;5;24;H;6250;7901;clingo-dl;clingcon;FEASIBLE
-164;165_5_10_H.lp;5;10;H;2514;2814;baseline without heuristics;clingo-dl with smac encoding v2;FEASIBLE
-165;166_5_11_H.lp;5;11;H;2528;2638;baseline;clingo-dl with clingo optimization;FEASIBLE
-166;167_5_25_H.lp;5;25;H;5640;7492;clingo-dl with heuristic;clingcon;FEASIBLE
-167;168_5_18_H.lp;5;18;H;3938;4533;clingo-dl with slots;clingo-dl with smac encoding v2;FEASIBLE
-168;169_5_46_H.lp;5;46;H;10682;13020;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-169;170_5_21_H.lp;5;21;H;4394;5794;clingo-dl with heuristic;clingcon;FEASIBLE
-170;171_5_46_H.lp;5;46;H;9876;12741;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-171;172_5_17_H.lp;5;17;H;3613;3979;clingo-dl;clingo-dl with clingo optimization;FEASIBLE
-172;173_5_22_H.lp;5;22;H;4234;5205;clingo-dl;clingo-dl with smac encoding v2;FEASIBLE
-173;174_5_39_H.lp;5;39;H;9302;11670;clingo-dl;clingo-dl with clingo optimization;FEASIBLE
-174;175_5_31_H.lp;5;31;H;7014;9318;clingo-dl with heuristic;clingcon;FEASIBLE
-175;176_5_38_H.lp;5;38;H;8658;11899;clingo-dl with heuristic;clingcon;FEASIBLE
-176;177_5_34_H.lp;5;34;H;6601;8622;clingo-dl;clingo-dl with clingo optimization;FEASIBLE
-177;178_5_10_H.lp;5;10;H;2467;2534;baseline;clingo-dl with clingo optimization;OPTIMAL
-178;179_5_46_H.lp;5;46;H;9787;14702;clingo-dl with heuristic;clingcon;FEASIBLE
-179;180_5_32_H.lp;5;32;H;7084;10436;clingo-dl with heuristic;clingcon;FEASIBLE
-180;181_5_40_H.lp;5;40;H;8242;10913;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-181;182_5_10_H.lp;5;10;H;1605;1635;baseline;clingo-dl with clingo optimization;OPTIMAL
-182;183_5_20_H.lp;5;20;H;3838;4459;clingo-dl;clingo-dl with smac encoding v2;FEASIBLE
-183;184_5_12_H.lp;5;12;H;2307;2788;clingo-dl with heuristic;clingo-dl with smac encoding v2;FEASIBLE
-184;185_5_46_H.lp;5;46;H;10928;14217;clingo-dl with heuristic;clingo-dl with smac encoding v2;FEASIBLE
-185;186_5_40_H.lp;5;40;H;8195;10064;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-186;187_5_42_H.lp;5;42;H;9895;12860;clingo-dl with heuristic;clingcon;FEASIBLE
-187;188_5_16_H.lp;5;16;H;3253;3881;clingo-dl with heuristic;clingcon;FEASIBLE
-188;189_5_18_H.lp;5;18;H;5226;5739;clingo-dl with heuristic;clingo-dl with smac encoding v2;FEASIBLE
-189;190_5_10_H.lp;5;10;H;1863;1956;baseline;clingo-dl with clingo optimization;FEASIBLE
-190;191_5_33_H.lp;5;33;H;6984;8427;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-191;192_5_24_H.lp;5;24;H;6448;7670;clingo-dl;clingo-dl with pure next relation;FEASIBLE
-192;193_5_27_H.lp;5;27;H;4760;6560;clingo-dl with heuristic;clingcon;FEASIBLE
-193;194_5_29_H.lp;5;29;H;5854;7198;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-194;195_5_35_H.lp;5;35;H;7081;9118;clingo-dl with heuristic;clingcon;FEASIBLE
-195;196_5_20_H.lp;5;20;H;5146;6505;clingo-dl;clingcon;FEASIBLE
-196;197_5_44_H.lp;5;44;H;10696;13936;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-197;198_5_23_H.lp;5;23;H;5293;6549;clingo-dl with heuristic;clingcon;FEASIBLE
-198;199_5_47_H.lp;5;47;H;10446;14242;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-199;200_5_32_H.lp;5;32;H;6158;8885;clingo-dl with heuristic;clingcon;FEASIBLE
-200;201_10_59_L.lp;10;59;L;1433;9456;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;OPTIMAL
-201;202_10_155_L.lp;10;155;L;5765;28279;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-202;203_10_118_L.lp;10;118;L;3889;19781;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-203;204_10_130_L.lp;10;130;L;4028;24488;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-204;205_10_58_L.lp;10;58;L;1906;9321;baseline;clingo-dl with slots;OPTIMAL
-205;206_10_171_L.lp;10;171;L;6163;36659;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-206;207_10_91_L.lp;10;91;L;2901;15986;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-207;208_10_102_L.lp;10;102;L;3596;15583;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-208;209_10_71_L.lp;10;71;L;2509;9908;baseline;clingo-dl with slots;FEASIBLE
-209;210_10_96_L.lp;10;96;L;2901;15560;clingo-dl with smac encoding;clingo-dl with clingo optimization;OPTIMAL
-210;211_10_134_L.lp;10;134;L;4101;26149;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-211;212_10_159_L.lp;10;159;L;5235;37626;clingo-dl with smac encoding v2;clingo-dl with slots;OPTIMAL
-212;213_10_131_L.lp;10;131;L;4466;23491;clingo-dl with smac encoding v2;baseline without heuristics;FEASIBLE
-213;214_10_90_L.lp;10;90;L;2886;15928;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-214;215_10_138_L.lp;10;138;L;4416;23418;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-215;216_10_126_L.lp;10;126;L;3834;23503;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-216;217_10_62_L.lp;10;62;L;2008;11489;baseline;clingo-dl with clingo optimization;OPTIMAL
-217;218_10_158_L.lp;10;158;L;6072;28421;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-218;219_10_156_L.lp;10;156;L;5446;28125;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-219;220_10_65_L.lp;10;65;L;2136;10088;baseline;clingo-dl with slots;OPTIMAL
-220;221_10_76_L.lp;10;76;L;2319;12558;baseline;clingo-dl with slots;FEASIBLE
-221;222_10_77_L.lp;10;77;L;2158;12679;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-222;223_10_165_L.lp;10;165;L;6262;31756;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-223;224_10_196_L.lp;10;196;L;8041;38751;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-224;225_10_103_L.lp;10;103;L;3472;16079;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-225;226_10_73_L.lp;10;73;L;1825;11315;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-226;227_10_69_L.lp;10;69;L;2211;10702;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-227;228_10_87_L.lp;10;87;L;3099;15607;baseline;clingo-dl with slots;FEASIBLE
-228;229_10_75_L.lp;10;75;L;2419;10932;baseline;clingo-dl with slots;FEASIBLE
-229;230_10_108_L.lp;10;108;L;3338;17403;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-230;231_10_89_L.lp;10;89;L;2994;14412;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-231;232_10_152_L.lp;10;152;L;5403;27647;clingo-dl with smac encoding;baseline without heuristics;FEASIBLE
-232;233_10_50_L.lp;10;50;L;1614;7815;clingo-dl with smac encoding;clingo-dl with clingo optimization;OPTIMAL
-233;234_10_108_L.lp;10;108;L;3382;16364;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-234;235_10_173_L.lp;10;173;L;6102;30843;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-235;236_10_166_L.lp;10;166;L;5757;30793;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-236;237_10_191_L.lp;10;191;L;7456;37082;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-237;238_10_177_L.lp;10;177;L;6787;35465;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-238;239_10_155_L.lp;10;155;L;5815;28737;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-239;240_10_65_L.lp;10;65;L;1865;11574;clingo-dl with smac encoding v2;clingo-dl with slots;OPTIMAL
-240;241_10_181_L.lp;10;181;L;7040;34207;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-241;242_10_78_L.lp;10;78;L;2346;16360;baseline;clingo-dl with clingo optimization;OPTIMAL
-242;243_10_71_L.lp;10;71;L;2096;12393;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-243;244_10_73_L.lp;10;73;L;2720;11537;clingo-dl with heuristic and smac-optimization;baseline without heuristics;FEASIBLE
-244;245_10_74_L.lp;10;74;L;2444;16256;baseline;clingo-dl with slots;FEASIBLE
-245;246_10_116_L.lp;10;116;L;3721;19669;clingo-dl with smac encoding;baseline without heuristics;FEASIBLE
-246;247_10_178_L.lp;10;178;L;6662;32714;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-247;248_10_69_L.lp;10;69;L;2285;11873;baseline;clingo-dl with slots;OPTIMAL
-248;249_10_180_L.lp;10;180;L;7061;34314;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-249;250_10_193_L.lp;10;193;L;7785;39559;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-250;251_10_177_H.lp;10;177;H;20341;38332;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-251;252_10_192_H.lp;10;192;H;23085;43916;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-252;253_10_183_H.lp;10;183;H;21018;40694;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-253;254_10_100_H.lp;10;100;H;12124;19391;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-254;255_10_118_H.lp;10;118;H;13093;30317;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-255;256_10_188_H.lp;10;188;H;27616;47110;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-256;257_10_103_H.lp;10;103;H;12541;23760;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-257;258_10_53_H.lp;10;53;H;5253;11281;clingo-dl with heuristic;clingo-dl;FEASIBLE
-258;259_10_160_H.lp;10;160;H;22531;36926;clingo-dl with heuristic;clingo-dl;FEASIBLE
-259;260_10_68_H.lp;10;68;H;7078;13611;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-260;261_10_143_H.lp;10;143;H;18720;32798;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-261;262_10_140_H.lp;10;140;H;17273;32657;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-262;263_10_159_H.lp;10;159;H;20600;38148;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-263;264_10_68_H.lp;10;68;H;7262;15168;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-264;265_10_141_H.lp;10;141;H;16216;29730;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-265;266_10_145_H.lp;10;145;H;18049;32912;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-266;267_10_91_H.lp;10;91;H;9715;20235;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-267;268_10_159_H.lp;10;159;H;18890;32274;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-268;269_10_55_H.lp;10;55;H;6707;13468;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-269;270_10_91_H.lp;10;91;H;10346;21425;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-270;271_10_169_H.lp;10;169;H;19076;38088;clingo-dl with heuristic;clingo-dl;FEASIBLE
-271;272_10_110_H.lp;10;110;H;12484;26206;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-272;273_10_144_H.lp;10;144;H;17421;31367;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-273;274_10_128_H.lp;10;128;H;14644;29639;clingo-dl with heuristic;clingo-dl;FEASIBLE
-274;275_10_171_H.lp;10;171;H;20711;40288;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-275;276_10_96_H.lp;10;96;H;9715;21655;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-276;277_10_114_H.lp;10;114;H;11924;24905;clingo-dl with heuristic;clingo-dl;FEASIBLE
-277;278_10_156_H.lp;10;156;H;20241;34097;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-278;279_10_111_H.lp;10;111;H;11457;22662;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-279;280_10_195_H.lp;10;195;H;24507;42537;clingo-dl with heuristic and smac-optimization;clingo-dl with pure next relation;FEASIBLE
-280;281_10_76_H.lp;10;76;H;8564;15679;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-281;282_10_139_H.lp;10;139;H;15518;36234;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-282;283_10_61_H.lp;10;61;H;8124;13760;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-283;284_10_168_H.lp;10;168;H;20190;37982;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-284;285_10_120_H.lp;10;120;H;12332;27614;clingo-dl with heuristic;clingo-dl;FEASIBLE
-285;286_10_87_H.lp;10;87;H;8020;18505;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-286;287_10_80_H.lp;10;80;H;10050;17830;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-287;288_10_118_H.lp;10;118;H;14148;28297;clingo-dl with smac encoding;clingo-dl;FEASIBLE
-288;289_10_53_H.lp;10;53;H;6273;11519;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-289;290_10_60_H.lp;10;60;H;5852;14354;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-290;291_10_191_H.lp;10;191;H;22748;46350;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-291;292_10_166_H.lp;10;166;H;19504;37521;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-292;293_10_124_H.lp;10;124;H;13762;29168;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-293;294_10_166_H.lp;10;166;H;20269;37230;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-294;295_10_104_H.lp;10;104;H;9505;23011;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-295;296_10_130_H.lp;10;130;H;14234;30255;clingo-dl with heuristic;clingo-dl;FEASIBLE
-296;297_10_67_H.lp;10;67;H;7979;13948;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-297;298_10_140_H.lp;10;140;H;15630;30459;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-298;299_10_155_H.lp;10;155;H;17983;31692;clingo-dl with smac encoding;clingo-dl;FEASIBLE
-299;300_10_106_H.lp;10;106;H;11623;25063;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-300;301_15_137_L.lp;15;137;L;2854;26756;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-301;302_15_190_L.lp;15;190;L;4127;35241;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-302;303_15_170_L.lp;15;170;L;3947;30087;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-303;304_15_136_L.lp;15;136;L;3008;23494;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-304;305_15_135_L.lp;15;135;L;3085;22813;clingo-dl with heuristic;clingo-dl with more constraints;FEASIBLE
-305;306_15_141_L.lp;15;141;L;3077;25624;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-306;307_15_151_L.lp;15;151;L;3650;27064;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-307;308_15_140_L.lp;15;140;L;3193;24532;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-308;309_15_198_L.lp;15;198;L;4489;33992;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-309;310_15_195_L.lp;15;195;L;4903;37613;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-310;311_15_134_L.lp;15;134;L;2916;22911;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-311;312_15_110_L.lp;15;110;L;2711;18897;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-312;313_15_138_L.lp;15;138;L;3105;23389;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-313;314_15_188_L.lp;15;188;L;3918;35334;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-314;315_15_159_L.lp;15;159;L;3525;26415;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-315;316_15_140_L.lp;15;140;L;3078;20772;clingo-dl with heuristic;clingo-dl with slots;OPTIMAL
-316;317_15_177_L.lp;15;177;L;4278;28564;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-317;318_15_124_L.lp;15;124;L;2497;20563;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-318;319_15_184_L.lp;15;184;L;4162;35544;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-319;320_15_184_L.lp;15;184;L;4070;34911;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-320;321_15_145_L.lp;15;145;L;3131;25675;clingo-dl with smac encoding;clingo-dl;FEASIBLE
-321;322_15_124_L.lp;15;124;L;2692;21994;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-322;323_15_129_L.lp;15;129;L;2822;25248;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-323;324_15_139_L.lp;15;139;L;3003;24131;clingo-dl with heuristic;clingo-dl with slots;OPTIMAL
-324;325_15_177_L.lp;15;177;L;3892;29394;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-325;326_15_110_L.lp;15;110;L;2562;18445;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-326;327_15_161_L.lp;15;161;L;3532;28106;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-327;328_15_105_L.lp;15;105;L;2353;18551;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-328;329_15_119_L.lp;15;119;L;2779;20624;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-329;330_15_102_L.lp;15;102;L;2350;17278;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-330;331_15_191_L.lp;15;191;L;4385;35232;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-331;332_15_166_L.lp;15;166;L;3313;26239;clingo-dl with smac encoding v2;clingo-dl with more constraints;FEASIBLE
-332;333_15_135_L.lp;15;135;L;3013;22278;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-333;334_15_124_L.lp;15;124;L;2597;24570;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-334;335_15_198_L.lp;15;198;L;4269;37164;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-335;336_15_156_L.lp;15;156;L;3413;27530;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-336;337_15_143_L.lp;15;143;L;3091;26279;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-337;338_15_111_L.lp;15;111;L;2600;18983;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-338;339_15_114_L.lp;15;114;L;2065;17268;clingo-dl with smac encoding v2;baseline without heuristics;OPTIMAL
-339;340_15_185_L.lp;15;185;L;3909;31827;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-340;341_15_125_L.lp;15;125;L;3023;18957;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-341;342_15_119_L.lp;15;119;L;2698;17735;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-342;343_15_167_L.lp;15;167;L;3940;32564;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-343;344_15_120_L.lp;15;120;L;2842;21959;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-344;345_15_172_L.lp;15;172;L;4455;31795;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-345;346_15_132_L.lp;15;132;L;2794;20499;clingo-dl with smac encoding;clingo-dl with more constraints;FEASIBLE
-346;347_15_116_L.lp;15;116;L;3034;20508;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-347;348_15_128_L.lp;15;128;L;3113;23939;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-348;349_15_137_L.lp;15;137;L;2919;23831;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-349;350_15_123_L.lp;15;123;L;2418;20168;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-350;351_15_137_H.lp;15;137;H;9275;39315;clingo-dl with smac encoding;clingcon;FEASIBLE
-351;352_15_100_H.lp;15;100;H;5669;18286;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-352;353_15_191_H.lp;15;191;H;12872;41536;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-353;354_15_144_H.lp;15;144;H;9279;22081;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-354;355_15_184_H.lp;15;184;H;14229;28588;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-355;356_15_122_H.lp;15;122;H;7561;23843;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-356;357_15_146_H.lp;15;146;H;11175;30343;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-357;358_15_105_H.lp;15;105;H;6108;17902;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-358;359_15_106_H.lp;15;106;H;7799;21222;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-359;360_15_113_H.lp;15;113;H;7701;21216;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-360;361_15_106_H.lp;15;106;H;7824;22921;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-361;362_15_151_H.lp;15;151;H;12018;32181;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-362;363_15_115_H.lp;15;115;H;7561;24369;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-363;364_15_101_H.lp;15;101;H;6319;20002;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-364;365_15_192_H.lp;15;192;H;15288;39624;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-365;366_15_161_H.lp;15;161;H;11854;28387;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-366;367_15_141_H.lp;15;141;H;9163;27311;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-367;368_15_129_H.lp;15;129;H;8696;20523;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-368;369_15_103_H.lp;15;103;H;6162;17205;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-369;370_15_158_H.lp;15;158;H;13448;34312;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-370;371_15_139_H.lp;15;139;H;10667;28304;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-371;372_15_141_H.lp;15;141;H;10210;22699;clingo-dl with more constraints and heuristic;clingo-dl with more constraints;FEASIBLE
-372;373_15_159_H.lp;15;159;H;12180;34641;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-373;374_15_159_H.lp;15;159;H;11344;31442;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-374;375_15_130_H.lp;15;130;H;10075;21721;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-375;376_15_127_H.lp;15;127;H;7860;18820;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-376;377_15_180_H.lp;15;180;H;14222;36141;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-377;378_15_112_H.lp;15;112;H;7565;21555;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-378;379_15_139_H.lp;15;139;H;9563;27683;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-379;380_15_120_H.lp;15;120;H;8049;22681;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-380;381_15_166_H.lp;15;166;H;11392;31967;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-381;382_15_198_H.lp;15;198;H;14829;39569;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-382;383_15_166_H.lp;15;166;H;12285;33422;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-383;384_15_113_H.lp;15;113;H;6798;21911;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-384;385_15_115_H.lp;15;115;H;6466;24682;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-385;386_15_126_H.lp;15;126;H;9224;23314;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-386;387_15_198_H.lp;15;198;H;14381;42279;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-387;388_15_144_H.lp;15;144;H;10309;25654;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-388;389_15_195_H.lp;15;195;H;15618;30991;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-389;390_15_162_H.lp;15;162;H;10792;31998;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-390;391_15_155_H.lp;15;155;H;11022;31350;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-391;392_15_104_H.lp;15;104;H;6350;20285;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-392;393_15_138_H.lp;15;138;H;9343;19772;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-393;394_15_190_H.lp;15;190;H;15015;44057;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-394;395_15_186_H.lp;15;186;H;12482;41587;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-395;396_15_199_H.lp;15;199;H;14681;39322;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-396;397_15_132_H.lp;15;132;H;8818;25803;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-397;398_15_156_H.lp;15;156;H;10728;34519;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-398;399_15_196_H.lp;15;196;H;13719;40484;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-399;400_15_143_H.lp;15;143;H;11031;30823;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-400;401_20_162_L.lp;20;162;L;2505;29690;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-401;402_20_170_L.lp;20;170;L;2629;30698;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-402;403_20_177_L.lp;20;177;L;3000;28817;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-403;404_20_163_L.lp;20;163;L;2420;28055;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-404;405_20_164_L.lp;20;164;L;2589;31575;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-405;406_20_171_L.lp;20;171;L;3028;32646;clingo-dl with smac encoding v2;clingo-dl with slots;OPTIMAL
-406;407_20_163_L.lp;20;163;L;2675;29136;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-407;408_20_177_L.lp;20;177;L;3007;32679;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-408;409_20_158_L.lp;20;158;L;2983;29942;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-409;410_20_170_L.lp;20;170;L;2951;26080;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-410;411_20_161_L.lp;20;161;L;3027;24461;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-411;412_20_172_L.lp;20;172;L;2783;27998;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-412;413_20_182_L.lp;20;182;L;2865;31442;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-413;414_20_189_L.lp;20;189;L;3012;36895;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-414;415_20_192_L.lp;20;192;L;2699;31714;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-415;416_20_166_L.lp;20;166;L;2904;27795;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-416;417_20_161_L.lp;20;161;L;3344;32828;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-417;418_20_187_L.lp;20;187;L;3123;35145;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-418;419_20_167_L.lp;20;167;L;3110;28949;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-419;420_20_153_L.lp;20;153;L;2279;24079;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-420;421_20_162_L.lp;20;162;L;2919;29151;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-421;422_20_199_L.lp;20;199;L;3431;39636;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-422;423_20_172_L.lp;20;172;L;2696;27663;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-423;424_20_186_L.lp;20;186;L;3257;33507;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-424;425_20_198_L.lp;20;198;L;3409;37157;clingo-dl with smac encoding;clingo-dl with clingo optimization;FEASIBLE
-425;426_20_170_L.lp;20;170;L;2890;33217;clingo-dl with smac encoding;clingo-dl with slots;OPTIMAL
-426;427_20_175_L.lp;20;175;L;2971;30802;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-427;428_20_156_L.lp;20;156;L;2700;26560;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-428;429_20_156_L.lp;20;156;L;2349;25105;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-429;430_20_174_L.lp;20;174;L;2902;33250;clingo-dl with smac encoding v2;clingo-dl with clingo optimization;FEASIBLE
-430;431_20_176_L.lp;20;176;L;3207;32001;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-431;432_20_159_L.lp;20;159;L;2808;29931;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-432;433_20_157_L.lp;20;157;L;2547;27534;clingo-dl with heuristic;clingo-dl with slots;OPTIMAL
-433;434_20_193_L.lp;20;193;L;3654;30540;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-434;435_20_182_L.lp;20;182;L;2902;32816;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-435;436_20_193_L.lp;20;193;L;3011;32812;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-436;437_20_153_L.lp;20;153;L;2123;24073;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-437;438_20_152_L.lp;20;152;L;1974;24635;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-438;439_20_176_L.lp;20;176;L;3106;36042;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-439;440_20_194_L.lp;20;194;L;3374;36607;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-440;441_20_184_L.lp;20;184;L;3321;34326;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-441;442_20_155_L.lp;20;155;L;2593;30539;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-442;443_20_195_L.lp;20;195;L;3314;37821;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-443;444_20_166_L.lp;20;166;L;2883;28585;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-444;445_20_173_L.lp;20;173;L;2942;30661;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-445;446_20_168_L.lp;20;168;L;2921;32411;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-446;447_20_166_L.lp;20;166;L;3129;30748;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-447;448_20_193_L.lp;20;193;L;3024;30587;clingo-dl with smac encoding v2;clingo-dl with slots;OPTIMAL
-448;449_20_184_L.lp;20;184;L;3077;37128;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-449;450_20_197_L.lp;20;197;L;3036;35787;clingo-dl with smac encoding v2;clingo-dl with slots;FEASIBLE
-450;451_20_190_H.lp;20;190;H;9334;29563;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-451;452_20_199_H.lp;20;199;H;10225;39426;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-452;453_20_186_H.lp;20;186;H;11606;27893;clingo-dl with heuristic;clingo-dl with pure next relation;FEASIBLE
-453;454_20_159_H.lp;20;159;H;8641;25214;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-454;455_20_156_H.lp;20;156;H;8046;30764;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-455;456_20_171_H.lp;20;171;H;9697;29920;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-456;457_20_185_H.lp;20;185;H;10301;37510;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-457;458_20_174_H.lp;20;174;H;8937;30081;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-458;459_20_195_H.lp;20;195;H;10707;38051;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-459;460_20_169_H.lp;20;169;H;9114;26018;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-460;461_20_198_H.lp;20;198;H;11175;38921;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-461;462_20_197_H.lp;20;197;H;10688;42708;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-462;463_20_151_H.lp;20;151;H;8276;30288;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-463;464_20_181_H.lp;20;181;H;10027;33162;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-464;465_20_172_H.lp;20;172;H;10072;31961;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-465;466_20_177_H.lp;20;177;H;8752;33544;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-466;467_20_157_H.lp;20;157;H;8151;30532;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-467;468_20_166_H.lp;20;166;H;10198;29859;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-468;469_20_166_H.lp;20;166;H;7612;31704;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-469;470_20_197_H.lp;20;197;H;10043;41036;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-470;471_20_169_H.lp;20;169;H;8281;29672;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-471;472_20_156_H.lp;20;156;H;7618;30022;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-472;473_20_157_H.lp;20;157;H;8796;26893;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-473;474_20_168_H.lp;20;168;H;10830;32753;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-474;475_20_170_H.lp;20;170;H;10351;34309;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-475;476_20_199_H.lp;20;199;H;10926;39064;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-476;477_20_168_H.lp;20;168;H;10739;30098;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-477;478_20_192_H.lp;20;192;H;9339;35929;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-478;479_20_166_H.lp;20;166;H;7581;30921;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-479;480_20_159_H.lp;20;159;H;7972;29745;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-480;481_20_174_H.lp;20;174;H;8010;23480;clingo-dl with smac encoding;baseline without heuristics;FEASIBLE
-481;482_20_160_H.lp;20;160;H;8956;30502;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-482;483_20_168_H.lp;20;168;H;7957;26942;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-483;484_20_180_H.lp;20;180;H;9420;38071;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-484;485_20_159_H.lp;20;159;H;8129;32741;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-485;486_20_166_H.lp;20;166;H;9991;28147;clingo-dl with heuristic;clingo-dl with clingo optimization;FEASIBLE
-486;487_20_184_H.lp;20;184;H;8905;32807;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-487;488_20_153_H.lp;20;153;H;7075;24468;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-488;489_20_166_H.lp;20;166;H;7674;22040;clingo-dl with smac encoding;baseline without heuristics;FEASIBLE
-489;490_20_197_H.lp;20;197;H;9845;25610;clingo-dl with heuristic;baseline without heuristics;FEASIBLE
-490;491_20_199_H.lp;20;199;H;10037;43167;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-491;492_20_162_H.lp;20;162;H;10892;30623;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-492;493_20_197_H.lp;20;197;H;10202;42983;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-493;494_20_159_H.lp;20;159;H;7388;26700;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-494;495_20_179_H.lp;20;179;H;10667;35453;clingo-dl with smac encoding;clingo-dl with pure next relation;FEASIBLE
-495;496_20_151_H.lp;20;151;H;9208;32212;clingo-dl with heuristic and smac-optimization;clingo-dl with slots;FEASIBLE
-496;497_20_164_H.lp;20;164;H;8015;36439;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-497;498_20_180_H.lp;20;180;H;10075;35715;clingo-dl with heuristic;clingo-dl with slots;FEASIBLE
-498;499_20_196_H.lp;20;196;H;10408;39415;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
-499;500_20_155_H.lp;20;155;H;7928;28424;clingo-dl with smac encoding;clingo-dl with slots;FEASIBLE
+;instance;best makespan;worst makespan;best encodings;worst encodings;best result
+0;1_3_18_L.lp;1632;3139;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Constraints' 'Constraints + Heuristic' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+1;2_3_24_L.lp;3137;6164;"['Baseline' 'Baseline without Heuristic' 'Heuristic' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary with Horizon' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+2;3_3_28_L.lp;2721;7071;['Baseline without Heuristic' 'Constraints'];['Clingcon'];OPTIMAL
+3;4_3_5_L.lp;665;665;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+4;5_3_47_L.lp;4874;15175;['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'];['Clingcon'];FEASIBLE
+5;6_3_32_L.lp;3220;7376;['Baseline without Heuristic' 'Encoding Tuning' 'Encoding Tuning v2'];['Clingcon'];OPTIMAL
+6;7_3_10_L.lp;1338;1338;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+7;8_3_28_L.lp;2547;8058;['Baseline without Heuristic' 'Constraints'];['Clingcon'];FEASIBLE
+8;9_3_18_L.lp;2325;2325;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+9;10_3_20_L.lp;2037;4984;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Constraints' 'Constraints + Heuristic'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+10;11_3_19_L.lp;1990;2997;"['Baseline' 'Baseline without Heuristic' 'Heuristic' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary with Horizon' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+11;12_3_25_L.lp;2978;6737;"['Baseline' 'Constraints' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Next'];OPTIMAL
+12;13_3_15_L.lp;1756;1756;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+13;14_3_29_L.lp;2812;5742;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Constraints' 'Constraints + Heuristic'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+14;15_3_32_L.lp;3100;8364;['Constraints'];['Clingcon'];OPTIMAL
+15;16_3_45_L.lp;4805;10649;['Baseline' 'Heuristic' 'Constraints + Heuristic' 'Encoding Tuning'];['Clingcon'];FEASIBLE
+16;17_3_40_L.lp;3719;8516;['Encoding Tuning'];['Clingcon'];FEASIBLE
+17;18_3_31_L.lp;3296;5044;['Baseline without Heuristic' 'Heuristic + Parameter Tuning' 'Constraints'];['Clingcon'];OPTIMAL
+18;19_3_30_L.lp;3253;7665;"['Baseline' 'Baseline without Heuristic' 'Constraints + Heuristic'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Slots'];OPTIMAL
+19;20_3_7_L.lp;850;850;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+20;21_3_9_L.lp;915;915;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+21;22_3_10_L.lp;1077;1077;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+22;23_3_44_L.lp;4780;11623;['Heuristic'];['Clingcon'];FEASIBLE
+23;24_3_41_L.lp;5120;10936;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+24;25_3_33_L.lp;3083;8738;['Baseline' 'Constraints + Heuristic'];['Clingcon'];FEASIBLE
+25;26_3_29_L.lp;3057;6747;"['Baseline' 'Constraints' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+26;27_3_42_L.lp;4217;10943;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+27;28_3_28_L.lp;2451;6087;"['Baseline' 'Constraints' 'Constraints + Heuristic'
+ 'Boundary with Horizon' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+28;29_3_34_L.lp;3987;8636;['Baseline' 'Encoding Tuning' 'Encoding Tuning v2'];['Clingcon'];OPTIMAL
+29;30_3_24_L.lp;2025;3839;['Baseline without Heuristic' 'Constraints'];['Clingcon'];OPTIMAL
+30;31_3_30_L.lp;3022;6540;['Baseline' 'Encoding Tuning' 'Encoding Tuning v2'];['Boundary'];OPTIMAL
+31;32_3_26_L.lp;2871;5286;['Clingo-dl' 'Heuristic'];['Next'];FEASIBLE
+32;33_3_5_L.lp;677;677;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+33;34_3_12_L.lp;1319;1319;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+34;35_3_44_L.lp;5674;8567;['Encoding Tuning'];['Clingo-dl'];FEASIBLE
+35;36_3_44_L.lp;5172;8995;['Heuristic' 'Encoding Tuning'];['Clingcon'];FEASIBLE
+36;37_3_31_L.lp;3707;8219;['Baseline without Heuristic'];['Clingcon'];OPTIMAL
+37;38_3_44_L.lp;5737;10448;['Constraints + Heuristic' 'Encoding Tuning'];['Clingcon'];FEASIBLE
+38;39_3_24_L.lp;2039;5367;"['Baseline' 'Baseline without Heuristic' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+39;40_3_28_L.lp;2953;5936;['Baseline without Heuristic' 'Constraints'];['Slots'];OPTIMAL
+40;41_3_38_L.lp;4678;10617;['Constraints + Heuristic'];['Clingcon'];FEASIBLE
+41;42_3_38_L.lp;4446;9218;['Encoding Tuning v2'];['Clingcon'];FEASIBLE
+42;43_3_22_L.lp;2366;4783;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+43;44_3_42_L.lp;4729;9584;['Encoding Tuning v2'];['Slots'];OPTIMAL
+44;45_3_10_L.lp;1280;1281;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Boundary'
+ 'Boundary with Horizon']";"['Constraints' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";OPTIMAL
+45;46_3_37_L.lp;4261;9028;['Baseline' 'Heuristic'];['Clingcon'];FEASIBLE
+46;47_3_46_L.lp;5060;10283;['Encoding Tuning v2'];['Clingcon'];FEASIBLE
+47;48_3_6_L.lp;937;937;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+48;49_3_25_L.lp;3011;5772;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Next'];OPTIMAL
+49;50_3_11_L.lp;1312;1312;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+50;51_3_46_H.lp;12422;16549;['Heuristic'];['Constraints'];FEASIBLE
+51;52_3_37_H.lp;8112;12205;['Heuristic'];['Clingcon'];FEASIBLE
+52;53_3_35_H.lp;8296;10941;['Heuristic'];['Next'];FEASIBLE
+53;54_3_41_H.lp;8820;12131;['Heuristic'];['Constraints'];FEASIBLE
+54;55_3_35_H.lp;6397;9031;['Clingo-dl'];['Clingcon'];FEASIBLE
+55;56_3_33_H.lp;7945;12712;['Clingo-dl'];['Clingcon'];FEASIBLE
+56;57_3_15_H.lp;3804;4350;['Clingcon'];['Encoding Tuning v2'];FEASIBLE
+57;58_3_24_H.lp;5990;8130;['Heuristic'];['Clingcon'];FEASIBLE
+58;59_3_7_H.lp;1161;1161;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+59;60_3_40_H.lp;9781;12751;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+60;61_3_10_H.lp;2774;3091;"['Baseline without Heuristic' 'Clingcon' 'Clingo-dl' 'Next' 'Slots'
+ 'Constraints']";['Encoding Tuning v2'];OPTIMAL
+61;62_3_49_H.lp;10244;14587;['Heuristic'];['Constraints'];FEASIBLE
+62;63_3_36_H.lp;8573;11952;['Baseline without Heuristic'];['Boundary'];FEASIBLE
+63;64_3_20_H.lp;5037;5529;['Heuristic + Parameter Tuning'];['Clingcon'];FEASIBLE
+64;65_3_22_H.lp;4978;6705;['Clingo-dl'];['Clingcon'];FEASIBLE
+65;66_3_31_H.lp;6299;9166;['Clingo-dl'];['Boundary'];FEASIBLE
+66;67_3_29_H.lp;6913;9434;['Clingo-dl'];['Clingcon'];FEASIBLE
+67;68_3_48_H.lp;11173;16823;['Heuristic'];['Constraints'];FEASIBLE
+68;69_3_38_H.lp;7300;11329;['Heuristic'];['Boundary'];FEASIBLE
+69;70_3_28_H.lp;7610;9786;['Heuristic'];['Clingcon'];FEASIBLE
+70;71_3_21_H.lp;4144;6133;['Clingo-dl' 'Heuristic'];['Clingcon'];FEASIBLE
+71;72_3_19_H.lp;5158;6420;['Clingo-dl'];['Clingcon'];FEASIBLE
+72;73_3_13_H.lp;3031;4059;['Baseline without Heuristic'];['Clingcon'];FEASIBLE
+73;74_3_6_H.lp;1278;1278;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+74;75_3_5_H.lp;1049;1049;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+75;76_3_35_H.lp;7303;9579;['Heuristic'];['Slots'];FEASIBLE
+76;77_3_41_H.lp;10072;13144;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+77;78_3_32_H.lp;8328;10851;['Clingo-dl'];['Constraints'];FEASIBLE
+78;79_3_26_H.lp;5652;7744;['Clingo-dl'];['Clingcon'];FEASIBLE
+79;80_3_12_H.lp;2430;3259;['Constraints'];['Clingcon'];FEASIBLE
+80;81_3_39_H.lp;9908;13658;['Clingo-dl'];['Encoding Tuning v2'];FEASIBLE
+81;82_3_37_H.lp;8657;12132;['Heuristic'];['Clingcon'];FEASIBLE
+82;83_3_24_H.lp;6621;7633;['Clingo-dl'];['Boundary'];FEASIBLE
+83;84_3_47_H.lp;11104;16009;['Heuristic'];['Boundary'];FEASIBLE
+84;85_3_20_H.lp;3831;5546;['Clingo-dl'];['Clingcon'];FEASIBLE
+85;86_3_26_H.lp;6754;8732;['Clingo-dl'];['Clingcon'];FEASIBLE
+86;87_3_31_H.lp;8511;11951;['Heuristic'];['Clingcon'];FEASIBLE
+87;88_3_33_H.lp;7477;11008;['Heuristic'];['Clingcon'];FEASIBLE
+88;89_3_17_H.lp;4826;5462;['Slots'];['Encoding Tuning v2'];FEASIBLE
+89;90_3_34_H.lp;7535;10175;['Clingo-dl'];['Clingcon'];FEASIBLE
+90;91_3_39_H.lp;9529;13540;['Heuristic'];['Clingcon'];FEASIBLE
+91;92_3_25_H.lp;5050;6588;['Clingo-dl'];['Constraints'];FEASIBLE
+92;93_3_18_H.lp;3631;4263;['Heuristic'];['Encoding Tuning v2'];FEASIBLE
+93;94_3_46_H.lp;9344;14596;['Heuristic'];['Boundary'];FEASIBLE
+94;95_3_31_H.lp;6133;9217;['Heuristic'];['Boundary'];FEASIBLE
+95;96_3_22_H.lp;5850;8454;['Clingo-dl'];['Clingcon'];FEASIBLE
+96;97_3_31_H.lp;6876;9500;['Heuristic'];['Boundary'];FEASIBLE
+97;98_3_45_H.lp;9388;14406;['Heuristic'];['Clingcon'];FEASIBLE
+98;99_3_47_H.lp;11057;15922;['Heuristic'];['Constraints'];FEASIBLE
+99;100_3_8_H.lp;2217;2217;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+100;101_5_14_L.lp;831;831;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+101;102_5_49_L.lp;3147;9436;['Encoding Tuning v2'];['Clingcon'];FEASIBLE
+102;103_5_45_L.lp;3007;10474;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+103;104_5_22_L.lp;2013;4561;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Next'];OPTIMAL
+104;105_5_38_L.lp;2502;5880;['Baseline' 'Heuristic'];['Clingcon'];FEASIBLE
+105;106_5_12_L.lp;835;835;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+106;107_5_10_L.lp;830;830;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+107;108_5_40_L.lp;2470;6117;"['Baseline' 'Constraints' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+108;109_5_23_L.lp;1945;2592;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic' 'Next'
+ 'Constraints' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+109;110_5_11_L.lp;1045;1045;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+110;111_5_49_L.lp;3277;9926;['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'];['Clingcon'];FEASIBLE
+111;112_5_16_L.lp;1199;1199;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+112;113_5_11_L.lp;800;800;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+113;114_5_30_L.lp;1771;5207;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+114;115_5_20_L.lp;1116;3672;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Constraints' 'Constraints + Heuristic'
+ 'Boundary with Horizon' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+115;116_5_11_L.lp;944;944;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+116;117_5_43_L.lp;2534;6245;['Encoding Tuning v2'];['Clingcon'];OPTIMAL
+117;118_5_27_L.lp;1460;5221;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+118;119_5_35_L.lp;1934;4425;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+119;120_5_11_L.lp;793;793;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+120;121_5_37_L.lp;2549;6133;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+121;122_5_28_L.lp;1944;3461;['Baseline without Heuristic' 'Constraints'];['Next'];OPTIMAL
+122;123_5_46_L.lp;2686;10124;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+123;124_5_19_L.lp;1169;3953;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Boundary'
+ 'Boundary with Horizon']";['Next'];OPTIMAL
+124;125_5_19_L.lp;1431;3391;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+125;126_5_38_L.lp;2235;7852;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+126;127_5_31_L.lp;1406;5805;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+127;128_5_48_L.lp;2814;11840;"['Baseline' 'Heuristic + Parameter Tuning' 'Constraints + Heuristic'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+128;129_5_37_L.lp;3029;5878;['Heuristic + Parameter Tuning'];['Clingcon'];FEASIBLE
+129;130_5_38_L.lp;2863;4361;['Baseline without Heuristic' 'Constraints' 'Encoding Tuning'];['Clingcon'];OPTIMAL
+130;131_5_24_L.lp;1481;5190;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+131;132_5_45_L.lp;3074;8123;['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+132;133_5_35_L.lp;2343;5067;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+133;134_5_46_L.lp;2534;7847;['Encoding Tuning'];['Clingcon'];FEASIBLE
+134;135_5_36_L.lp;2472;6333;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+135;136_5_37_L.lp;2525;5275;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+136;137_5_16_L.lp;1141;1141;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+137;138_5_22_L.lp;1099;4320;"['Baseline' 'Baseline without Heuristic' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+138;139_5_35_L.lp;2695;6051;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+139;140_5_10_L.lp;809;809;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";OPTIMAL
+140;141_5_43_L.lp;3027;8388;['Encoding Tuning'];['Clingcon'];FEASIBLE
+141;142_5_38_L.lp;2727;7240;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+142;143_5_18_L.lp;1072;3908;"['Baseline' 'Baseline without Heuristic' 'Clingo-dl' 'Heuristic'
+ 'Heuristic + Parameter Tuning' 'Next' 'Constraints'
+ 'Constraints + Heuristic' 'Boundary' 'Boundary with Horizon'
+ 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+143;144_5_40_L.lp;2665;7955;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+144;145_5_29_L.lp;1814;6260;['Baseline without Heuristic' 'Constraints'];['Clingcon'];OPTIMAL
+145;146_5_35_L.lp;1976;5605;"['Baseline' 'Constraints' 'Constraints + Heuristic'
+ 'Boundary with Horizon' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+146;147_5_27_L.lp;1364;5610;"['Baseline' 'Baseline without Heuristic' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+147;148_5_48_L.lp;3318;7724;['Baseline' 'Heuristic'];['Baseline without Heuristic'];FEASIBLE
+148;149_5_42_L.lp;3127;8668;['Encoding Tuning'];['Clingcon'];FEASIBLE
+149;150_5_41_L.lp;2810;10725;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Clingcon'];OPTIMAL
+150;151_5_49_H.lp;12163;16208;['Heuristic'];['Constraints'];FEASIBLE
+151;152_5_16_H.lp;3668;4113;['Heuristic + Parameter Tuning'];['Encoding Tuning v2'];FEASIBLE
+152;153_5_47_H.lp;10175;13467;['Heuristic'];['Constraints'];FEASIBLE
+153;154_5_33_H.lp;8236;10574;['Clingo-dl'];['Constraints'];FEASIBLE
+154;155_5_17_H.lp;2794;3316;['Heuristic'];['Boundary'];FEASIBLE
+155;156_5_19_H.lp;4285;5580;['Heuristic'];['Clingcon'];FEASIBLE
+156;157_5_44_H.lp;8315;11077;['Heuristic'];['Slots'];FEASIBLE
+157;158_5_22_H.lp;4411;5048;['Heuristic'];['Slots'];FEASIBLE
+158;159_5_15_H.lp;3815;4105;['Slots'];['Baseline without Heuristic'];FEASIBLE
+159;160_5_36_H.lp;7412;9196;['Heuristic'];['Boundary'];FEASIBLE
+160;161_5_24_H.lp;5424;7020;['Clingo-dl'];['Clingcon'];FEASIBLE
+161;162_5_30_H.lp;7338;9835;['Clingo-dl'];['Clingcon'];FEASIBLE
+162;163_5_35_H.lp;7202;9657;['Heuristic'];['Clingcon'];FEASIBLE
+163;164_5_24_H.lp;6250;7901;['Clingo-dl'];['Clingcon'];FEASIBLE
+164;165_5_10_H.lp;2514;2814;['Baseline without Heuristic' 'Clingo-dl' 'Slots' 'Constraints'];['Encoding Tuning v2'];FEASIBLE
+165;166_5_11_H.lp;2528;2638;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning']";['Boundary'];FEASIBLE
+166;167_5_25_H.lp;5640;7492;['Heuristic'];['Clingcon'];FEASIBLE
+167;168_5_18_H.lp;3938;4533;['Slots'];['Encoding Tuning v2'];FEASIBLE
+168;169_5_46_H.lp;10682;13020;['Heuristic'];['Slots'];FEASIBLE
+169;170_5_21_H.lp;4394;5794;['Heuristic'];['Clingcon'];FEASIBLE
+170;171_5_46_H.lp;9876;12741;['Heuristic'];['Boundary'];FEASIBLE
+171;172_5_17_H.lp;3613;3979;['Clingo-dl'];['Boundary'];FEASIBLE
+172;173_5_22_H.lp;4234;5205;['Clingo-dl'];['Encoding Tuning v2'];FEASIBLE
+173;174_5_39_H.lp;9302;11670;['Clingo-dl'];['Boundary'];FEASIBLE
+174;175_5_31_H.lp;7014;9318;['Heuristic'];['Clingcon'];FEASIBLE
+175;176_5_38_H.lp;8658;11899;['Heuristic'];['Clingcon'];FEASIBLE
+176;177_5_34_H.lp;6601;8622;['Clingo-dl'];['Boundary'];FEASIBLE
+177;178_5_10_H.lp;2467;2534;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+178;179_5_46_H.lp;9787;14702;['Heuristic'];['Clingcon'];FEASIBLE
+179;180_5_32_H.lp;7084;10436;['Heuristic'];['Clingcon'];FEASIBLE
+180;181_5_40_H.lp;8242;10913;['Heuristic'];['Constraints'];FEASIBLE
+181;182_5_10_H.lp;1605;1635;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Next' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+182;183_5_20_H.lp;3838;4459;['Clingo-dl'];['Encoding Tuning v2'];FEASIBLE
+183;184_5_12_H.lp;2307;2788;['Heuristic' 'Heuristic + Parameter Tuning'];['Encoding Tuning v2'];FEASIBLE
+184;185_5_46_H.lp;10928;14217;['Heuristic'];['Encoding Tuning v2'];FEASIBLE
+185;186_5_40_H.lp;8195;10064;['Heuristic'];['Boundary'];FEASIBLE
+186;187_5_42_H.lp;9895;12860;['Heuristic'];['Clingcon'];FEASIBLE
+187;188_5_16_H.lp;3253;3881;['Heuristic'];['Clingcon'];FEASIBLE
+188;189_5_18_H.lp;5226;5739;['Heuristic'];['Encoding Tuning v2'];FEASIBLE
+189;190_5_10_H.lp;1863;1956;"['Baseline' 'Baseline without Heuristic' 'Clingcon' 'Clingo-dl'
+ 'Heuristic' 'Heuristic + Parameter Tuning' 'Slots' 'Constraints'
+ 'Constraints + Heuristic' 'Encoding Tuning']";['Boundary'];FEASIBLE
+190;191_5_33_H.lp;6984;8427;['Heuristic'];['Constraints'];FEASIBLE
+191;192_5_24_H.lp;6448;7670;['Clingo-dl'];['Next'];FEASIBLE
+192;193_5_27_H.lp;4760;6560;['Heuristic'];['Clingcon'];FEASIBLE
+193;194_5_29_H.lp;5854;7198;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+194;195_5_35_H.lp;7081;9118;['Heuristic'];['Clingcon'];FEASIBLE
+195;196_5_20_H.lp;5146;6505;['Clingo-dl'];['Clingcon'];FEASIBLE
+196;197_5_44_H.lp;10696;13936;['Heuristic'];['Constraints'];FEASIBLE
+197;198_5_23_H.lp;5293;6549;['Heuristic'];['Clingcon'];FEASIBLE
+198;199_5_47_H.lp;10446;14242;['Heuristic'];['Constraints'];FEASIBLE
+199;200_5_32_H.lp;6158;8885;['Heuristic'];['Clingcon'];FEASIBLE
+200;201_10_59_L.lp;1433;9456;['Encoding Tuning v2'];['Boundary'];OPTIMAL
+201;202_10_155_L.lp;5765;28279;['Heuristic'];['Slots'];FEASIBLE
+202;203_10_118_L.lp;3889;19781;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+203;204_10_130_L.lp;4028;24488;['Encoding Tuning v2'];['Slots'];FEASIBLE
+204;205_10_58_L.lp;1906;9321;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+205;206_10_171_L.lp;6163;36659;['Encoding Tuning'];['Slots'];FEASIBLE
+206;207_10_91_L.lp;2901;15986;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+207;208_10_102_L.lp;3596;15583;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+208;209_10_71_L.lp;2509;9908;['Baseline'];['Slots'];FEASIBLE
+209;210_10_96_L.lp;2901;15560;['Encoding Tuning' 'Encoding Tuning v2'];['Boundary'];OPTIMAL
+210;211_10_134_L.lp;4101;26149;['Encoding Tuning v2'];['Slots'];FEASIBLE
+211;212_10_159_L.lp;5235;37626;['Encoding Tuning v2'];['Slots'];OPTIMAL
+212;213_10_131_L.lp;4466;23491;['Encoding Tuning v2'];['Baseline without Heuristic'];FEASIBLE
+213;214_10_90_L.lp;2886;15928;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+214;215_10_138_L.lp;4416;23418;['Encoding Tuning'];['Slots'];FEASIBLE
+215;216_10_126_L.lp;3834;23503;['Encoding Tuning v2'];['Slots'];FEASIBLE
+216;217_10_62_L.lp;2008;11489;"['Baseline' 'Heuristic' 'Heuristic + Parameter Tuning'
+ 'Constraints + Heuristic' 'Encoding Tuning' 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+217;218_10_158_L.lp;6072;28421;['Encoding Tuning'];['Slots'];FEASIBLE
+218;219_10_156_L.lp;5446;28125;['Encoding Tuning'];['Slots'];FEASIBLE
+219;220_10_65_L.lp;2136;10088;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+220;221_10_76_L.lp;2319;12558;['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+221;222_10_77_L.lp;2158;12679;['Encoding Tuning v2'];['Slots'];FEASIBLE
+222;223_10_165_L.lp;6262;31756;['Encoding Tuning'];['Slots'];FEASIBLE
+223;224_10_196_L.lp;8041;38751;['Encoding Tuning'];['Slots'];FEASIBLE
+224;225_10_103_L.lp;3472;16079;['Encoding Tuning'];['Boundary'];FEASIBLE
+225;226_10_73_L.lp;1825;11315;['Encoding Tuning v2'];['Slots'];FEASIBLE
+226;227_10_69_L.lp;2211;10702;['Encoding Tuning'];['Slots'];OPTIMAL
+227;228_10_87_L.lp;3099;15607;['Baseline' 'Encoding Tuning'];['Slots'];FEASIBLE
+228;229_10_75_L.lp;2419;10932;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];FEASIBLE
+229;230_10_108_L.lp;3338;17403;['Encoding Tuning'];['Boundary'];FEASIBLE
+230;231_10_89_L.lp;2994;14412;['Encoding Tuning'];['Boundary'];FEASIBLE
+231;232_10_152_L.lp;5403;27647;['Encoding Tuning'];['Baseline without Heuristic'];FEASIBLE
+232;233_10_50_L.lp;1614;7815;['Encoding Tuning' 'Encoding Tuning v2'];['Boundary'];OPTIMAL
+233;234_10_108_L.lp;3382;16364;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+234;235_10_173_L.lp;6102;30843;['Encoding Tuning'];['Slots'];FEASIBLE
+235;236_10_166_L.lp;5757;30793;['Encoding Tuning'];['Slots'];FEASIBLE
+236;237_10_191_L.lp;7456;37082;['Encoding Tuning'];['Slots'];FEASIBLE
+237;238_10_177_L.lp;6787;35465;['Encoding Tuning'];['Slots'];FEASIBLE
+238;239_10_155_L.lp;5815;28737;['Encoding Tuning'];['Slots'];FEASIBLE
+239;240_10_65_L.lp;1865;11574;['Encoding Tuning v2'];['Slots'];OPTIMAL
+240;241_10_181_L.lp;7040;34207;['Encoding Tuning'];['Slots'];FEASIBLE
+241;242_10_78_L.lp;2346;16360;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Boundary'];OPTIMAL
+242;243_10_71_L.lp;2096;12393;['Encoding Tuning v2'];['Slots'];FEASIBLE
+243;244_10_73_L.lp;2720;11537;['Heuristic + Parameter Tuning'];['Baseline without Heuristic'];FEASIBLE
+244;245_10_74_L.lp;2444;16256;['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+245;246_10_116_L.lp;3721;19669;['Encoding Tuning' 'Encoding Tuning v2'];['Baseline without Heuristic'];FEASIBLE
+246;247_10_178_L.lp;6662;32714;['Heuristic'];['Slots'];FEASIBLE
+247;248_10_69_L.lp;2285;11873;"['Baseline' 'Constraints + Heuristic' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+248;249_10_180_L.lp;7061;34314;['Heuristic'];['Slots'];FEASIBLE
+249;250_10_193_L.lp;7785;39559;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+250;251_10_177_H.lp;20341;38332;['Encoding Tuning'];['Slots'];FEASIBLE
+251;252_10_192_H.lp;23085;43916;['Heuristic'];['Slots'];FEASIBLE
+252;253_10_183_H.lp;21018;40694;['Heuristic'];['Boundary'];FEASIBLE
+253;254_10_100_H.lp;12124;19391;['Heuristic'];['Next'];FEASIBLE
+254;255_10_118_H.lp;13093;30317;['Heuristic'];['Boundary'];FEASIBLE
+255;256_10_188_H.lp;27616;47110;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+256;257_10_103_H.lp;12541;23760;['Heuristic'];['Boundary'];FEASIBLE
+257;258_10_53_H.lp;5253;11281;['Heuristic'];['Clingo-dl'];FEASIBLE
+258;259_10_160_H.lp;22531;36926;['Heuristic'];['Clingo-dl'];FEASIBLE
+259;260_10_68_H.lp;7078;13611;['Heuristic'];['Boundary'];FEASIBLE
+260;261_10_143_H.lp;18720;32798;['Encoding Tuning'];['Boundary'];FEASIBLE
+261;262_10_140_H.lp;17273;32657;['Encoding Tuning'];['Slots'];FEASIBLE
+262;263_10_159_H.lp;20600;38148;['Heuristic'];['Slots'];FEASIBLE
+263;264_10_68_H.lp;7262;15168;['Encoding Tuning'];['Boundary'];FEASIBLE
+264;265_10_141_H.lp;16216;29730;['Heuristic'];['Boundary'];FEASIBLE
+265;266_10_145_H.lp;18049;32912;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+266;267_10_91_H.lp;9715;20235;['Heuristic'];['Boundary'];FEASIBLE
+267;268_10_159_H.lp;18890;32274;['Encoding Tuning'];['Slots'];FEASIBLE
+268;269_10_55_H.lp;6707;13468;['Heuristic'];['Boundary'];FEASIBLE
+269;270_10_91_H.lp;10346;21425;['Heuristic'];['Boundary'];FEASIBLE
+270;271_10_169_H.lp;19076;38088;['Heuristic'];['Clingo-dl'];FEASIBLE
+271;272_10_110_H.lp;12484;26206;['Heuristic'];['Boundary'];FEASIBLE
+272;273_10_144_H.lp;17421;31367;['Encoding Tuning'];['Slots'];FEASIBLE
+273;274_10_128_H.lp;14644;29639;['Heuristic'];['Clingo-dl'];FEASIBLE
+274;275_10_171_H.lp;20711;40288;['Heuristic'];['Slots'];FEASIBLE
+275;276_10_96_H.lp;9715;21655;['Heuristic'];['Slots'];FEASIBLE
+276;277_10_114_H.lp;11924;24905;['Heuristic'];['Clingo-dl'];FEASIBLE
+277;278_10_156_H.lp;20241;34097;['Heuristic'];['Slots'];FEASIBLE
+278;279_10_111_H.lp;11457;22662;['Heuristic'];['Next'];FEASIBLE
+279;280_10_195_H.lp;24507;42537;['Heuristic + Parameter Tuning'];['Next'];FEASIBLE
+280;281_10_76_H.lp;8564;15679;['Heuristic'];['Boundary'];FEASIBLE
+281;282_10_139_H.lp;15518;36234;['Encoding Tuning'];['Slots'];FEASIBLE
+282;283_10_61_H.lp;8124;13760;['Heuristic'];['Boundary'];FEASIBLE
+283;284_10_168_H.lp;20190;37982;['Encoding Tuning'];['Next'];FEASIBLE
+284;285_10_120_H.lp;12332;27614;['Heuristic'];['Clingo-dl'];FEASIBLE
+285;286_10_87_H.lp;8020;18505;['Heuristic'];['Boundary'];FEASIBLE
+286;287_10_80_H.lp;10050;17830;['Heuristic'];['Boundary'];FEASIBLE
+287;288_10_118_H.lp;14148;28297;['Encoding Tuning'];['Clingo-dl'];FEASIBLE
+288;289_10_53_H.lp;6273;11519;['Heuristic'];['Boundary'];FEASIBLE
+289;290_10_60_H.lp;5852;14354;['Heuristic'];['Boundary'];FEASIBLE
+290;291_10_191_H.lp;22748;46350;['Heuristic'];['Boundary'];FEASIBLE
+291;292_10_166_H.lp;19504;37521;['Heuristic'];['Boundary'];FEASIBLE
+292;293_10_124_H.lp;13762;29168;['Heuristic'];['Boundary'];FEASIBLE
+293;294_10_166_H.lp;20269;37230;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+294;295_10_104_H.lp;9505;23011;['Heuristic'];['Boundary'];FEASIBLE
+295;296_10_130_H.lp;14234;30255;['Heuristic'];['Clingo-dl'];FEASIBLE
+296;297_10_67_H.lp;7979;13948;['Encoding Tuning'];['Boundary'];FEASIBLE
+297;298_10_140_H.lp;15630;30459;['Heuristic'];['Boundary'];FEASIBLE
+298;299_10_155_H.lp;17983;31692;['Encoding Tuning'];['Clingo-dl'];FEASIBLE
+299;300_10_106_H.lp;11623;25063;['Heuristic'];['Slots'];FEASIBLE
+300;301_15_137_L.lp;2854;26756;['Encoding Tuning v2'];['Slots'];FEASIBLE
+301;302_15_190_L.lp;4127;35241;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+302;303_15_170_L.lp;3947;30087;['Encoding Tuning v2'];['Slots'];FEASIBLE
+303;304_15_136_L.lp;3008;23494;['Encoding Tuning v2'];['Slots'];FEASIBLE
+304;305_15_135_L.lp;3085;22813;['Heuristic'];['Constraints'];FEASIBLE
+305;306_15_141_L.lp;3077;25624;['Encoding Tuning'];['Slots'];FEASIBLE
+306;307_15_151_L.lp;3650;27064;['Encoding Tuning v2'];['Slots'];FEASIBLE
+307;308_15_140_L.lp;3193;24532;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+308;309_15_198_L.lp;4489;33992;['Encoding Tuning v2'];['Slots'];FEASIBLE
+309;310_15_195_L.lp;4903;37613;['Encoding Tuning v2'];['Slots'];FEASIBLE
+310;311_15_134_L.lp;2916;22911;['Encoding Tuning'];['Boundary'];FEASIBLE
+311;312_15_110_L.lp;2711;18897;['Encoding Tuning v2'];['Slots'];FEASIBLE
+312;313_15_138_L.lp;3105;23389;['Encoding Tuning'];['Slots'];OPTIMAL
+313;314_15_188_L.lp;3918;35334;['Encoding Tuning'];['Slots'];FEASIBLE
+314;315_15_159_L.lp;3525;26415;['Heuristic'];['Slots'];FEASIBLE
+315;316_15_140_L.lp;3078;20772;['Heuristic' 'Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+316;317_15_177_L.lp;4278;28564;['Encoding Tuning v2'];['Slots'];FEASIBLE
+317;318_15_124_L.lp;2497;20563;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+318;319_15_184_L.lp;4162;35544;['Heuristic'];['Slots'];FEASIBLE
+319;320_15_184_L.lp;4070;34911;['Encoding Tuning v2'];['Slots'];FEASIBLE
+320;321_15_145_L.lp;3131;25675;['Encoding Tuning'];['Clingo-dl'];FEASIBLE
+321;322_15_124_L.lp;2692;21994;['Encoding Tuning'];['Slots'];FEASIBLE
+322;323_15_129_L.lp;2822;25248;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+323;324_15_139_L.lp;3003;24131;"['Heuristic' 'Heuristic + Parameter Tuning' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];OPTIMAL
+324;325_15_177_L.lp;3892;29394;['Encoding Tuning'];['Slots'];FEASIBLE
+325;326_15_110_L.lp;2562;18445;"['Heuristic' 'Heuristic + Parameter Tuning' 'Encoding Tuning'
+ 'Encoding Tuning v2']";['Slots'];FEASIBLE
+326;327_15_161_L.lp;3532;28106;['Encoding Tuning'];['Slots'];OPTIMAL
+327;328_15_105_L.lp;2353;18551;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+328;329_15_119_L.lp;2779;20624;['Heuristic'];['Slots'];FEASIBLE
+329;330_15_102_L.lp;2350;17278;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+330;331_15_191_L.lp;4385;35232;['Encoding Tuning'];['Slots'];FEASIBLE
+331;332_15_166_L.lp;3313;26239;['Encoding Tuning v2'];['Constraints'];FEASIBLE
+332;333_15_135_L.lp;3013;22278;['Heuristic'];['Slots'];FEASIBLE
+333;334_15_124_L.lp;2597;24570;['Encoding Tuning'];['Slots'];FEASIBLE
+334;335_15_198_L.lp;4269;37164;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+335;336_15_156_L.lp;3413;27530;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+336;337_15_143_L.lp;3091;26279;['Encoding Tuning v2'];['Slots'];FEASIBLE
+337;338_15_111_L.lp;2600;18983;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+338;339_15_114_L.lp;2065;17268;['Encoding Tuning v2'];['Baseline without Heuristic'];OPTIMAL
+339;340_15_185_L.lp;3909;31827;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+340;341_15_125_L.lp;3023;18957;['Encoding Tuning'];['Slots'];FEASIBLE
+341;342_15_119_L.lp;2698;17735;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+342;343_15_167_L.lp;3940;32564;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+343;344_15_120_L.lp;2842;21959;['Heuristic' 'Heuristic + Parameter Tuning' 'Encoding Tuning'];['Slots'];FEASIBLE
+344;345_15_172_L.lp;4455;31795;['Encoding Tuning'];['Slots'];FEASIBLE
+345;346_15_132_L.lp;2794;20499;['Encoding Tuning'];['Constraints'];FEASIBLE
+346;347_15_116_L.lp;3034;20508;['Encoding Tuning'];['Slots'];FEASIBLE
+347;348_15_128_L.lp;3113;23939;['Heuristic'];['Slots'];FEASIBLE
+348;349_15_137_L.lp;2919;23831;['Heuristic' 'Encoding Tuning'];['Boundary'];FEASIBLE
+349;350_15_123_L.lp;2418;20168;['Encoding Tuning'];['Slots'];FEASIBLE
+350;351_15_137_H.lp;9275;39315;['Encoding Tuning'];['Clingcon'];FEASIBLE
+351;352_15_100_H.lp;5669;18286;['Heuristic'];['Slots'];FEASIBLE
+352;353_15_191_H.lp;12872;41536;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+353;354_15_144_H.lp;9279;22081;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+354;355_15_184_H.lp;14229;28588;['Heuristic'];['Next'];FEASIBLE
+355;356_15_122_H.lp;7561;23843;['Heuristic'];['Slots'];FEASIBLE
+356;357_15_146_H.lp;11175;30343;['Encoding Tuning'];['Slots'];FEASIBLE
+357;358_15_105_H.lp;6108;17902;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+358;359_15_106_H.lp;7799;21222;['Heuristic'];['Slots'];FEASIBLE
+359;360_15_113_H.lp;7701;21216;['Heuristic'];['Slots'];FEASIBLE
+360;361_15_106_H.lp;7824;22921;['Heuristic'];['Slots'];FEASIBLE
+361;362_15_151_H.lp;12018;32181;['Encoding Tuning'];['Slots'];FEASIBLE
+362;363_15_115_H.lp;7561;24369;['Heuristic'];['Slots'];FEASIBLE
+363;364_15_101_H.lp;6319;20002;['Heuristic'];['Slots'];FEASIBLE
+364;365_15_192_H.lp;15288;39624;['Heuristic'];['Slots'];FEASIBLE
+365;366_15_161_H.lp;11854;28387;['Encoding Tuning'];['Slots'];FEASIBLE
+366;367_15_141_H.lp;9163;27311;['Heuristic'];['Slots'];FEASIBLE
+367;368_15_129_H.lp;8696;20523;['Heuristic'];['Slots'];FEASIBLE
+368;369_15_103_H.lp;6162;17205;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+369;370_15_158_H.lp;13448;34312;['Encoding Tuning'];['Slots'];FEASIBLE
+370;371_15_139_H.lp;10667;28304;['Heuristic'];['Slots'];FEASIBLE
+371;372_15_141_H.lp;10210;22699;['Constraints + Heuristic'];['Constraints'];FEASIBLE
+372;373_15_159_H.lp;12180;34641;['Heuristic'];['Slots'];FEASIBLE
+373;374_15_159_H.lp;11344;31442;['Encoding Tuning'];['Slots'];FEASIBLE
+374;375_15_130_H.lp;10075;21721;['Heuristic'];['Next'];FEASIBLE
+375;376_15_127_H.lp;7860;18820;['Heuristic'];['Slots'];FEASIBLE
+376;377_15_180_H.lp;14222;36141;['Heuristic'];['Slots'];FEASIBLE
+377;378_15_112_H.lp;7565;21555;['Heuristic'];['Slots'];FEASIBLE
+378;379_15_139_H.lp;9563;27683;['Encoding Tuning'];['Slots'];FEASIBLE
+379;380_15_120_H.lp;8049;22681;['Heuristic'];['Slots'];FEASIBLE
+380;381_15_166_H.lp;11392;31967;['Heuristic'];['Slots'];FEASIBLE
+381;382_15_198_H.lp;14829;39569;['Heuristic'];['Slots'];FEASIBLE
+382;383_15_166_H.lp;12285;33422;['Heuristic'];['Slots'];FEASIBLE
+383;384_15_113_H.lp;6798;21911;['Heuristic'];['Slots'];FEASIBLE
+384;385_15_115_H.lp;6466;24682;['Heuristic'];['Slots'];FEASIBLE
+385;386_15_126_H.lp;9224;23314;['Heuristic'];['Slots'];FEASIBLE
+386;387_15_198_H.lp;14381;42279;['Heuristic'];['Slots'];FEASIBLE
+387;388_15_144_H.lp;10309;25654;['Encoding Tuning'];['Slots'];FEASIBLE
+388;389_15_195_H.lp;15618;30991;['Heuristic'];['Slots'];FEASIBLE
+389;390_15_162_H.lp;10792;31998;['Heuristic'];['Slots'];FEASIBLE
+390;391_15_155_H.lp;11022;31350;['Encoding Tuning'];['Slots'];FEASIBLE
+391;392_15_104_H.lp;6350;20285;['Heuristic'];['Slots'];FEASIBLE
+392;393_15_138_H.lp;9343;19772;['Heuristic'];['Slots'];FEASIBLE
+393;394_15_190_H.lp;15015;44057;['Heuristic'];['Slots'];FEASIBLE
+394;395_15_186_H.lp;12482;41587;['Heuristic'];['Slots'];FEASIBLE
+395;396_15_199_H.lp;14681;39322;['Heuristic'];['Slots'];FEASIBLE
+396;397_15_132_H.lp;8818;25803;['Encoding Tuning'];['Slots'];FEASIBLE
+397;398_15_156_H.lp;10728;34519;['Heuristic'];['Slots'];FEASIBLE
+398;399_15_196_H.lp;13719;40484;['Encoding Tuning'];['Slots'];FEASIBLE
+399;400_15_143_H.lp;11031;30823;['Heuristic'];['Slots'];FEASIBLE
+400;401_20_162_L.lp;2505;29690;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+401;402_20_170_L.lp;2629;30698;['Encoding Tuning v2'];['Slots'];FEASIBLE
+402;403_20_177_L.lp;3000;28817;['Encoding Tuning'];['Slots'];FEASIBLE
+403;404_20_163_L.lp;2420;28055;['Encoding Tuning v2'];['Slots'];FEASIBLE
+404;405_20_164_L.lp;2589;31575;['Encoding Tuning'];['Slots'];FEASIBLE
+405;406_20_171_L.lp;3028;32646;['Encoding Tuning v2'];['Slots'];OPTIMAL
+406;407_20_163_L.lp;2675;29136;['Encoding Tuning'];['Slots'];FEASIBLE
+407;408_20_177_L.lp;3007;32679;['Encoding Tuning'];['Slots'];FEASIBLE
+408;409_20_158_L.lp;2983;29942;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+409;410_20_170_L.lp;2951;26080;['Encoding Tuning'];['Slots'];FEASIBLE
+410;411_20_161_L.lp;3027;24461;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+411;412_20_172_L.lp;2783;27998;['Encoding Tuning v2'];['Slots'];FEASIBLE
+412;413_20_182_L.lp;2865;31442;['Encoding Tuning'];['Slots'];FEASIBLE
+413;414_20_189_L.lp;3012;36895;['Heuristic' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+414;415_20_192_L.lp;2699;31714;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+415;416_20_166_L.lp;2904;27795;['Encoding Tuning'];['Slots'];FEASIBLE
+416;417_20_161_L.lp;3344;32828;['Encoding Tuning v2'];['Slots'];FEASIBLE
+417;418_20_187_L.lp;3123;35145;['Encoding Tuning'];['Slots'];FEASIBLE
+418;419_20_167_L.lp;3110;28949;['Heuristic' 'Encoding Tuning'];['Slots'];FEASIBLE
+419;420_20_153_L.lp;2279;24079;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+420;421_20_162_L.lp;2919;29151;['Encoding Tuning'];['Next'];FEASIBLE
+421;422_20_199_L.lp;3431;39636;['Encoding Tuning'];['Slots'];FEASIBLE
+422;423_20_172_L.lp;2696;27663;['Encoding Tuning v2'];['Slots'];FEASIBLE
+423;424_20_186_L.lp;3257;33507;['Encoding Tuning'];['Slots'];FEASIBLE
+424;425_20_198_L.lp;3409;37157;['Encoding Tuning'];['Boundary'];FEASIBLE
+425;426_20_170_L.lp;2890;33217;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+426;427_20_175_L.lp;2971;30802;['Encoding Tuning v2'];['Slots'];FEASIBLE
+427;428_20_156_L.lp;2700;26560;['Encoding Tuning v2'];['Slots'];FEASIBLE
+428;429_20_156_L.lp;2349;25105;['Encoding Tuning v2'];['Slots'];FEASIBLE
+429;430_20_174_L.lp;2902;33250;['Encoding Tuning v2'];['Boundary'];FEASIBLE
+430;431_20_176_L.lp;3207;32001;['Encoding Tuning'];['Slots'];FEASIBLE
+431;432_20_159_L.lp;2808;29931;['Encoding Tuning'];['Slots'];FEASIBLE
+432;433_20_157_L.lp;2547;27534;['Heuristic' 'Encoding Tuning' 'Encoding Tuning v2'];['Slots'];OPTIMAL
+433;434_20_193_L.lp;3654;30540;['Heuristic'];['Slots'];FEASIBLE
+434;435_20_182_L.lp;2902;32816;['Encoding Tuning v2'];['Slots'];FEASIBLE
+435;436_20_193_L.lp;3011;32812;['Encoding Tuning v2'];['Slots'];FEASIBLE
+436;437_20_153_L.lp;2123;24073;['Encoding Tuning v2'];['Slots'];FEASIBLE
+437;438_20_152_L.lp;1974;24635;['Encoding Tuning v2'];['Slots'];FEASIBLE
+438;439_20_176_L.lp;3106;36042;['Encoding Tuning'];['Slots'];FEASIBLE
+439;440_20_194_L.lp;3374;36607;['Encoding Tuning v2'];['Slots'];FEASIBLE
+440;441_20_184_L.lp;3321;34326;['Encoding Tuning v2'];['Slots'];FEASIBLE
+441;442_20_155_L.lp;2593;30539;['Encoding Tuning'];['Slots'];FEASIBLE
+442;443_20_195_L.lp;3314;37821;['Encoding Tuning v2'];['Slots'];FEASIBLE
+443;444_20_166_L.lp;2883;28585;['Heuristic' 'Heuristic + Parameter Tuning' 'Encoding Tuning'];['Slots'];FEASIBLE
+444;445_20_173_L.lp;2942;30661;['Encoding Tuning' 'Encoding Tuning v2'];['Slots'];FEASIBLE
+445;446_20_168_L.lp;2921;32411;['Encoding Tuning v2'];['Slots'];FEASIBLE
+446;447_20_166_L.lp;3129;30748;['Encoding Tuning'];['Slots'];FEASIBLE
+447;448_20_193_L.lp;3024;30587;['Encoding Tuning v2'];['Slots'];OPTIMAL
+448;449_20_184_L.lp;3077;37128;['Heuristic'];['Slots'];FEASIBLE
+449;450_20_197_L.lp;3036;35787;['Encoding Tuning v2'];['Slots'];FEASIBLE
+450;451_20_190_H.lp;9334;29563;['Encoding Tuning'];['Next'];FEASIBLE
+451;452_20_199_H.lp;10225;39426;['Encoding Tuning'];['Slots'];FEASIBLE
+452;453_20_186_H.lp;11606;27893;['Heuristic'];['Next'];FEASIBLE
+453;454_20_159_H.lp;8641;25214;['Encoding Tuning'];['Next'];FEASIBLE
+454;455_20_156_H.lp;8046;30764;['Encoding Tuning'];['Slots'];FEASIBLE
+455;456_20_171_H.lp;9697;29920;['Encoding Tuning'];['Slots'];FEASIBLE
+456;457_20_185_H.lp;10301;37510;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+457;458_20_174_H.lp;8937;30081;['Encoding Tuning'];['Slots'];FEASIBLE
+458;459_20_195_H.lp;10707;38051;['Encoding Tuning'];['Slots'];FEASIBLE
+459;460_20_169_H.lp;9114;26018;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+460;461_20_198_H.lp;11175;38921;['Heuristic'];['Slots'];FEASIBLE
+461;462_20_197_H.lp;10688;42708;['Heuristic'];['Slots'];FEASIBLE
+462;463_20_151_H.lp;8276;30288;['Encoding Tuning'];['Slots'];FEASIBLE
+463;464_20_181_H.lp;10027;33162;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+464;465_20_172_H.lp;10072;31961;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+465;466_20_177_H.lp;8752;33544;['Encoding Tuning'];['Slots'];FEASIBLE
+466;467_20_157_H.lp;8151;30532;['Encoding Tuning'];['Slots'];FEASIBLE
+467;468_20_166_H.lp;10198;29859;['Encoding Tuning'];['Slots'];FEASIBLE
+468;469_20_166_H.lp;7612;31704;['Encoding Tuning'];['Slots'];FEASIBLE
+469;470_20_197_H.lp;10043;41036;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+470;471_20_169_H.lp;8281;29672;['Encoding Tuning'];['Next'];FEASIBLE
+471;472_20_156_H.lp;7618;30022;['Encoding Tuning'];['Slots'];FEASIBLE
+472;473_20_157_H.lp;8796;26893;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+473;474_20_168_H.lp;10830;32753;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+474;475_20_170_H.lp;10351;34309;['Heuristic'];['Slots'];FEASIBLE
+475;476_20_199_H.lp;10926;39064;['Heuristic'];['Slots'];FEASIBLE
+476;477_20_168_H.lp;10739;30098;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+477;478_20_192_H.lp;9339;35929;['Heuristic'];['Slots'];FEASIBLE
+478;479_20_166_H.lp;7581;30921;['Encoding Tuning'];['Slots'];FEASIBLE
+479;480_20_159_H.lp;7972;29745;['Encoding Tuning'];['Slots'];FEASIBLE
+480;481_20_174_H.lp;8010;23480;['Encoding Tuning'];['Baseline without Heuristic'];FEASIBLE
+481;482_20_160_H.lp;8956;30502;['Heuristic'];['Slots'];FEASIBLE
+482;483_20_168_H.lp;7957;26942;['Encoding Tuning'];['Next'];FEASIBLE
+483;484_20_180_H.lp;9420;38071;['Encoding Tuning'];['Slots'];FEASIBLE
+484;485_20_159_H.lp;8129;32741;['Encoding Tuning'];['Slots'];FEASIBLE
+485;486_20_166_H.lp;9991;28147;['Heuristic'];['Boundary'];FEASIBLE
+486;487_20_184_H.lp;8905;32807;['Encoding Tuning'];['Slots'];FEASIBLE
+487;488_20_153_H.lp;7075;24468;['Encoding Tuning'];['Slots'];FEASIBLE
+488;489_20_166_H.lp;7674;22040;['Encoding Tuning'];['Baseline without Heuristic'];FEASIBLE
+489;490_20_197_H.lp;9845;25610;['Heuristic'];['Baseline without Heuristic'];FEASIBLE
+490;491_20_199_H.lp;10037;43167;['Encoding Tuning'];['Slots'];FEASIBLE
+491;492_20_162_H.lp;10892;30623;['Encoding Tuning'];['Slots'];FEASIBLE
+492;493_20_197_H.lp;10202;42983;['Encoding Tuning'];['Slots'];FEASIBLE
+493;494_20_159_H.lp;7388;26700;['Encoding Tuning'];['Slots'];FEASIBLE
+494;495_20_179_H.lp;10667;35453;['Encoding Tuning'];['Next'];FEASIBLE
+495;496_20_151_H.lp;9208;32212;['Heuristic + Parameter Tuning'];['Slots'];FEASIBLE
+496;497_20_164_H.lp;8015;36439;['Encoding Tuning'];['Slots'];FEASIBLE
+497;498_20_180_H.lp;10075;35715;['Heuristic'];['Slots'];FEASIBLE
+498;499_20_196_H.lp;10408;39415;['Encoding Tuning'];['Slots'];FEASIBLE
+499;500_20_155_H.lp;7928;28424;['Encoding Tuning'];['Slots'];FEASIBLE

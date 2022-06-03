@@ -1,4 +1,4 @@
-;instance;baseline;baseline without heuristics;clingcon;clingo-dl;clingo-dl with heuristic;clingo-dl with heuristic and smac-optimization;clingo-dl with pure next relation;clingo-dl with slots;clingo-dl with more constraints;clingo-dl with more constraints and heuristic;clingo-dl with clingo optimization;clingo-dl with clingo optimization and modified horizon;clingo-dl with smac encoding;clingo-dl with smac encoding v2
+;instance;Baseline;Baseline without Heuristic;Clingcon;Clingo-dl;Heuristic;Heuristic + Parameter Tuning;Next;Slots;Constraints;Constraints + Heuristic;Boundary;Boundary with Horizon;Encoding Tuning;Encoding Tuning v2
 0;1_3_18_L.lp;o;o;x;o;o;x;x;x;o;o;x;x;o;o
 1;2_3_24_L.lp;o;o;x;x;o;x;o;x;o;o;x;o;o;o
 2;3_3_28_L.lp;x;o;x;x;x;x; ;x;o;x;x; ;x;x
