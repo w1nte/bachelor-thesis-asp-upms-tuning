@@ -25,51 +25,92 @@ if LATEX_PLOT:
 else:
     plt.style.use('default')
 
+
 __PLOT_FOLDER = './plots/'
 __RESULTS_FOLDER = './results/'
+__ENCODINGS = {  # id: (name, file)
+        'baseline': ('Baseline', '07_baseline_heuristic.lp.evaluation.csv'),
+        'baseline_without_heuristic': ('Baseline without Heuristic', '00_baseline.lp.evaluation.csv'),
+        'clingcon': ('Clingcon', '01_02_clingcon.lp.evaluation.csv'),
+        'clingo_dl': ('Clingo-dl', '03_01_clingodl.lp.evaluation.csv'),
+        'heuristic': ('Heuristic', '09_01_clingodl_heuristic.lp.evaluation.csv'),
+        'heuristic_param_tuning': ('Heuristic + Parameter Tuning', '10_01_clingodl_heuristic_smac.lp.evaluation.csv'),
+        'next': ('Next', '05_01_clingodl_next.lp.evaluation.csv'),
+        'slots': ('Slots', '06_01_clingodl_slots.lp.evaluation.csv'),
+        'constraints': ('Constraints', '02_02_clingodl_more_constraints.lp.evaluation.csv'),
+        'constraints_heuristic': ('Constraints + Heuristic', '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv'),
+        'boundary': ('Boundary', '08_06_clingodl_boundary.lp.evaluation.csv'),
+        'boundary_with_horizon': ('Boundary with Horizon', '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv'),
+        'encoding_tuning': ('Encoding Tuning', '11_smac_optimized.lp.evaluation.csv'),
+        'encoding_tuning_v2': ('Encoding Tuning v2', '12_smac_optimized_v2.lp.evaluation.csv')
+    }
 
 
 def main():
     clear_plot_folder()
 
-    files, index, frames = load_experiments({
-        'Baseline': '07_baseline_heuristic.lp.evaluation.csv',
-        'Baseline without Heuristic': '00_baseline.lp.evaluation.csv',
-        'Clingcon': '01_02_clingcon.lp.evaluation.csv',
-        'Clingo-dl': '03_01_clingodl.lp.evaluation.csv',
-        'Heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'Heuristic + Parameter Tuning': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
-        'Next': '05_01_clingodl_next.lp.evaluation.csv',
-        'Slots': '06_01_clingodl_slots.lp.evaluation.csv',
-        'Constraints': '02_02_clingodl_more_constraints.lp.evaluation.csv',
-        'Constraints + Heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
-        'Boundary': '08_06_clingodl_boundary.lp.evaluation.csv',
-        'Boundary with Horizon': '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv',
-        'SMAC Encoding': '11_smac_optimized.lp.evaluation.csv',
-        'SMAC Encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
-    })
+    experiments_all = __ENCODINGS.keys()
 
+    experiments_90_percent_feasible = [
+        'baseline', 
+        'clingo_dl', 
+        'heuristic', 
+        'heuristic_param_tuning', 
+        'next', 
+        'slots', 
+        'constraints_heuristic', 
+        'boundary', 
+        'encoding_tuning', 
+        'encoding_tuning_v2', 
+    ]
 
+    experiments_all_feasible = [
+        'clingo_dl', 
+        'heuristic', 
+        'heuristic_param_tuning', 
+        'encoding_tuning', 
+        'encoding_tuning_v2', 
+    ]
+
+    experiments_best = [
+        'baseline', 
+        'heuristic', 
+        'heuristic_param_tuning', 
+        'encoding_tuning', 
+        'encoding_tuning_v2', 
+    ]
+
+    files, index, frames = load_experiments(experiments_all)
     instances = extract_instances(frames[0])
     best_worst = determine_best_worst_makespan(index, frames)
     encoding_results = determine_encoding_results(index, frames)
 
-    pd.concat([instances, best_worst], axis=1).to_csv(__PLOT_FOLDER + 'all_instances.csv', sep=';')
-    pd.concat([instances['instance'], encoding_results], axis=1).to_csv(__PLOT_FOLDER + 'all_encoding_results.csv', sep=';')
+    save_table(pd.concat([instances['instance'], best_worst.rename(columns={
+        'best_encoding_makespan': 'best makespan', 
+        'worst_encoding_makespan': 'worst makespan',
+        'best_encodings': 'best encodings',
+        'worst_encodings': 'worst encodings',
+        'best_encoding_result': 'best result'
+    })], axis=1), 'all_instances')
 
-    print('OPTIMAL results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'OPTIMAL'].shape[0]))
-    print('FEASIBLE results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'FEASIBLE'].shape[0]))
+    save_table(pd.concat([instances['instance'], encoding_results], axis=1), 'all_encoding_results')
+
+    print('Number of optimal results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'OPTIMAL'].shape[0]))
+    print('Number of feasible results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'FEASIBLE'].shape[0]))
+    print('Number of low dedication instances: {}'.format(instances[instances['dedication'] == 'L'].shape[0]))
+    print('Number of high dedication instances: {}'.format(instances[instances['dedication'] == 'H'].shape[0]))
 
     plot_bar('all', 'All Instances', frames, files, index)
 
     
+    # UpSet plot 1
     df = pd.concat([instances, encoding_results], axis=1)
     for i, encoding in enumerate(index):
         df = df.set_index(df[encoding] != ' ', append=(i!=0))
     df['dedication'] = df['dedication'].replace('H', 'high dedication').replace('L', 'low dedication')
     plt.clf()
     upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=600, show_counts=True, element_size=35)
-    upset.add_stacked_bars(by="dedication", colors=cm.Pastel1, title="instances", elements=8)
+    upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
     upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='red')
@@ -78,45 +119,18 @@ def main():
     save_plot('upset_all_feasible')
 
 
-    # encodings with at least 90% (450) feasible
-    files, index, frames = load_experiments({
-        'Baseline': '07_baseline_heuristic.lp.evaluation.csv',
-        #'Baseline without Heuristic': '00_baseline.lp.evaluation.csv',
-        #'Clingcon': '01_02_clingcon.lp.evaluation.csv',
-        'Clingo-dl': '03_01_clingodl.lp.evaluation.csv',
-        'Heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'Heuristic + Parameter Tuning': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
-        'Next': '05_01_clingodl_next.lp.evaluation.csv',
-        'Slots': '06_01_clingodl_slots.lp.evaluation.csv',
-        #'Constraints': '02_02_clingodl_more_constraints.lp.evaluation.csv',
-        'Constraints + Heuristic': '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv',
-        'Boundary': '08_06_clingodl_boundary.lp.evaluation.csv',
-        #'Boundary with Horizon': '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv',
-        'SMAC Encoding': '11_smac_optimized.lp.evaluation.csv',
-        'SMAC Encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
-    })
+    files, index, frames = load_experiments(experiments_90_percent_feasible)
     plot_boxplot('boxplot_encodings_min_450_feasible', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
 
-    # encodings with 100% feasible
-    files, index, frames = load_experiments({
-        'Clingo-dl': '03_01_clingodl.lp.evaluation.csv',
-        'Heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'Heuristic + Parameter Tuning': '10_01_clingodl_heuristic_smac.lp.evaluation.csv',
-        'SMAC Encoding': '11_smac_optimized.lp.evaluation.csv',
-        'SMAC Encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
-    })
+    
+    files, index, frames = load_experiments(experiments_all_feasible)
     plot_boxplot('boxplot_encodings_all_feasible', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
 
-    # 3 best encodings against baseline
-    files, index, frames = load_experiments({
-        'Baseline': '07_baseline_heuristic.lp.evaluation.csv',
-        'Heuristic': '09_01_clingodl_heuristic.lp.evaluation.csv',
-        'SMAC Encoding': '11_smac_optimized.lp.evaluation.csv',
-        'SMAC Encoding v2': '12_smac_optimized_v2.lp.evaluation.csv'
-    })
+
+    files, index, frames = load_experiments(experiments_best)
     plot_boxplot('boxplot_best_encodings_against_baseline', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
 
-
+    # UpSet plot 2
     encoding_results = determine_encoding_results(index, frames)
     df = pd.concat([instances, encoding_results], axis=1)
     for i, encoding in enumerate(index):
@@ -124,7 +138,7 @@ def main():
     df['dedication'] = df['dedication'].replace('H', 'high dedication').replace('L', 'low dedication')
     plt.clf()
     upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=300, show_counts=True, element_size=35)
-    upset.add_stacked_bars(by="dedication", colors=cm.Pastel1, title="instances", elements=8)
+    upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='red')
     upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
@@ -134,8 +148,10 @@ def main():
 
 
 
-def load_experiments(experiments):
-    # load all experiment results and prepare dataframe
+def load_experiments(list_of_experiments):
+    # load all experiment results and prepare dataframes
+
+    experiments = {__ENCODINGS[k][0]: __ENCODINGS[k][1] for k in list_of_experiments}
 
     # all input files (output from evaluate.py)
     files = experiments.values()
@@ -163,7 +179,13 @@ def load_experiments(experiments):
 
 
 def extract_instances(frame):
-    df = pd.concat([frame['instance'].apply(lambda x: '.'.join(x.split('.')[:-1])), frame['machines'], frame['jobs'], frame['dedication']], axis=1)
+    df = pd.concat([
+        frame['instance'].apply(lambda x: '.'.join(x.split('.')[:-1])), 
+        frame['machines'], 
+        frame['jobs'], 
+        frame['dedication']
+    ], axis=1)
+
     return df
 
 
@@ -181,12 +203,24 @@ def save_plot(filename):
         plt.savefig(f'{__PLOT_FOLDER}{filename}.png', format='png', dpi=200)
 
 
-def determine_best_worst_makespan(index, frames):
-    df_best_makespan = pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner').min(axis=1).apply(int)
-    df_worst_makespan = pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner').max(axis=1).apply(int)
+def save_table(df, filename):
+    if LATEX_PLOT:
+        df.to_latex(f'{__PLOT_FOLDER}{filename}.tex', longtable=True)
+    else:
+        df.to_csv(f'{__PLOT_FOLDER}{filename}.csv', sep=';')
 
-    df_best_encoding = pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner', keys=index).idxmin(axis=1)
-    df_worst_encoding = pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner', keys=index).idxmax(axis=1)
+
+def determine_best_worst_makespan(index, frames):
+    all_best_makespans = pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner', keys=index)
+
+    df_best_makespan = all_best_makespans.min(axis=1).apply(int)
+    df_worst_makespan = all_best_makespans.max(axis=1).apply(int)
+
+    all_best_makespans_is_best = all_best_makespans.apply(lambda x: x == df_best_makespan, axis=0)
+    df_best_encodings = all_best_makespans_is_best.agg(lambda s: s.index[s].values, axis=1)
+
+    all_best_makespans_is_worst = all_best_makespans.apply(lambda x: x == df_worst_makespan, axis=0)
+    df_worst_encodings = all_best_makespans_is_worst.agg(lambda s: s.index[s].values, axis=1)
 
     best_encoding_result = pd.concat(
         [pd.concat([df['best_makespan'] for df in frames], axis=1, join='inner', keys=range(0, len(index))).idxmin(axis=1)]
@@ -195,14 +229,14 @@ def determine_best_worst_makespan(index, frames):
     df_best_and_worst = pd.concat([
         df_best_makespan, 
         df_worst_makespan,
-        df_best_encoding,
-        df_worst_encoding,
+        df_best_encodings,
+        df_worst_encodings,
         best_encoding_result
     ], axis=1, join='inner', keys=(
         'best_encoding_makespan',
         'worst_encoding_makespan',
-        'best_encoding',
-        'worst_encoding',
+        'best_encodings',
+        'worst_encodings',
         'best_encoding_result'
     ))
     return df_best_and_worst
@@ -217,21 +251,23 @@ def determine_encoding_results(index, frames):
     
 
 def plot_bar(filename, title, dfs, files, index):
-    # count the number of best makespan for each encoding, ignores rows where all approaches did not find any schedule.
-    best = pd.concat([df['best_makespan'] for df in dfs], axis=1, keys=files, join='inner').dropna(how='all').idxmin(axis=1, skipna=True).value_counts()
+    all_best_makespans = pd.concat([df['best_makespan'] for df in dfs], axis=1, keys=files, join='inner')
+    best_makespan_per_instance = all_best_makespans.min(axis=1)
+    all_best_makespans_is_best = all_best_makespans.apply(lambda x: x == best_makespan_per_instance, axis=0)
+
     # count results
     results = [df['result'].value_counts() for df in dfs]
     g_result = lambda x: [(r[x] if x in r else 0) for r in results]
 
     optimal = g_result('OPTIMAL')
     feasible = [sum(x) for x in zip(optimal, g_result('FEASIBLE'))]  # sum up feasible with optimal (optimal is a subset of feasible)
-    best = [(best[f] if f in best else 0) for f in files]
+    best = [all_best_makespans_is_best[f].value_counts()[1] for f in files]
 
     df = pd.DataFrame({
         'optimal': optimal,
         'feasible': feasible,
         'best': best
-    }, index=index)
+    }, index=index).sort_values(by=['best'])
 
     plt.clf()
     fig, ax = plt.subplots(figsize=(6, 5))
@@ -239,28 +275,6 @@ def plot_bar(filename, title, dfs, files, index):
     ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
     plt.title(title)
     plt.xticks(fontsize=5)
-    plt.tight_layout()
-    plt.grid()
-
-    save_plot(filename)
-
-
-def plot_jobs(filename, title, dfs, files, index):
-    dfs = [df.sort_values(by='jobs') for df in dfs]
-
-    # determine optimal makespan
-    dfs_results = [df[['result', 'best_makespan']] for df in dfs]
-    for df in dfs_results:
-        df.loc[df['result'] != 'OPTIMAL', 'best_makespan'] = np.nan
-    df_optimal = pd.concat([df['best_makespan'] for df in dfs_results], axis=1, join='inner').min(axis=1)
-
-    df = pd.concat([dfs[0]['jobs']] + [df['best_makespan'] for df in dfs] + [df_optimal], axis=1, keys=['jobs'] + list(index) + ['optimal'], join='inner')
-
-    plt.clf()
-    fig, ax = plt.subplots(figsize=(6, 5))
-    df.set_index('jobs').plot(style=['o'] * len(index) + ['xy'], linewidth=1, markersize=2.5, ax=ax)
-    plt.title(title)
-    plt.legend(fontsize=6)
     plt.tight_layout()
     plt.grid()
 
