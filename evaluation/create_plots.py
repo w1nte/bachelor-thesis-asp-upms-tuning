@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import xdrlib
 import pandas as pd
 from glob import glob
 import sys
@@ -42,12 +43,13 @@ __ENCODINGS = {  # id: (name, file)
         'boundary': ('Boundary', '08_06_clingodl_boundary.lp.evaluation.csv'),
         'boundary_with_horizon': ('Boundary with Horizon', '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv'),
         'encoding_tuning': ('Encoding Tuning', '11_smac_optimized.lp.evaluation.csv'),
-        'encoding_tuning_v2': ('Encoding Tuning v2', '12_smac_optimized_v2.lp.evaluation.csv')
+        'encoding_tuning_two': ('Encoding Tuning v2', '12_smac_optimized_v2.lp.evaluation.csv')
     }
 
 
 def main():
     clear_plot_folder()
+    generate_latex_commands()
 
     experiments_all = __ENCODINGS.keys()
 
@@ -61,7 +63,7 @@ def main():
         'constraints_heuristic', 
         'boundary', 
         'encoding_tuning', 
-        'encoding_tuning_v2', 
+        'encoding_tuning_two', 
     ]
 
     experiments_all_feasible = [
@@ -69,7 +71,7 @@ def main():
         'heuristic', 
         'heuristic_param_tuning', 
         'encoding_tuning', 
-        'encoding_tuning_v2', 
+        'encoding_tuning_two', 
     ]
 
     experiments_best = [
@@ -77,7 +79,7 @@ def main():
         'heuristic', 
         'heuristic_param_tuning', 
         'encoding_tuning', 
-        'encoding_tuning_v2', 
+        'encoding_tuning_two', 
     ]
 
     files, index, frames = load_experiments(experiments_all)
@@ -176,6 +178,12 @@ def load_experiments(list_of_experiments):
         frames.append(df)
 
     return files, index, frames
+
+
+def generate_latex_commands():
+    to_camel_case = lambda x: ''.join(y.title() for y in x.split('_'))
+    with open(f'{__PLOT_FOLDER}/enc_commands.tex', 'w+') as f:
+        f.write('\n'.join([f'\\newcommand{{\\enc{to_camel_case(key)}}}{{{__ENCODINGS[key][0]}}}' for key in __ENCODINGS.keys()]))
 
 
 def extract_instances(frame):
