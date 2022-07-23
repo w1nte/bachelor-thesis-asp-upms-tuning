@@ -102,6 +102,8 @@ def main():
     print('Number of low dedication instances: {}'.format(instances[instances['dedication'] == 'L'].shape[0]))
     print('Number of high dedication instances: {}'.format(instances[instances['dedication'] == 'H'].shape[0]))
 
+    print(best_worst['best_encodings'])
+
     plot_bar('all', 'All Instances', frames, files, index)
 
     
@@ -155,6 +157,24 @@ def main():
     upset.plot()
     #plt.title("Intersections of optimal instances")
     save_plot('upset_example')
+
+    # UpSet plot 3
+    is_best = determine_encoding_results(index, frames)
+    for i, encoding in enumerate(index):
+        is_best[encoding] = best_worst['best_encodings'].apply(lambda x: encoding in x)
+    df = pd.concat([instances, is_best], axis=1)
+    for i, encoding in enumerate(index):
+        df = df.set_index(df[encoding] == True, append=(i!=0))
+    df['dedication'] = df['dedication'].replace('H', 'high dedication').replace('L', 'low dedication')
+    plt.clf()
+    upset = upsetplot.UpSet(df, intersection_plot_elements=0, min_subset_size=10, max_subset_size=300, show_counts=True, element_size=35)
+    upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
+    upset.add_catplot(value='machines', kind='box', color='violet')
+    upset.add_catplot(value='jobs', kind='box', color='red')
+    upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
+    upset.plot()
+    plt.title("Intersections of best solutions")
+    save_plot('upset_best_encodings_against_baseline_best')
 
 
 
