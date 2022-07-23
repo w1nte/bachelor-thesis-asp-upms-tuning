@@ -148,6 +148,14 @@ def main():
     plt.title("Intersections of optimal instances")
     save_plot('upset_best_encodings_against_baseline_optimal')
 
+    # UpSet example plot
+    df = upsetplot.generate_counts()
+    plt.clf()
+    upset = upsetplot.UpSet(df)
+    upset.plot()
+    #plt.title("Intersections of optimal instances")
+    save_plot('upset_example')
+
 
 
 def load_experiments(list_of_experiments):
