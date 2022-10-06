@@ -104,7 +104,7 @@ def main():
     print('Number of low dedication instances: {}'.format(instances[instances['dedication'] == 'L'].shape[0]))
     print('Number of high dedication instances: {}'.format(instances[instances['dedication'] == 'H'].shape[0]))
 
-    plot_bar('all', 'All Instances', frames, files, index)
+    plot_bar('all', 'number of instances', frames, files, index)
 
     
     # UpSet plot 1
@@ -115,7 +115,6 @@ def main():
     plt.clf()
     upset = upsetplot.UpSet(df, intersection_plot_elements=0, max_subset_size=600, show_counts=True, element_size=35)
     upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
-    upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='red')
     upset.plot()
@@ -131,9 +130,6 @@ def main():
     plot_boxplot('boxplot_encodings_all_feasible', 'Relative difference to the best solutions', frames, files, index, best_worst)
 
 
-    files, index, frames = load_experiments(experiments_best)
-    plot_boxplot('boxplot_best_encodings_against_baseline', 'Relative difference to the best solutions', frames, files, index, best_worst)
-
     # UpSet plot 2
     encoding_results = determine_encoding_results(index, frames)
     df = pd.concat([instances, encoding_results], axis=1)
@@ -145,17 +141,9 @@ def main():
     upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='red')
-    upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
     upset.plot()
     plt.title("Intersections of optimal instances")
-    save_plot('upset_best_encodings_against_baseline_optimal')
-
-    # UpSet example plot
-    df = upsetplot.generate_counts()
-    plt.clf()
-    upset = upsetplot.UpSet(df)
-    upset.plot()
-    save_plot('upset_example')
+    save_plot('upset_encodings_all_feasible_optimal')
 
     # UpSet plot 3
     is_best = determine_encoding_results(index, frames)
@@ -170,10 +158,21 @@ def main():
     upset.add_stacked_bars(by="dedication", colors=cm.Accent, title="instances", elements=8)
     upset.add_catplot(value='machines', kind='box', color='violet')
     upset.add_catplot(value='jobs', kind='box', color='red')
-    upset.style_subsets(absent=["Baseline"], facecolor="gray", label="Better than baseline")
     upset.plot()
     plt.title("Intersections of best solutions")
-    save_plot('upset_best_encodings_against_baseline_best')
+    save_plot('upset_encodings_all_feasible_best')
+
+
+    files, index, frames = load_experiments(experiments_best)
+    plot_boxplot('boxplot_best_encodings_against_baseline', 'Relative difference to the best solutions', frames, files, index, best_worst)
+
+
+    # UpSet example plot
+    df = upsetplot.generate_counts()
+    plt.clf()
+    upset = upsetplot.UpSet(df)
+    upset.plot()
+    save_plot('upset_example')
 
 
 
@@ -285,7 +284,7 @@ def determine_encoding_results(index, frames):
     return df
     
 
-def plot_bar(filename, title, dfs, files, index):
+def plot_bar(filename, ylabel, dfs, files, index):
     all_best_makespans = pd.concat([df['best_makespan'] for df in dfs], axis=1, keys=files, join='inner')
     best_makespan_per_instance = all_best_makespans.min(axis=1)
     all_best_makespans_is_best = all_best_makespans.apply(lambda x: x == best_makespan_per_instance, axis=0)
@@ -307,8 +306,8 @@ def plot_bar(filename, title, dfs, files, index):
     plt.clf()
     fig, ax = plt.subplots(figsize=(6, 5))
     df.plot.bar(ax=ax)
+    ax.set_ylabel(ylabel)
     ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
-    plt.title(title)
     plt.xticks(fontsize=5)
     plt.tight_layout()
     plt.grid()
@@ -336,7 +335,7 @@ def plot_boxplot(filename, title, frames, files, index, df_best_and_worst):
     fig, ax = plt.subplots(figsize=(6, 5))
     boxplot = df_relative_difference.boxplot(ax=ax)
     ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
-    plt.title(title)
+    ax.set_ylabel('relative difference')
     plt.xticks(fontsize=5)
     plt.tight_layout()
 
