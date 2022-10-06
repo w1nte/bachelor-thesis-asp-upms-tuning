@@ -67,6 +67,7 @@ def main():
     ]
 
     experiments_all_feasible = [
+        'baseline', # + baseline for comparison
         'clingo_dl', 
         'heuristic', 
         'heuristic_param_tuning', 
@@ -97,12 +98,11 @@ def main():
 
     save_table(pd.concat([instances['instance'], encoding_results], axis=1), 'all_encoding_results')
 
+    print('All experiments:')
     print('Number of optimal results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'OPTIMAL'].shape[0]))
     print('Number of feasible results: {}'.format(best_worst[best_worst['best_encoding_result'] == 'FEASIBLE'].shape[0]))
     print('Number of low dedication instances: {}'.format(instances[instances['dedication'] == 'L'].shape[0]))
     print('Number of high dedication instances: {}'.format(instances[instances['dedication'] == 'H'].shape[0]))
-
-    print(best_worst['best_encodings'])
 
     plot_bar('all', 'All Instances', frames, files, index)
 
@@ -124,15 +124,15 @@ def main():
 
 
     files, index, frames = load_experiments(experiments_90_percent_feasible)
-    plot_boxplot('boxplot_encodings_min_450_feasible', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
+    plot_boxplot('boxplot_encodings_min_450_feasible', 'Relative difference to the best solutions', frames, files, index, best_worst)
 
     
     files, index, frames = load_experiments(experiments_all_feasible)
-    plot_boxplot('boxplot_encodings_all_feasible', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
+    plot_boxplot('boxplot_encodings_all_feasible', 'Relative difference to the best solutions', frames, files, index, best_worst)
 
 
     files, index, frames = load_experiments(experiments_best)
-    plot_boxplot('boxplot_best_encodings_against_baseline', '/ Makespan (Relative Difference)', frames, files, index, best_worst)
+    plot_boxplot('boxplot_best_encodings_against_baseline', 'Relative difference to the best solutions', frames, files, index, best_worst)
 
     # UpSet plot 2
     encoding_results = determine_encoding_results(index, frames)
@@ -155,7 +155,6 @@ def main():
     plt.clf()
     upset = upsetplot.UpSet(df)
     upset.plot()
-    #plt.title("Intersections of optimal instances")
     save_plot('upset_example')
 
     # UpSet plot 3
@@ -337,7 +336,7 @@ def plot_boxplot(filename, title, frames, files, index, df_best_and_worst):
     fig, ax = plt.subplots(figsize=(6, 5))
     boxplot = df_relative_difference.boxplot(ax=ax)
     ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
-    plt.title(f'Relative difference to the best solution')
+    plt.title(title)
     plt.xticks(fontsize=5)
     plt.tight_layout()
 
