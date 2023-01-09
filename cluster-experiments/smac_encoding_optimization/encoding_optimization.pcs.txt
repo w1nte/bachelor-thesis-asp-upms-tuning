@@ -1,4 +1,7 @@
-% first attempt: 3 days
+% This was the pcs file for the first attempt with only 3 days training time.
+%
+%
+%
 -solver categorical {/home/mwinters/miniconda3/bin/clingo-dl}[/home/mwinters/miniconda3/bin/clingo-dl]
 
 % GENERATORS / SEARCH SPACE
