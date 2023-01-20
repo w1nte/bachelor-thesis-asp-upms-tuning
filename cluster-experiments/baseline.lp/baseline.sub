@@ -1,4 +1,4 @@
-executable              = 00_baseline.sh 
+executable              = baseline.sh 
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log

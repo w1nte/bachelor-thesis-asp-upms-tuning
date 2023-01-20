@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SOLVER="/home/mwinters/miniconda3/bin/clingo-dl"
-ENCODING="/home/mwinters/cluster-experiments/00_baseline.lp/baseline.lp"
+ENCODING="/home/mwinters/cluster-experiments/baseline.lp/baseline.lp"
 INSTANCE=$1
 TIME_LIMIT=$2
 
