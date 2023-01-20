@@ -30,20 +30,20 @@ else:
 __PLOT_FOLDER = './plots/'
 __RESULTS_FOLDER = './results/'
 __ENCODINGS = {  # id: (name, file)
-        'baseline': ('Baseline', '07_baseline_heuristic.lp.evaluation.csv'),
-        'baseline_without_heuristic': ('Baseline without Heuristic', '00_baseline.lp.evaluation.csv'),
-        'clingcon': ('Clingcon', '01_02_clingcon.lp.evaluation.csv'),
-        'clingo_dl': ('Clingo-dl', '03_01_clingodl.lp.evaluation.csv'),
-        'heuristic': ('Heuristic', '09_01_clingodl_heuristic.lp.evaluation.csv'),
-        'heuristic_param_tuning': ('Heuristic + Parameter Tuning', '10_01_clingodl_heuristic_smac.lp.evaluation.csv'),
-        'next': ('Next', '05_01_clingodl_next.lp.evaluation.csv'),
-        'slots': ('Slots', '06_01_clingodl_slots.lp.evaluation.csv'),
-        'constraints': ('Constraints', '02_02_clingodl_more_constraints.lp.evaluation.csv'),
-        'constraints_heuristic': ('Constraints + Heuristic', '04_05_clingodl_more_constraints_heuristic.lp.evaluation.csv'),
-        'boundary': ('Boundary', '08_06_clingodl_boundary.lp.evaluation.csv'),
-        'boundary_with_horizon': ('Boundary with Horizon', '08_06_clingodl_boundary_modified_horizon.lp.evaluation.csv'),
-        'encoding_tuning': ('Encoding Tuning', '11_smac_optimized.lp.evaluation.csv'),
-        'encoding_tuning_two': ('Encoding Tuning v2', '12_smac_optimized_v2.lp.evaluation.csv')
+        'baseline': ('Baseline', 'baseline.lp.evaluation.csv'),
+        'baseline_without_heuristic': ('Baseline without Heuristic', 'baseline-without-heuristic.lp.evaluation.csv'),
+        'clingcon': ('Clingcon', '01_clingcon-with-before-relation.lp.evaluation.csv'),
+        'clingo_dl': ('Clingo-dl', '01_clingo-dl-with-before-relation.lp.evaluation.csv'),
+        'heuristic': ('Heuristic', '03_clingo-dl-with-heuristic.lp.evaluation.csv'),
+        'heuristic_param_tuning': ('Heuristic + Parameter Tuning', '03_clingo-dl-with-heuristic-and-parameter-tuning.lp.evaluation.csv'),
+        'next': ('Next', '01_clingo-dl-with-next.lp.evaluation.csv'),
+        'slots': ('Slots', '01_clingo-dl-with-slots.lp.evaluation.csv'),
+        'constraints': ('Constraints', '02_clingo-dl-with-more-redundant-constraints.lp.evaluation.csv'),
+        'constraints_heuristic': ('Constraints + Heuristic', '04_clingo-dl-with-more-redundant-constraints-and-heuristic.lp.evaluation.csv'),
+        'boundary': ('Boundary', '05_clingo-dl-with-boundary.lp.evaluation.csv'),
+        'boundary_with_horizon': ('Boundary with Horizon', '05_clingo-dl-with-cheated-boundary.lp.evaluation.csv'),
+        'encoding_tuning': ('Encoding Tuning', 'asp-problem-tuning-1.lp.evaluation.csv'),
+        'encoding_tuning_two': ('Encoding Tuning v2', 'asp-problem-tuning-2.lp.evaluation.csv')
     }
 
 
