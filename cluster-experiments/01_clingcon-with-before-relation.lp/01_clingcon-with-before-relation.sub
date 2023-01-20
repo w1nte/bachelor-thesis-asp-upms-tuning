@@ -1,4 +1,4 @@
-executable              = 02_clingcon.sh 
+executable              = 01_clingcon-with-before-relation.sh 
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log
