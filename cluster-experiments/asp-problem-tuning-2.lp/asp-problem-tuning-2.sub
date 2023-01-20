@@ -1,0 +1,11 @@
+executable              = asp-problem-tuning-2.sh 
+input                   = /dev/null
+arguments               = $(data_file) 300
+log                     = output/cobra_submit.log
+output                  = output/$BASENAME(data_file).out
+error                   = output/$BASENAME(data_file).err
+should_transfer_files   = Yes
+when_to_transfer_output = ON_EXIT
+request_cpus            = 1
+request_memory          = 20480
+queue data_file matching files /home/mwinters/instances/industrial/*.lp

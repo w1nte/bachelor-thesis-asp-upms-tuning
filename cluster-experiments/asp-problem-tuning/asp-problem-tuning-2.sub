@@ -1,0 +1,14 @@
+executable              = asp-problem-tuning-2.sh 
+input                   = /dev/null
+arguments               = 1 300 432000 quality
+log                     = output/log_2.$(Process)
+output                  = output/out_2.$(Process)
+error                   = output/err_2.$(Process)
+should_transfer_files   = Yes
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = result.csv
+transfer_output_remaps  = "result.csv = output/result_2_$(Process).csv"
+request_cpus            = 1
+request_memory          = 20480
+
+queue 2

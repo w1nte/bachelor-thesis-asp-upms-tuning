@@ -1,2 +1,0 @@
-% completion time is max completion time before + setup + duration + release.
-&diff{ completion(J) - completion(JB) } <= (R+S+D) :- next(JB, J, M), setup(JB, J, M, S), duration(J, M, D), release(J, M, R).

@@ -1,0 +1,65 @@
+-solver categorical {clingo-dl}[clingo-dl]
+
+% GENERATORS / SEARCH SPACE
+-include:searchspace categorical {partial-encodings/generators/before_relation.lp, partial-encodings/generators/before_relation_v2.lp, partial-encodings/generators/next.lp, partial-encodings/generators/slots_with_before.lp, partial-encodings/generators/slots.lp}[partial-encodings/generators/before_relation.lp]
+
+% CONSTRAINTS
+-include:constraint-0 categorical {none, partial-encodings/constraints/c0.lp}[none]
+-include:constraint-1 categorical {none, partial-encodings/constraints/c1.lp}[none]
+-include:constraint-2 categorical {none, partial-encodings/constraints/c2.lp}[none]
+-include:constraint-3 categorical {none, partial-encodings/constraints/c3.lp}[none]
+-include:constraint-4 categorical {none, partial-encodings/constraints/c4.lp}[none]
+-include:constraint-5 categorical {none, partial-encodings/constraints/c5.lp}[none]
+
+-include:constraint-1 | -include:searchspace in {partial-encodings/generators/before_relation.lp, partial-encodings/generators/before_relation_v2.lp, partial-encodings/generators/slots_with_before.lp}
+-include:constraint-2 | -include:searchspace in {partial-encodings/generators/before_relation.lp, partial-encodings/generators/before_relation_v2.lp, partial-encodings/generators/slots_with_before.lp}
+-include:constraint-5 | -include:searchspace in {partial-encodings/generators/before_relation.lp, partial-encodings/generators/before_relation_v2.lp, partial-encodings/generators/slots_with_before.lp}
+
+% HEURISTIC
+-include:heuristic-0 categorical {none, partial-encodings/heuristics/least_jobs.lp}[none]
+c:h0 integer [0,5][2]
+c:h0 | -include:heuristic-0 in {partial-encodings/heuristics/least_jobs.lp} 
+-include:heuristic-0 | -heuristic:0 in {Domain}
+
+-include:heuristic-1 categorical {none, partial-encodings/heuristics/prefer_early_release.lp}[partial-encodings/heuristics/prefer_early_release.lp]
+c:h1 integer [0,5][1]
+c:h1 | -include:heuristic-1 in {partial-encodings/heuristics/prefer_early_release.lp} 
+-include:heuristic-1 | -heuristic:0 in {Domain}
+
+-include:heuristic-2 categorical {none, partial-encodings/heuristics/prefer_short_durations.lp}[partial-encodings/heuristics/prefer_short_durations.lp]
+c:h2 integer [0,5][2]
+c:h2 | -include:heuristic-2 in {partial-encodings/heuristics/prefer_short_durations.lp} 
+-include:heuristic-2 | -heuristic:0 in {Domain}
+
+-include:heuristic-3 categorical {none, partial-encodings/heuristics/prefer_short_setuptimes.lp}[partial-encodings/heuristics/prefer_short_setuptimes.lp]
+c:h3 integer [0,5][1]
+c:h3 | -include:heuristic-3 in {partial-encodings/heuristics/prefer_short_setuptimes.lp} 
+-include:heuristic-3 | -heuristic:0 in {Domain}
+
+% OPTIMIZATION
+-minimize-variable:S categorical {yes,no}[yes]
+-minimize-variable categorical {makespan}[makespan]
+-minimize-variable | -minimize-variable:S in {yes}
+
+-include:optimization categorical {partial-encodings/optimization/clingo-optimization.lp}[partial-encodings/optimization/clingo-optimization.lp]
+-include:optimization | -minimize-variable:S in {no}
+
+
+% HEURISTIC PARAMETERS
+-heuristic:0 categorical {Berkmin,Vmtf,Vsids,Domain,Unit,None}[Domain]
+-heuristic:1 categorical {0,128,256,512,1024,2048}[0]
+-heuristic:2 integer [1,128][8] log
+-heuristic:3 categorical {75,85,92,93,94,95,96,97,98,99}[95]
+-heuristic:1 | -heuristic:0 in {Berkmin}
+-heuristic:2 | -heuristic:0 in {Vmtf}
+-heuristic:3 | -heuristic:0 in {Vsids}
+
+% ADDITIONAL PARAMETERS
+-rand-prob:S categorical {yes,no}[no]
+-rand-prob:0 integer [0,1000][10]
+-rand-prob:1 integer [10,1000][100]
+-rand-prob:0 | -rand-prob:S in {yes}
+-rand-prob:1 | -rand-prob:S in {yes}
+
+-minimize-factor integer [1,10][1]
+-minimize-factor | -minimize-variable:S in {yes}
