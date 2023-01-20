@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SOLVER="/home/mwinters/miniconda3/bin/clingo-dl"
-ENCODING="/home/mwinters/cluster-experiments/09_01_clingodl_heuristic.lp/01_clingodl_heuristic.lp"
+ENCODING="/home/mwinters/cluster-experiments/03_clingo-dl-with-before-relation-and-heuristic.lp/03_clingo-dl-with-before-relation-and-heuristic.lp"
 INSTANCE=$1
 TIME_LIMIT=$2
 
