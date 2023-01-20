@@ -41,9 +41,9 @@ __ENCODINGS = {  # id: (name, file)
         'constraints': ('Constraints', '02_clingo-dl-with-more-redundant-constraints.lp.evaluation.csv'),
         'constraints_heuristic': ('Constraints + Heuristic', '04_clingo-dl-with-more-redundant-constraints-and-heuristic.lp.evaluation.csv'),
         'boundary': ('Boundary', '05_clingo-dl-with-boundary.lp.evaluation.csv'),
-        'boundary_with_horizon': ('Boundary with Horizon', '05_clingo-dl-with-cheated-boundary.lp.evaluation.csv'),
-        'encoding_tuning': ('Encoding Tuning', 'asp-problem-tuning-1.lp.evaluation.csv'),
-        'encoding_tuning_two': ('Encoding Tuning v2', 'asp-problem-tuning-2.lp.evaluation.csv')
+        'boundary_with_horizon': ('Cheated Boundary', '05_clingo-dl-with-cheated-boundary.lp.evaluation.csv'),
+        'encoding_tuning': ('ASP Problem Tuning', 'asp-problem-tuning-1.lp.evaluation.csv'),
+        'encoding_tuning_two': ('ASP Problem Tuning v2', 'asp-problem-tuning-2.lp.evaluation.csv')
     }
 
 
