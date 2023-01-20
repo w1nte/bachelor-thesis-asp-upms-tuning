@@ -17,5 +17,3 @@ last(J, M) :- assign(J, M, _), not next(J, _, M).
 
 % define the immediate predecessor for each job.
 next(J1, J2, M) :- assign(J1, M, I), assign(J2, M, I+1).
-
-%{ before(J1, J2, M) : assign(J1, M, _) } = N :- assign(J2, M, N).
