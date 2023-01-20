@@ -1,4 +1,4 @@
-executable              = 05_clingodl_more_constraints_heuristic.sh 
+executable              = 04_clingo-dl-with-more-redundant-constraints-and-heuristic.sh
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log
