@@ -1,4 +1,4 @@
-# Tuning of Answer-Set-Programming Encoded Scheduling Problems
+# Performance Tuning of Answer-Set-Programming Encoded Parallel Machine Scheduling Problems
 This is the repository of my bachelor thesis. This work deals with tuning of *unrelated parallel machine scheduling with sequence and machine-dependent setup times, and machine-dependent release dates*, a typical problem in semiconductor-manufacturing. Primarly, we use *Answer-Set-Programming* (ASP) with difference logic to determine a minimal schedule under makespan objective.
 
 <p align="center">
