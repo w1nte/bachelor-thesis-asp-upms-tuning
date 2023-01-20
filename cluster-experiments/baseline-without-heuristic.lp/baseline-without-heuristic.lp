@@ -1,3 +1,4 @@
+
 % assign jobs to capable machines
 1 { assign(J,M) : capable(M,J) } 1 :- job(J).
 
@@ -26,12 +27,6 @@ before(J1,J2,M) | before(J2,J1,M) :- assign(J1,M), assign(J2,M), J1 < J2.
 % redundant constraints
 &diff{ completion(J2) - completion(J1) } <= -P :- before(J2,J1,M), duration(J1,M,P).
 &diff{ 0 - completion(J1) } <= -(T+D) :- assign(J1,M), duration(J1,M,D), release(J1,M,T). 
-
-#heuristic assign(J,M) : duration(J,M,D), maxDuration(J,F), W=F-D. [W@2,true]
-maxDuration(J,M) :- job(J), M = #max{ D : duration(J,_,D) }.
-
-#heuristic next(J,K,M) : setup(J,K,M,S), maxSetup(K,M,T), capable(J,M), capable(K,M), W=T-S. [W@1,true]
-maxSetup(J,M,S) :- job(J), machine(M), S = #max{ T : setup(_,J,M,T) }.
 
 
 #show first/2.
