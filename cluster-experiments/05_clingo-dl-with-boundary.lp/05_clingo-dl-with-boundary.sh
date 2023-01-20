@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SOLVER="/home/mwinters/miniconda3/bin/clingo-dl"
-ENCODING="/home/mwinters/cluster-experiments/08_06_clingodl_boundary.lp/06_clingodl_boundary.lp"
+ENCODING="/home/mwinters/cluster-experiments/05_clingo-dl-with-boundary.lp/05_clingo-dl-with-boundary.lp"
 INSTANCE=$1
 TIME_LIMIT=$2
 

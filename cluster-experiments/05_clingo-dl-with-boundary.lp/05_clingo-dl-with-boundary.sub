@@ -1,4 +1,4 @@
-executable              = 06_clingodl_boundary.sh 
+executable              = 05_clingo-dl-with-boundary.sh
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log
