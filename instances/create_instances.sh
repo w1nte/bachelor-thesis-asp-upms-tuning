@@ -19,11 +19,11 @@ mkdir -p $DIR_SIMPLE
 cd $DIR_INDUSTRIAL
 ${PYTHON} ${BASEDIR}/instance_generator.py
 cd $DIR_INDUSTRIAL_TRAIN
-${PYTHON} ${BASEDIR}/new_instance_generator.py industrial_train
+${PYTHON} ${BASEDIR}/instance_generator_tuning.py industrial_train
 cd $DIR_INDUSTRIAL_TEST
-${PYTHON} ${BASEDIR}/new_instance_generator.py industrial_test
+${PYTHON} ${BASEDIR}/instance_generator_tuning.py industrial_test
 cd $DIR_SIMPLE
-${PYTHON} ${BASEDIR}/new_instance_generator.py simple
+${PYTHON} ${BASEDIR}/instance_generator_tuning.py simple
 
 # create instance list files
 cd $BASEDIR
