@@ -1,3 +1,7 @@
+% The idea here was to describe the before relation with clingo-dl.
+% Did not show the desired results in local benchmarks.
+% The correctness is also not verified!
+
 % assign jobs to capable machines.
 { assign(J, M) : capable(M, J) } = 1 :- job(J).
 
