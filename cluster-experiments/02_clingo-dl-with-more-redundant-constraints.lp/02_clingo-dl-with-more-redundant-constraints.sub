@@ -1,4 +1,4 @@
-executable              = 02_clingodl_more_constraints.sh 
+executable              = 02_clingo-dl-with-more-redundant-constraints.sh 
 input                   = /dev/null
 arguments               = $(data_file) 300
 log                     = output/cobra_submit.log

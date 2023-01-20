@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SOLVER="/home/mwinters/miniconda3/bin/clingo-dl"
-ENCODING="/home/mwinters/cluster-experiments/02_02_clingodl_more_constraints.lp/02_clingodl_more_constraints.lp"
+ENCODING="/home/mwinters/cluster-experiments/02_clingo-dl-with-more-redundant-constraints.lp/02_clingo-dl-with-more-redundant-constraints.lp"
 INSTANCE=$1
 TIME_LIMIT=$2
 
