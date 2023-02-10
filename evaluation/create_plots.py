@@ -88,6 +88,15 @@ def main():
     best_worst = determine_best_worst_makespan(index, frames)
     encoding_results = determine_encoding_results(index, frames)
 
+    save_table(pd.concat([
+        pd.Series(experiments_all), 
+        pd.Series([frames[i]['best_makespan'].mean() for i in range(0, len(experiments_all))]),
+        pd.Series([frames[i]['best_makespan'].median() for i in range(0, len(experiments_all))]),
+        pd.Series(['%.0f' % frames[i]['best_makespan'].var() for i in range(0, len(experiments_all))]),
+        pd.Series([frames[i]['best_makespan'].min() for i in range(0, len(experiments_all))]),
+        pd.Series([frames[i]['best_makespan'].max() for i in range(0, len(experiments_all))]),
+    ], axis=1, keys=['encoding', 'mean', 'median', 'variance', 'min', 'max']), 'stats')
+
     save_table(pd.concat([instances['instance'], best_worst.rename(columns={
         'best_encoding_makespan': 'best makespan', 
         'worst_encoding_makespan': 'worst makespan',
